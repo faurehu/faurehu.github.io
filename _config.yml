@@ -46,7 +46,7 @@ kramdown:
 # Navigation
 nav:
   - name:           "About"
-    url:            "/about"
+    url:            "http://about.faure.hu"
   - name:           "Github"
     url:            "https://github.com/faurehu/faurehu.github.io"
 
