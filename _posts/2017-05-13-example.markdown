@@ -1,0 +1,126 @@
+---
+layout: post
+title:  "Jupiter Example"
+date:   2017-05-13 16:57:08 +0100
+categories: jupyter
+---
+
+```python
+from pylab import *
+import numpy as np
+import pandas as pd
+```
+
+
+```python
+x = np.linspace(0, 5, 10)
+xx = np.linspace(-0.75, 1., 100)
+n = np.array([0,1,2,3,4,5])
+dates = pd.date_range('20130101', periods=6)
+df = pd.DataFrame(np.random.randn(6,4), index=dates, columns=list('ABCD'))
+df
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2013-01-01</th>
+      <td>-0.488231</td>
+      <td>0.450010</td>
+      <td>-0.685016</td>
+      <td>-0.386978</td>
+    </tr>
+    <tr>
+      <th>2013-01-02</th>
+      <td>1.138220</td>
+      <td>-0.301946</td>
+      <td>0.616126</td>
+      <td>0.013225</td>
+    </tr>
+    <tr>
+      <th>2013-01-03</th>
+      <td>1.349276</td>
+      <td>0.699149</td>
+      <td>-0.164517</td>
+      <td>0.734862</td>
+    </tr>
+    <tr>
+      <th>2013-01-04</th>
+      <td>-0.352586</td>
+      <td>0.303264</td>
+      <td>-0.605015</td>
+      <td>-1.254325</td>
+    </tr>
+    <tr>
+      <th>2013-01-05</th>
+      <td>1.863017</td>
+      <td>0.136624</td>
+      <td>0.639581</td>
+      <td>-0.392758</td>
+    </tr>
+    <tr>
+      <th>2013-01-06</th>
+      <td>1.850391</td>
+      <td>0.498061</td>
+      <td>2.056314</td>
+      <td>0.349948</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+fig, axes = plt.subplots(1, 4, figsize=(12,3))
+
+axes[0].scatter(xx, xx + 0.25*np.random.randn(len(xx)))
+axes[0].set_title("scatter")
+
+axes[1].step(n, n**2, lw=2)
+axes[1].set_title("step")
+
+axes[2].bar(n, n**2, align="center", width=0.5, alpha=0.5)
+axes[2].set_title("bar")
+
+axes[3].fill_between(x, x**2, x**3, color="green", alpha=0.5);
+axes[3].set_title("fill_between");
+show(fig)
+```
+
+
+![png]({{ site.url }}/assets/images/example_3_0.png)
+
+
+
+```python
+# polar plot using add_axes and polar projection
+fig = plt.figure()
+ax = fig.add_axes([0.0, 0.0, .6, .6], polar=True)
+t = np.linspace(0, 2 * np.pi, 100)
+ax.plot(t, t, color='blue', lw=3);
+show(fig)
+```
+
+
+![png]({{ site.url }}/assets/images/example_4_0.png)
+
+
+
+```python
+
+```

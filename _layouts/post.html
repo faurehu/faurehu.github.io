@@ -11,7 +11,7 @@ layout: default
   <span class="post-date">
     <time>{{ page.date | date_to_string }}</time>
   </span>
-  <div class="post-tag">
+  <!-- <div class="post-tag">
     <ul>
       {% for tag in page.tags %}
       <li>
@@ -22,7 +22,7 @@ layout: default
       {% unless forloop.last %}{% endunless %}
       {% endfor %}
     </ul>
-  </div>
+	</div> --!>
 
   {{ content }}
 
