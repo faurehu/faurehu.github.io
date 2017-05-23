@@ -13,8 +13,8 @@ layout: null
 				<subtitle>{{ post.description }}</subtitle>
         <description>{{ post.content | xml_escape }}</description>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
-        <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
+        <link>{{ site.blogurl }}{{ site.baseurl }}{{ post.url }}</link>
+        <guid isPermaLink="true">{{ site.blogurl }}{{ site.baseurl }}{{ post.url }}</guid>
       </item>
     {% endfor %}
   </channel>
