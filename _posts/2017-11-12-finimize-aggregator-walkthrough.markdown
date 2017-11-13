@@ -2,7 +2,7 @@
 layout: post
 title:  "The Goals Aggregator at Finimize"
 description: "a project walkthrough"
-date:   2017-11-12
+date:   2017-11-12 16:02:00 +0100
 categories: technical
 ---
 
