@@ -18,7 +18,7 @@ Before we walk through some of the subroutines in the process I want to introduc
 
 Let’s start with the unencumbered functions and then progress towards methods that call other functions and we will end in the one function that encompasses the whole process. At the very bottom we have validators. The validators will simply look into an amount they need to cover, an available amount of money, a time frame it needs to reach it and a rate of growth. The job of this validator is to decide whether the available amount of money will be enough to cover the target in the given time at a given rate. If it is not possible to cover the target amount, the validator will return the amount of money it is short - this amount is called `diff`. Because money from income can be used weekly, where savings can be payed immediately, their validators follow different rules. Here’s the code for the `savingsValidator`:
 
-```
+```javascript
 const savingsValidator = (amountToCover: Money, remainingAmount: Money, currency: validCurrencyStrings, timeToTarget: number, rate: number) => {
 	let validatorDiff : Money = new Money(0, currency)
 	let validatorAlloc : Money = new Money(0, currency)
@@ -45,7 +45,7 @@ If a goal is validated by both income and savings validators and the first valid
 
 To determine the order of the validators, we check some properties in the goal. Because the order of validators can vary, figuring out the logic to make the calls in the right order and passing the updated arguments was tricky to me. The result was a pattern in which the validators were placed in a list to be then called with a wrapper function `runValidators` which consumes the validators list with an accumulator object that holds the arguments. Here is the code for `runValidations`:
 
-```
+```javascript
 const runValidations = (acc: validationsAccumulator, validatorObject : validatorObject) : validationsAccumulator => {
 	let { validator, currency, remainingAmount, allocKey, timeToTarget, rate } = validatorObject
 	let diff = acc.targetAmount || acc.diff
@@ -66,7 +66,7 @@ The accumulator object for `runValidations` contains the amounts allocated from 
 
 We continue climbing, now onto the method which calls `runValidations`. The `process` function is in charge of ordering the validators and constructing the initial accumulators. It will then construct an output object which represents the state of the goal after it has been validated. This output object contains the information about which bucket will cover it. Here is the code for the process routine:
 
-```
+```javascript
 const process = (acc : ProcessAccumulator, feature: GoalFeatures) => {
 	const { remainingSavings, remainingIncome, outputs } = acc
 	let { investmentTimeHorizon, goalType, targetAmount, timeToTarget, drawFirst, preSaved, currency, isEdited, rate } = feature
@@ -142,7 +142,7 @@ const process = (acc : ProcessAccumulator, feature: GoalFeatures) => {
 
 Here, you can see how runValidations is being called:
 
-```
+```javascript
 ValidatorObjects.reduce(runValidations, validationInitialObject)
 ```
 
@@ -154,7 +154,7 @@ You will have noticed that the signature of `process` contains an accumulator wh
 
 We can now get an overview from the top, the root function simply called `allocator`. This function will first process the goals like we have covered and then aggregate the outputs to determine how much will be allocated to each bucket in total (in contrast to per goal as the validators do). This is fairly straight forward.
 
-```
+```javascript
 const allocator = (state: State) : State => {
 	const goalOrder : Array<string> = state.getIn(['plan', 'goalsOrder'])
 	const currencyGroups : CurrencyGroups = state.getIn(['plan', 'currencies'])
@@ -230,4 +230,4 @@ const allocator = (state: State) : State => {
 
 If you’re wondering why the accumulator function simply takes a state object as an argument and writes into it before returning it, it’s because the context for the whole process is a Redux state manager. This is also very convenient for testing and staying free from side effects.
 
-Thanks for sticking with me all the way through! I hope this has scared you away from trying to handle your own personal finances and trusting Finimize instead. If it hasn't, please do tell us how to improve. Finimize MyLife is in stealth mode still figuring out stuff but they'll soon be in lots of people's lives. If you think this is a problem you can nail then it's worth checking them out - they're hiring!
+Thanks for sticking with me all the way through! I hope this has scared you away from trying to handle your own personal finances and trusting Finimize instead. If it hasn't, please do tell us how to improve. Finimize MyLife is in stealth mode still figuring out stuff but they'll soon be in lots of people's lives. If you think this is a problem you can nail then it's worth checking them out - they're [hiring](www.finimize.com/jobs)!
