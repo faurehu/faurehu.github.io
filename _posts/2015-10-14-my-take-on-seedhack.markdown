@@ -17,7 +17,7 @@ This event was very well planed and held in one of the coolest venues in London.
 
 I had no problem socialising as everyone was very kind and open to new ideas. I even managed to organise a team around a problem I had in my flat the previous week. Basically, when everyone came back from holidays the rota for emptying the garbage bin had been forgotten and there was no communication about who was supposed to empty it first. The bin overloaded and mess ensued. I came onto the stage to tell the story:
 
-![png]({{ site.blogurl }}/assets/images/my-take-on-seedhack/image.png)
+![png]({{ site.url }}/assets/images/my-take-on-seedhack/image.png)
 
 I was lucky not only to garner interest but also to have a very skilful team that included a very experienced Java engineer and an ex Google employee. I learned a lot from them. With their help, we managed to attach an ultrasonic sensor to a bin lid, a led and a camera. The camera was capable of recognising users, which is why we were given the Big Brother award. I am still not sure wether I should be proud about it.
 

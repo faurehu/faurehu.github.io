@@ -7,13 +7,13 @@ date: 2015-11-09 16:57:08 +0100
 
 Amazon used to employ people to recommend readers the books they might be interested in reading next. Not only that wasn't going to scale well, but when they automated the process of making recommendations, sales had a significant boost.
 
-![png]({{ site.blogurl }}/assets/images/primer-on-recommendations/image1.png)
+![png]({{ site.url }}/assets/images/primer-on-recommendations/image1.png)
 
 <span class="img-caption">My amazon recommendations</span>
 
 You've probably forgotten by now, but the [Netflix](http://techblog.netflix.com/2012/06/netflix-recommendations-beyond-5-stars.html) frontpage became popular overnight because it was loaded with a selection of film categories that was made specifically to entice you. They even ran a [million dollar competition](http://netflixprize.com/) to improve their recommendation algorithm. Their recommendations set them apart.
 
-![png]({{ site.blogurl }}/assets/images/primer-on-recommendations/image2.png)
+![png]({{ site.url }}/assets/images/primer-on-recommendations/image2.png)
 
 <span class="img-caption">I've never used Netflix to watch Community or Rick and Morty, yet they've correctly guessed I'm a Dan Harmon fan!</span>
 
@@ -43,7 +43,7 @@ So the key here is to find how similar two users are. Each person will have a si
 
 The **Euclidean distance** is the distance of two people given their preferences. Suppose we have two items X and Y and two people A and B. A has given item X a rating of 2 out of 5 and to item Y, a 4. On the other hand, user B has rated X with a 3 and Y a 2. Using their X and Y preferences, we can place them in a two dimensional plane.
 
-![png]({{ site.blogurl }}/assets/images/primer-on-recommendations/image3.png)
+![png]({{ site.url }}/assets/images/primer-on-recommendations/image3.png)
 
 <span class="img-caption">Euclidean distance graph</span>
 
@@ -51,7 +51,7 @@ The distance between the two points is obtained by applying the pythagorean prin
 
 The **Pearson correlation** also uses a preference space, only in this case each axis represents a user and the points an item where their coordinates are the rating given by each person. Say two users X and Y rate 5 items A, B, C, D and E with [3, 3, 2, 5, 4] and [4, 3, 3, 1, 2] respectively. It renders the following graph:
 
-![png]({{ site.blogurl }}/assets/images/primer-on-recommendations/image4.png)
+![png]({{ site.url }}/assets/images/primer-on-recommendations/image4.png)
 
 <span class="img-caption">Pearson correlation graph</span>
 
@@ -71,7 +71,7 @@ This table alone should be enough, but if we want to use the names of the films,
 
 Once this is clear, we can load the files into our R environment. For this, you need to start R Studio and familiriase yourself with the interface. You will probably find three panes. The largest one on the left side is the console. The other two are your environment are your files viewer, on top and bottom of your left side.
 
-![png]({{ site.blogurl }}/assets/images/primer-on-recommendations/image5.png)
+![png]({{ site.es/primer-on-recommendations/image5.png)
 
 <span class="img-caption">R Studio when just opened</span>
 

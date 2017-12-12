@@ -7,7 +7,7 @@ date:   2015-10-15 16:57:08 +0100
 
 When built my first personal website, I didn't know how to run code on a remote host to listen to different endpoints and serve the respective content. Naturally, the result was a static website:
 
-![png]({{ site.blogurl }}/assets/images/how-i-learned-webdev/image1.png)
+![png]({{ site.url }}/assets/images/how-i-learned-webdev/image1.png)
 
 This has been my online profile since June, and the more I learned about web development the more I was stinged by the limitations of my website. Additionally, I realised that I'd been learning many interesting things that are worth sharing, so I decided to build a blog.
 
@@ -15,15 +15,15 @@ Using existing solutions like WordPress didn't seem very interesting to me as so
 
 At the time I was about to take my Programming Applications exam, a module that taught us to use the Java Swing library to build desktop UI for our apps. And so I decided to build my content management client in Java.
 
-![png]({{ site.blogurl }}/assets/images/how-i-learned-webdev/image2.png)
+![png]({{ site.url }}/assets/images/how-i-learned-webdev/image2.png)
 
 As ugly as it is, it does exactly what I needed which is saving and editing my texts and pictures to a remote Mongo database. A small Express app fetched the data from the same database and served each image on it's own endpoint and each post with a jade templated view. Each post page had a form for comments which Express handled and saved. My Java client was also built to review and accept these pending comments.
 
-![png]({{ site.blogurl }}/assets/images/how-i-learned-webdev/image3.png)
+![png]({{ site.url }}/assets/images/how-i-learned-webdev/image3.png)
 
 # Learned lesson
 
-![png]({{ site.blogurl }}/assets/images/how-i-learned-webdev/image4.png)
+![png]({{ site.url }}/assets/images/how-i-learned-webdev/image4.png)
 
 It was definitely a step up from the first website but not without its problems. I was never happy with the design. I realised this was because I was taken away by the amazing resources I had found online such as wallpapers, color palettes, fonts and animations. I wanted to use all of it. Unsurprisingly, the end product was an incoherent collage with a lot of noise.
 
@@ -37,7 +37,7 @@ I put this project on hold while I spent my Summer working with Red Badger. That
 
 # Current code
 
-![png]({{ site.blogurl }}/assets/images/how-i-learned-webdev/image5.png)
+![png]({{ site.url }}/assets/images/how-i-learned-webdev/image5.png)
 
 I built my homepage with **React.js**. It is a front-end framework that bundles HTML into objects called Components. This is the Column Component from which all columns in the homepage inherit:
 
@@ -87,7 +87,7 @@ All subcolumns override the functions getColumnClass, renderCards and renderColu
 
 As for the content management client, I ditched the Java and remade it with React, but since it's something only I was supposed to use, I made a desktop client. This was possible thanks to **Electron**. Built on top of Chromium's engine, it lets me run HTML views for Node.js processes, so my 'client' Javascript code can actually interact with Node.js and perform operations natively. It's awesome.
 
-![png]({{ site.blogurl }}/assets/images/how-i-learned-webdev/image6.gif)
+![png]({{ site.url }}/assets/images/how-i-learned-webdev/image6.gif)
 
 The gif above show's how I'm able to drop an image to my editor and once the post has been created, the path to the image is replaced for a link to an **S3 host**. A challenge I had doing this was posting more than one image to AWS before I saved the post. I could easily identify the paths of images that needed to be uploaded thanks to a Markdown AST, but telling my code to only save the post once all of the images finished uploading was tricky because I didn't know how to make a loop iterate only when the async code inside the iteration was finished.
 

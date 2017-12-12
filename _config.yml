@@ -28,7 +28,6 @@ disqus:
 url:                "http://faure.hu" # the base hostname & protocol for your site
 # url:                "http://localhost:4000" # use this url when you develop
 baseurl:            "" # the subpath of your site, e.g. /blog
-blogurl:             "http://blog.faure.hu"
 
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -46,8 +45,6 @@ kramdown:
 
 # Navigation
 nav:
-  - name:           "About"
-    url:            "http://about.faure.hu"
   - name:           "Github"
     url:            "https://github.com/faurehu/faurehu.github.io"
 
