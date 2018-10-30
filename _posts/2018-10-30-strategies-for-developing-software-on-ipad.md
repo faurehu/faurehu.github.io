@@ -12,7 +12,7 @@ Apart from sandboxed IDEs, there is no freedom to create your own runtimes that 
 
 On my main driver, I run an Arch Linux install with i3 as a Window Manager. On pressing space + return, I can spawn terminals. Each spawned terminal window is automatically a new tmux session.
 
-![jpg]({{site.url}}/assets/images/terminal-based-computing/arch.jpg)
+![png]({{site.url}}/assets/images/terminal-based-computing/arch.png)
 
 My main driver is also always running a SSH daemon, which allows remote terminals to connect to my desktop. iOS has many SSH client apps, but none is better thank [Blink](http://www.blink.sh/). It has great features such as mosh protocol support, which will allow you to keep your SSH connection even as you leave the app while using other applications. It also has support for running commands as soon as you SSH into your target host, allowing me to automatically create a tmux session.
 
