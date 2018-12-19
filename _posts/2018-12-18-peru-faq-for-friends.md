@@ -35,4 +35,4 @@ I'm no expert about peruvian culture so please try not to embarrass me like when
 
 ### Why are you so lazy?
 
-Please do not feel my automated responses demean my excitement of your visit to Peru. You are _very_ special.
+Please do not let my automated responses demean my excitement of your visit to Peru. You are _very_ special.
