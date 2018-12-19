@@ -9,7 +9,7 @@ Hi! I'm very happy to hear you're considering to travel down to Peru. Here's a l
 
 ### Is it safe to visit Peru?
 
-Considering tourists still choose to come here over El Salvador, I'd say yes. Generally speaking, a hesitant no. However, you're smart enough to turn down shady offers from strangers (unless of course that's what you want Mr-I-came-to-Peru-to-try-out-the-cocaine-my-uncle-is-raving-about) and sober enough to be able to tell you're making the wrong turn at a dark alley with the potential to make your night about getting to know the latin american police station culture. If you're with me, you should not worry. I sandbox my guests, most of them ;)
+Considering tourists still choose to come here over El Salvador, I'd say yes. Generally speaking, a hesitant no. However, you're smart enough to turn down shady offers from strangers (unless of course that's what you want Mr-I-came-to-Peru-to-try-out-the-cocaine-my-uncle-is-raving-about) and sober enough to be able to tell you're making the wrong turn at a dark alley with the potential to make your night about getting to know the latin american police station culture. If you're with me, you should not worry. I sandbox my guests, most of them ;-)
 
 ### What is there to do in Lima?
 
