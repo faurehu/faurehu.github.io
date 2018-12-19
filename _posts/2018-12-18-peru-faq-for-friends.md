@@ -21,7 +21,7 @@ I'm sort of a freelancer now so I can take most days free. However, I'm still un
 
 The best time _for you_ to visit, is in the warm months - which is all year for you, except maybe August where it drops to 15 degrees. If you're going to the countryside you want to avoid rainy season from October to February. Tourist peak season is between June and August so keep that in mind if you want keep photobombers away from your instagram feed. My personal suggestion? Come at times there are interesting events going on such as Mistura, the procession of el Señor de los Milagros, a FIFA international date, or any public government strike (ask if you want me to keep you posted).
 
-### Wtf is Mistura?
+### WTF is Mistura?
 
 The best thing to ever come out of Peru. It's the de-facto food festival and in Peru that means a lot. I know every country thinks their cuisine is amongst the best one in the world and the mum does the best spaguetti but how many countries have their cooks leading the polls for next head of state? Only Peru. That says more about our political class than our food but I can't think of a better place to start discovering peruvian culture. After trying an exotic fruit you'll wonder about the natural landscape capable of producing it, and when trying a fusion between african and japanese tecniques on peruvian potatoes you'll have a better understanding of the kind of society the peruvian one is. 
 
