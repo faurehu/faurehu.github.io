@@ -31,7 +31,7 @@ Absolutely. However, my place is too far from city centre - far from anything to
 
 ### What, why and how Machu Picchu?
 
-I'm no expert about peruvian culture so please try not to embarrass me like when tourists correct me. If you want to start learning about Peruvian culture why not download the new Sid Meier's Civilization VI which [happens to feature the Inca empire](https://www.youtube.com/watch?v=exGFiectofk). Try playing with it for 200 years and then let yourself be conquered by Europeans so you know get to really know us.
+I'm no expert about peruvian culture so please try not to embarrass me like when tourists correct me on my knowledge regarding the differences between alpacas and llamas. If you want to start learning about Peruvian culture why not download the new Sid Meier's Civilization VI which [happens to feature the Inca empire](https://www.youtube.com/watch?v=exGFiectofk). Try playing with it for 200 years and then let yourself be conquered by Europeans so you know get to really know us.
 
 ### Why are you so lazy?
 
