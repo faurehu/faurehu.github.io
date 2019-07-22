@@ -47,7 +47,7 @@ kramdown:
 # Navigation
 nav:
   - name:           "Español"
-    url:            "/blog-es"
+    url:            "/es"
   - name:           "Github"
     url:            "https://github.com/faurehu/faurehu.github.io"
   - name:           "Goodreads"
