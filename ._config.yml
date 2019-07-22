@@ -4,7 +4,6 @@
 
 # Basic
 name:               "Faure Hu"
-title:               "Faure Hu"
 
 author:
   twitter:          hu_am__i
@@ -46,12 +45,8 @@ kramdown:
 
 # Navigation
 nav:
-  - name:           "Español"
-    url:            "/blog-es"
   - name:           "Github"
     url:            "https://github.com/faurehu/faurehu.github.io"
-  - name:           "Goodreads"
-    url:            "https://www.goodreads.com/user/show/76666744-faure"
 
 # Sass
 sass:
@@ -74,8 +69,9 @@ defaults:
       layout:       "post"
 
 # jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
-plugins:
+gems:
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-admin
 
 exclude:            [vendor]

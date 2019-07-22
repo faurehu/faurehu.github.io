@@ -1,0 +1,21 @@
+## Does this work?
+
+No, VIM no es un acrónimo para lo que indica el titulo pero si hubieras aprendido a usar el editor de texto VIM antes de conocer el origen de su nombre me dirías que no se puede bromear con estas cosas, que tu vida ha estado muchísimo mejor desde que has comenzado a utilizar VIM y por ende su nombre significa Vivir Inmensamente Mejor. 
+
+Exageraciones aparte, VIM es un gran editor de texto. Fue creado en los 90 por Bram Moolenaar y viene de una tradición ya legendaria que no conocía el mundo de las pantallas electrónicas, si no mas bien, las terminales de papel. Veremos un poco sobre eso mas abajo. 
+
+Este post lo escribi despues de terminar el borrador para una charla que dare para la comunidad de Javascript en Lima. En esa oportunidad pude usar un proyector para mostrar las ventajas de VIM en tiempo real. Nunca fue mi propósito ensenar a nadie a manejar VIM, si no a atraer mas gente hacia este editor de texto sublime, por lo tanto, este post no es un tutorial y no contara con algunos detalles que presente en mi charla.
+
+Un editor de texto es la herramienta esencial del programador moderno. El programar es una actividad que consiste de varios elementos pero no se puede hacer sin grabar las instrucciones del programa en algún disco. Es por eso que hasta en los casos mas extremos, los más excluyentes guardianes de la puerta se enorgullecen en ser capaces de utilizar los métodos más cercanos al metal. Como es el caso de este manipulador de mariposas:    
+
+[XKCD:RealProgrammers](https://www.notion.so/ec576849dce649189237b0450272e13a#17cd7d71870a417e95c73fd4b99d9c66)
+
+Si leen este cómic ustedes se preguntarán por qué no estamos hablando hoy de Emacs? La razón es que uno termina utilizando un arreglo como este:
+
+[TomScott](https://www.notion.so/ec576849dce649189237b0450272e13a#0de20f55cef446f7b3d24167be9295ff)
+
+Nunca 
+
+ (Los usuarios de Emacs suscriben a [una secta que tiene como santo a Richard Stallman](http://later.com).
+
+[XKCD:EditorWars](https://www.notion.so/ec576849dce649189237b0450272e13a#d01552e6c9cd48b8b18d7ac8ca1da57e)

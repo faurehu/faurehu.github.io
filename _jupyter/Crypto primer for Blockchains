@@ -1,0 +1,15 @@
+I recently explained the blockchain to a complete newcomer and was made very solid questions. I found difficulty explaining the concepts in an order I was not familiar with (explaining proof-of-work before blocks, for example) but I think I was able to manage to put everything in order to my conversation partner, as long as I did not talk about the cryptography.
+
+I also flaked at what basic concepts should be, like digital signatures or the block puzzle. Here, I will write a revision on these topics and will keep them down for my own purpose.
+
+What is the purpose of proof of work?
+
+We need work to lock blocks under some sort of safety. By requiring a big amount of work for each block, and burying each block behind another one, we make sure that the difficulty of editing a transaction becomes more difficult.
+
+What does the puzzle consist of?
+
+It's trying to find a hash with the required number of zeroes.
+
+How do we prove we control an address?
+
+Digital signatures.
