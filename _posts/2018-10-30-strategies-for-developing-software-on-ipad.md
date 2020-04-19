@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "Strategies for Software Development on the iPad"
+title:  "strategies for software development on the iPad"
+description: "or how to survive without a computer"
 date: 2018-10-30 16:57:08 +0100
 ---
 
