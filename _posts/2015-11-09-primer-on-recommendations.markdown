@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Primer on Recommendation Engines"
-description: "build one with R Studio"
+title:  "primer on recommendation engines"
+description: "build one with R studio"
 date: 2015-11-09 16:57:08 +0100
 ---
 
