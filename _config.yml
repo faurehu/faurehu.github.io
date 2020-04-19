@@ -3,19 +3,19 @@
 # # # # # # # # # # # # #
 
 # Basic
-name:               "Faure Hu"
-title:               "Faure Hu"
+name:               "Matias Faure"
+title:               "Matias Faure"
 
 author:
-  twitter:          hu_am__i
+  twitter:          mati_faure
   github:           faurehu
   stackoverflow:    2760045/faurehu
   linkedin:         faurehu
   email:            hi@faure.hu
 
 copyright:
-  year:             2019
-  name:             Faure Hu
+  year:             2020
+  name:             Matias Faure
 
 # Google-analytics
 google-analytics:
@@ -48,6 +48,8 @@ kramdown:
 nav:
   - name:           "Español"
     url:            "/es"
+  - name:           "Twitter"
+    url:            "https://twitter.com/mati_faure"
   - name:           "Github"
     url:            "https://github.com/faurehu/faurehu.github.io"
   - name:           "Goodreads"
