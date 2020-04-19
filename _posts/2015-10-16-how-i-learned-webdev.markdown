@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How I learned webdev"
+title:  "how i learned webdev"
 description: "a walkthrough my first steps as a web developer"
 date:   2015-10-15 16:57:08 +0100
 ---
