@@ -71,7 +71,7 @@ This table alone should be enough, but if we want to use the names of the films,
 
 Once this is clear, we can load the files into our R environment. For this, you need to start R Studio and familiriase yourself with the interface. You will probably find three panes. The largest one on the left side is the console. The other two are your environment are your files viewer, on top and bottom of your left side.
 
-![png]({{ site.url }}/assets/primer-on-recommendations/image5.png)
+![png]({{ site.url }}/assets/images/primer-on-recommendations/image5.png)
 
 <span class="img-caption">R Studio when just opened</span>
 
