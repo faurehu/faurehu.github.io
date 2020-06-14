@@ -95,6 +95,8 @@ When it comes to journal articles, I most often prefer to print them because, fo
 
 ## Reference Management
 
+![jpg]({{ site.url }}/assets/images/tools-for-studying/image5.jpg)
+
 At the graduate level, most of the readings are in the form of academic journal articles. Starting with merely saving these PDF files in the directories I had for each course was straightforward. However, without a reference manager, the bibliography section of any paper is painful to put together. Enter [Zotero](https://www.zotero.org/), where I organise all of my readings.
 
 Besides creating bibliographies, Zotero plugins help with some extra work. As I mentioned above, the [Zotfile](http://zotfile.com/) plugin lets me extract the highlighted text from my PDFs so that I can paste it into Roam. The pasted text will include links to the PDF file, specific to the page, which allows me to summon the PDF reader within Roam. It will go directly to the quoted passage and its context.
