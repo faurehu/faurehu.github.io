@@ -23,3 +23,12 @@ p {
   text-align: justify;
   text-justify: inter-word;
 }
+
+#grid22 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#grid img {
+  width: 40%;
+}
