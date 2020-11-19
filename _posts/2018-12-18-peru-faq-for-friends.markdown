@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Peru Trip F.A.Q. for Friends"
+title:  "peru trip f.a.q. for friends"
 description: "what else do you want?"
 date: 2018-12-18 16:57:08 +0100
 ---
