@@ -41,7 +41,14 @@ You're asking this so I don't really need to tell you why you should go to Machu
 
 Here's the deal. You cannot spend the night at Machu Picchu, so you'll most likely take the bus there from a small town in the valley at the base of the mountain called Aguas Calientes, where you can stay overnight. To get there you need to take a train from Cusco, the nearest city. You are going to need to buy those train ticket ahead of time. 
 
-You can also be hardcore and do the Inka or Salkantay Trails, a 4 or 5 day hike from Cusco all the way to Machu Picchu. They involve daily treks 12 to 20 kilometers a day, climbing and descending mountains and sleeping in tents under a mantle of stars. I did it last year and I could not recommend it enough.
+You can also be hardcore and do the Inka or Salkantay Trails, a 4 or 5 day hike from Cusco all the way to Machu Picchu. They involve daily treks 12 to 20 kilometers a day, climbing and descending mountains and sleeping in tents under a mantle of stars. I did it in 2019 and I could not recommend it enough.
+
+<div>
+![jpg]({{site.url}}/assets/images/peru-faq/0f0c03eee482ef7f684e04cdc77d8d1b.jpg)
+![jpg]({{site.url}}/assets/images/peru-faq/43e45aca361c3899048a2ac824c91fda.jpg)
+![jpg]({{site.url}}/assets/images/peru-faq/b5a645f32b96cb3a8a1f88368d9baf28.jpg)
+![jpg]({{site.url}}/assets/images/peru-faq/c8fda694dcf700c2946b9a2809b56628.jpg)
+</div>
 
 ### I don't speak spanish. Should I learn some?
 
