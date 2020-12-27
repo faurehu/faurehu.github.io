@@ -54,6 +54,8 @@ nav:
     url:            "https://github.com/faurehu/faurehu.github.io"
   - name:           "Goodreads"
     url:            "https://www.goodreads.com/user/show/76666744-faure"
+  - name:           "Instapaper"
+    url:            "https://www.instapaper.com/p/mfaure"
 
 # Sass
 sass:
