@@ -32,3 +32,41 @@ p {
 #grid22 img {
   width: 40%;
 }
+
+.banner {
+  border-radius: 15px;
+  filter: grayscale(100%);
+}
+
+.profile {
+  border-radius: 50%;
+  border: 1px solid black;
+  height: 60px;
+  margin-right: 15px;
+}
+
+.post_profile {
+  border-radius: 50%;
+  border: 1px solid black;
+  height: 20px;
+  margin-right: 10px;
+  margin-left: initial
+}
+
+.post_header {
+  display: flex;
+}
+
+.super_header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+
+.list {
+  margin: 15px 0 15px 0;
+}
+
+.outlink:hover {
+  font-weight: 800;
+}

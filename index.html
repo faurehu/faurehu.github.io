@@ -2,20 +2,25 @@
 layout: default
 ---
 
-<header class="header">
-  <div class="header-title">
-    <a href="{{ site.url }}{{ site.baseurl }}">{{ site.name }}</a>
+<div class="super_header">
+  <div>
+    <img class="profile" src="{{site.url}}/assets/images/profile.jpg">
   </div>
-  <nav class="header-nav">
-    {% for nav in site.nav %}
-    {% if nav.url contains 'http://' or nav.url contains 'https://' %}
-    <a href="{{ nav.url }}">{{ nav.name }}</a>
-    {% else %}
-    <a href="{{ nav.url | prepend: site.baseurl }}">{{ nav.name }}</a>
-    {% endif %}
-    {% endfor %}
-  </nav>
-</header>
+  <header class="header">
+    <div class="header-title">
+      <a href="{{ site.url }}{{ site.baseurl }}">{{ site.name }}</a>
+    </div>
+    <nav class="header-nav">
+      {% for nav in site.nav %}
+      {% if nav.url contains 'http://' or nav.url contains 'https://' %}
+      <a class="outlink" href="{{ nav.url }}">{{ nav.name }}</a>
+      {% else %}
+      <a class="outlink" href="{{ nav.url | prepend: site.baseurl }}">{{ nav.name }}</a>
+      {% endif %}
+      {% endfor %}
+    </nav>
+  </header>
+</div>
 
 <div class="list">
 {% if site.posts.size == 0 %}
@@ -44,7 +49,7 @@ layout: default
   </div>
 {% endfor %}
   <!-- Pagination links -->
-  <div class="list-pagination">
+  <!--<div class="list-pagination">
     <span class="list-pagination-previous">
       {% if paginator.previous_page %}
         <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous">
@@ -61,6 +66,8 @@ layout: default
       {% else %}
       {% endif %}
     </span>
-  </div>
+  </div>-->
 {% endif %}
 </div>
+
+<img class="banner" src="{{ site.url }}/assets/images/banner.jpg">
