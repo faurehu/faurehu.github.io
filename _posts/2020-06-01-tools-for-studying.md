@@ -3,6 +3,7 @@ layout: post
 title: "tools for studying"
 description: "or how i've managed through my postgrad"
 date: 2020-06-01 16:57:08 +0100
+category: english
 ---
 
 ![jpg]({{ site.url }}/assets/images/tools-for-studying/image1.jpg)

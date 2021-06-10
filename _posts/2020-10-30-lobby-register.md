@@ -2,8 +2,8 @@
 layout: post
 title:  "is the lobby register effective?"
 description: "what works and what's missing"
-lang: en
 date: 2020-10-30 16:57:08 +0100
+category: english
 ---
 
 ![png]({{ site.url }}/assets/images/lobby-register/image1.jpg)

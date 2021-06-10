@@ -2,9 +2,9 @@
 layout: post
 title:  "efficient provision of public goods"
 description: "working together ain't easy"
-lang: en
 date: 2021-01-01 00:00:00 +0100
 use_math: true
+category: english
 ---
 
 ![png]({{ site.url }}/assets/images/public-goods/image1.jpg)

@@ -3,6 +3,7 @@ layout: post
 title:  "peru trip f.a.q. for friends"
 description: "what else do you want?"
 date: 2018-12-18 16:57:08 +0100
+category: english
 ---
 
 Hi! I'm very happy to hear you're considering to travel down to Peru. Here's a list of questions I often get when close friends show interest in coming down to [potato land](https://www.livinginperu.com/opinion-piece-potatoland/).

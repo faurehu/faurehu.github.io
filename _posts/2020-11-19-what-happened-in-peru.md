@@ -2,9 +2,9 @@
 layout: post
 title:  "what the hell did just happen in peru?"
 description: "first look on the origins of a historical protest"
-lang: en
 date: 2020-11-19 00:00:00 +0100
 use_math: true
+category: english
 ---
 
 ![png]({{ site.url }}/assets/images/happened-peru/image1.jpg)
