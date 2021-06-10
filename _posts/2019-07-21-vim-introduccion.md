@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "vim: introducción"
-description: "Editando texto eficientemente"
+title: "vim: introducción"
+description: editando texto eficientemente
 date: 2019-07-21 16:57:08 +0100
 category: spanish
 ---
