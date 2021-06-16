@@ -15,5 +15,6 @@ collections:
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Category", name: "category", widget: "string"}
+      - {label: "Image", name: "image", widget: "string", default: "/assets/images/public-goods/image1.jpg"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Use Math", name: "use_math", widget: "hidden", default: true}

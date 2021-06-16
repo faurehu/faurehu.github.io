@@ -80,6 +80,16 @@ defaults:
       type:         "posts"
     values:
       layout:       "post"
+  -
+    scope:
+      path:         ""
+    values:
+      image:        "/assets/images/public-goods/image1.jpg"
+  -
+    scope:
+      path:         ""
+    values:
+      author:       "mati_faure"
 
 # jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
 plugins:
