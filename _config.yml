@@ -4,8 +4,8 @@
 
 # Basic
 name:               "Matias Faure"
-title:               "Matias Faure"
-repository: faurehu/faurehu.github.io
+title:              "Matias Faure"
+repository:         faurehu/faurehu.github.io
 
 author:
   twitter:          mati_faure
@@ -29,7 +29,7 @@ disqus:
 # URL
 url:                "https://matiasfaure.com" # the base hostname & protocol for your site
 # url:                "http://localhost:4000" # use this url when you develop
-baseurl:            "" # the subpath of your site, e.g. /blog
+baseurl:            "/" # the subpath of your site, e.g. /blog
 
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -37,13 +37,13 @@ timezone:           Europe/London
 permalink:          /:year-:month-:day/:title/
 
 pagination:
-  enabled: true
-  per_page: 6
-  permalink: '/:num/'
-  title: ':title | :num of :max'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
+  enabled:          true
+  per_page:         6
+  permalink:        '/:num/'
+  title:            ':title | :num of :max'
+  limit:            0
+  sort_field:       'date'
+  sort_reverse:     true
 
 # Markdown
 markdown:           kramdown
@@ -91,9 +91,9 @@ defaults:
     values:
       author:       "mati_faure"
 
+exclude:            [vendor]
+
 # jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
 plugins:
   - jekyll-seo-tag
   - jekyll-paginate-v2
-
-exclude:            [vendor]

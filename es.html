@@ -4,7 +4,6 @@ pagination:
   enabled: true
   category: spanish
 ---
-
 <div class="super_header">
   <div>
     <img class="profile" src="{{site.url}}/assets/images/profile.jpg">
@@ -14,7 +13,11 @@ pagination:
       <a href="{{ site.url }}{{ site.baseurl }}">{{ site.name }}</a>
     </div>
     <nav class="header-nav">
-      <a class="outlink" href="/">english</a>
+      {% if page.url == "/index.html" %}
+        <a class="outlink" href="/es">español</a>
+      {% else %}
+        <a class="outlink" href="/">english</a>
+      {% endif %}
       {% for nav in site.nav %}
       {% if nav.url contains 'http://' or nav.url contains 'https://' %}
       <a class="outlink" href="{{ nav.url }}">{{ nav.name }}</a>
