@@ -56,14 +56,23 @@ layout: default
 
     const text = document.createElement("span")
     text.style.fontWeight = "bold"
-    text.style.position = "absolute"
     text.innerHTML = "What did you think?"
 
     const container = document.createElement("div")
     container.style.marginTop = "50px"
     container.style.width = "540px"
     container.appendChild(text)
-    container.appendChild(element)
+
+    if (navigator.userAgent.search("Firefox") > -1) {
+      const link = document.createElement("a")
+      link.href = "https://twitter.com/intent/tweet?screen_name=mati_faure&ref_src=twsrc%5Etfw"
+      link.innerHTML = "Let me know."
+      link.style.marginLeft = "5px"
+      container.appendChild(link)
+    } else {
+      text.style.position = "absolute"
+      container.appendChild(element)
+    }
 
     const footnotes = document.getElementsByClassName("footnotes")
     if (footnotes.length === 0) {
