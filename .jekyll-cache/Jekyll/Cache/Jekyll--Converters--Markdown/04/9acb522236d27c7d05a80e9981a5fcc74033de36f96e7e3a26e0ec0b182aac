@@ -1,0 +1,221 @@
+I"��<p>Have you ever tried planning your own financial life? To the second decimal? Past your retirement? It involves reflecting on what your long term goals are, estimating your future income, involving interest and inflation rates along with expected investment returns. Not only do you have to know what these numbers are but you also have to model it so that you can play with different strategies. Should you save for your mortgage or build your pension? Or both? And how? This is a very challenging problem to solve right, now imagine calculating financial plans for thousands of people with different goals and lifestyles.</p>
+
+<p>Finimize MyLife is an application that helps you plan your personal finances. Which means they’re trying to build that technical nightmare of a calculator. I worked with them during my placement year and one of the biggests tasks was to create this calculator.</p>
+
+<p>Matt, CTO at Finimize, already has already written about how each goal works and how its main features are calculated. In this post I’ll go through the “Allocator” which is in charge of taking all these goals together and then telling you how to allocate your funds to a different account.</p>
+
+<p>We only arrived to a happy place after multiple iterations. We found new constraints as we progressed, so there was heavy refactoring involved. We always had code safety in mind, working with people’s money is no joke. Therefore, most of the objects we instantiate around are immutable. We later on started using type checking with Flow, whose linter was only please after excrucianting syntax gymnastics. The first version of the allocator suffered heavy feature creep. Code was hard to follow and tests were hard to maintain as they were idiosyncratic to this first implementation. We then later broke down the monster into a modular and functional routine.</p>
+
+<p>Before we walk through some of the subroutines in the process I want to introduce some lingo. Formally speaking, the allocator takes in goals and outputs buckets. Every goal has values like timeToTarget, targetAmount, preSaved, drawFirst, etc. You can read <a href="https://medium.com/finimize-engineering/how-we-calculate-your-personal-finances-6742d742f682">Matt’s post</a> to see how these are calculated. Additionally, each user has their own plan data, which includes their monthly salary, passive income and saved money (basically, all of the funds currently available to the user). The allocator uses the information from the goals to determine how the money available to the user will flow into what we call buckets. Buckets are the places where the money can go, for now these places can either be an investment account, a savings account or an emergency fund. Each bucket has a now and a weekly variable. The now variable is the amount of money the user should allocate right away to this account. Logically, this money can only be allocated from the user’s savings, as the user’s salary or passive income is not available to him or her right now. The weekly amount is the amount of money the user is expected to deposit every week in order for him or her to achieve the goal.</p>
+
+<p>Let’s start with the unencumbered functions and then progress towards methods that call other functions and we will end in the one function that encompasses the whole process. At the very bottom we have validators. The validators will simply look into an amount they need to cover, an available amount of money, a time frame it needs to reach it and a rate of growth. The job of this validator is to decide whether the available amount of money will be enough to cover the target in the given time at a given rate. If it is not possible to cover the target amount, the validator will return the amount of money it is short - this amount is called <code class="language-plaintext highlighter-rouge">diff</code>. Because money from income can be used weekly, where savings can be payed immediately, their validators follow different rules. Here’s the code for the <code class="language-plaintext highlighter-rouge">savingsValidator</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">savingsValidator</span> <span class="o">=</span> <span class="p">(</span><span class="nx">amountToCover</span><span class="p">:</span> <span class="nx">Money</span><span class="p">,</span> <span class="nx">remainingAmount</span><span class="p">:</span> <span class="nx">Money</span><span class="p">,</span> <span class="nx">currency</span><span class="p">:</span> <span class="nx">validCurrencyStrings</span><span class="p">,</span> <span class="nx">timeToTarget</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">rate</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="kd">let</span> <span class="na">validatorDiff</span> <span class="p">:</span> <span class="nx">Money</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">)</span>
+	<span class="kd">let</span> <span class="na">validatorAlloc</span> <span class="p">:</span> <span class="nx">Money</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">)</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">amountToCover</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="p">{</span> <span class="nx">validatorDiff</span><span class="p">,</span> <span class="nx">validatorAlloc</span> <span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="kd">const</span> <span class="nx">canCoverAmount</span> <span class="o">=</span> <span class="nx">remainingAmount</span><span class="p">.</span><span class="nx">greaterThanInc</span><span class="p">(</span><span class="nx">amountToCover</span><span class="p">)</span>
+	<span class="kd">const</span> <span class="nx">remainingFV</span> <span class="o">=</span> <span class="nx">fv</span><span class="p">(</span><span class="nx">rate</span><span class="p">,</span> <span class="nx">timeToTarget</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">),</span> <span class="nx">remainingAmount</span><span class="p">)</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">canCoverAmount</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">validatorAlloc</span> <span class="o">=</span> <span class="nx">pv</span><span class="p">(</span><span class="nx">rate</span><span class="p">,</span> <span class="nx">timeToTarget</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">),</span> <span class="nx">amountToCover</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">validatorAlloc</span> <span class="o">=</span>  <span class="nx">remainingAmount</span>
+		<span class="nx">validatorDiff</span> <span class="o">=</span> <span class="nx">amountToCover</span><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span><span class="nx">remainingFV</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="p">{</span> <span class="nx">validatorDiff</span><span class="p">,</span> <span class="nx">validatorAlloc</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If a goal is validated by both income and savings validators and the first validator falls short, the <code class="language-plaintext highlighter-rouge">diff</code> of the first validator will be the amount to cover for the next validator. And so, the <code class="language-plaintext highlighter-rouge">diff</code> in the last validator’s output will be the amount of money the whole goal is short of.</p>
+
+<p>To determine the order of the validators, we check some properties in the goal. Because the order of validators can vary, figuring out the logic to make the calls in the right order and passing the updated arguments was tricky to me. The result was a pattern in which the validators were placed in a list to be then called with a wrapper function <code class="language-plaintext highlighter-rouge">runValidators</code> which consumes the validators list with an accumulator object that holds the arguments. Here is the code for <code class="language-plaintext highlighter-rouge">runValidations</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">runValidations</span> <span class="o">=</span> <span class="p">(</span><span class="nx">acc</span><span class="p">:</span> <span class="nx">validationsAccumulator</span><span class="p">,</span> <span class="nx">validatorObject</span> <span class="p">:</span> <span class="nx">validatorObject</span><span class="p">)</span> <span class="p">:</span> <span class="nx">validationsAccumulator</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="kd">let</span> <span class="p">{</span> <span class="nx">validator</span><span class="p">,</span> <span class="nx">currency</span><span class="p">,</span> <span class="nx">remainingAmount</span><span class="p">,</span> <span class="nx">allocKey</span><span class="p">,</span> <span class="nx">timeToTarget</span><span class="p">,</span> <span class="nx">rate</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">validatorObject</span>
+	<span class="kd">let</span> <span class="nx">diff</span> <span class="o">=</span> <span class="nx">acc</span><span class="p">.</span><span class="nx">targetAmount</span> <span class="o">||</span> <span class="nx">acc</span><span class="p">.</span><span class="nx">diff</span>
+
+	<span class="kd">const</span> <span class="p">{</span> <span class="nx">validatorDiff</span><span class="p">,</span> <span class="nx">validatorAlloc</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">validator</span><span class="p">(</span><span class="nx">diff</span><span class="p">,</span> <span class="nx">remainingAmount</span><span class="p">,</span> <span class="nx">currency</span><span class="p">,</span> <span class="nx">timeToTarget</span><span class="p">,</span> <span class="nx">rate</span><span class="p">)</span>
+
+	<span class="kd">let</span> <span class="na">accCopy</span> <span class="p">:</span> <span class="nx">validationsAccumulator</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="na">savingsAlloc</span><span class="p">:</span> <span class="nx">acc</span><span class="p">.</span><span class="nx">savingsAlloc</span><span class="p">,</span>
+		<span class="na">incomeAlloc</span><span class="p">:</span> <span class="nx">acc</span><span class="p">.</span><span class="nx">incomeAlloc</span><span class="p">,</span>
+		<span class="na">diff</span><span class="p">:</span> <span class="nx">validatorDiff</span>
+	<span class="p">}</span>
+	<span class="nx">accCopy</span><span class="p">[</span><span class="nx">allocKey</span><span class="p">]</span> <span class="o">=</span> <span class="nx">validatorAlloc</span>
+	<span class="k">return</span> <span class="nx">accCopy</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The accumulator object for <code class="language-plaintext highlighter-rouge">runValidations</code> contains the amounts allocated from savings and income, and the <code class="language-plaintext highlighter-rouge">diff</code>.</p>
+
+<p>We continue climbing, now onto the method which calls <code class="language-plaintext highlighter-rouge">runValidations</code>. The <code class="language-plaintext highlighter-rouge">process</code> function is in charge of ordering the validators and constructing the initial accumulators. It will then construct an output object which represents the state of the goal after it has been validated. This output object contains the information about which bucket will cover it. Here is the code for the process routine:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">process</span> <span class="o">=</span> <span class="p">(</span><span class="nx">acc</span> <span class="p">:</span> <span class="nx">ProcessAccumulator</span><span class="p">,</span> <span class="nx">feature</span><span class="p">:</span> <span class="nx">GoalFeatures</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="kd">const</span> <span class="p">{</span> <span class="nx">remainingSavings</span><span class="p">,</span> <span class="nx">remainingIncome</span><span class="p">,</span> <span class="nx">outputs</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">acc</span>
+	<span class="kd">let</span> <span class="p">{</span> <span class="nx">investmentTimeHorizon</span><span class="p">,</span> <span class="nx">goalType</span><span class="p">,</span> <span class="nx">targetAmount</span><span class="p">,</span> <span class="nx">timeToTarget</span><span class="p">,</span> <span class="nx">drawFirst</span><span class="p">,</span> <span class="nx">preSaved</span><span class="p">,</span> <span class="nx">currency</span><span class="p">,</span> <span class="nx">isEdited</span><span class="p">,</span> <span class="nx">rate</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">feature</span>
+
+	<span class="kd">const</span> <span class="nx">validatorObjects</span> <span class="o">=</span> <span class="p">[{</span>
+		<span class="na">validator</span><span class="p">:</span> <span class="nx">savingsValidator</span><span class="p">,</span>
+		<span class="na">remainingAmount</span><span class="p">:</span> <span class="nx">remainingSavings</span><span class="p">,</span>
+		<span class="na">allocKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">savingsAlloc</span><span class="dl">'</span><span class="p">,</span>
+		<span class="nx">timeToTarget</span><span class="p">,</span>
+		<span class="nx">currency</span><span class="p">,</span>
+		<span class="nx">rate</span>
+	<span class="p">},</span> <span class="p">{</span>
+		<span class="na">validator</span><span class="p">:</span> <span class="nx">incomeValidator</span><span class="p">,</span>
+		<span class="na">remainingAmount</span><span class="p">:</span> <span class="nx">remainingIncome</span><span class="p">,</span>
+		<span class="na">allocKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">incomeAlloc</span><span class="dl">'</span><span class="p">,</span>
+		<span class="nx">timeToTarget</span><span class="p">,</span>
+		<span class="nx">currency</span><span class="p">,</span>
+		<span class="nx">rate</span>
+	<span class="p">}]</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">drawFirst</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">income</span><span class="dl">'</span> <span class="o">&amp;&amp;</span> <span class="nx">preSaved</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="nx">validatorObjects</span><span class="p">.</span><span class="nx">reverse</span><span class="p">()</span>
+
+	<span class="kd">const</span> <span class="nx">validationInitialObject</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="na">diff</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">),</span>
+		<span class="na">incomeAlloc</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">),</span>
+		<span class="na">savingsAlloc</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">),</span>
+		<span class="nx">targetAmount</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">preSaved</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">preSaved</span><span class="p">.</span><span class="nx">greaterThan</span><span class="p">(</span><span class="nx">remainingSavings</span><span class="p">))</span> <span class="p">{</span>
+			<span class="nx">preSaved</span> <span class="o">=</span> <span class="nx">remainingSavings</span>
+		<span class="p">}</span>
+
+		<span class="nx">validationInitialObject</span><span class="p">.</span><span class="nx">savingsAlloc</span> <span class="o">=</span> <span class="nx">preSaved</span>
+		<span class="nx">validationInitialObject</span><span class="p">.</span><span class="nx">diff</span> <span class="o">=</span> <span class="nx">targetAmount</span><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span><span class="nx">fv</span><span class="p">(</span><span class="nx">rate</span><span class="p">,</span> <span class="nx">timeToTarget</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">'</span><span class="s1">GBP</span><span class="dl">'</span><span class="p">),</span> <span class="nx">preSaved</span><span class="p">))</span>
+		<span class="k">delete</span> <span class="nx">validationInitialObject</span><span class="p">[</span><span class="dl">'</span><span class="s1">targetAmount</span><span class="dl">'</span><span class="p">]</span>
+		<span class="nx">validatorObjects</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span>
+	<span class="p">}</span>
+
+	<span class="kd">const</span> <span class="p">{</span> <span class="nx">incomeAlloc</span><span class="p">,</span> <span class="nx">savingsAlloc</span><span class="p">,</span> <span class="nx">diff</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">validatorObjects</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">runValidations</span><span class="p">,</span> <span class="nx">validationInitialObject</span><span class="p">)</span>
+
+	<span class="kd">const</span> <span class="na">output</span> <span class="p">:</span> <span class="nx">ProcessOutput</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="na">isError</span><span class="p">:</span> <span class="nx">diff</span><span class="p">.</span><span class="nx">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+		<span class="na">bucket</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">bucketType</span><span class="p">:</span> <span class="nx">goalType</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">save-for-emergency</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">emergency</span><span class="dl">'</span> <span class="p">:</span> <span class="p">(</span><span class="nx">timeToTarget</span> <span class="o">&gt;=</span> <span class="nx">investmentTimeHorizon</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">investment</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">savings</span><span class="dl">'</span><span class="p">),</span>
+			<span class="na">now</span><span class="p">:</span> <span class="nx">savingsAlloc</span><span class="p">,</span>
+			<span class="na">monthly</span><span class="p">:</span> <span class="nx">incomeAlloc</span>
+		<span class="p">},</span>
+		<span class="nx">isEdited</span><span class="p">,</span>
+		<span class="nx">currency</span><span class="p">,</span>
+		<span class="nx">rate</span><span class="p">,</span>
+		<span class="nx">targetAmount</span><span class="p">,</span>
+		<span class="nx">timeToTarget</span><span class="p">,</span>
+		<span class="na">incomeAvailableToGoal</span><span class="p">:</span> <span class="nx">remainingIncome</span><span class="p">,</span>
+		<span class="na">savingsAvailableToGoal</span><span class="p">:</span> <span class="nx">remainingSavings</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span> <span class="p">(</span><span class="nx">output</span><span class="p">.</span><span class="nx">isError</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">output</span><span class="p">.</span><span class="nx">bucket</span><span class="p">.</span><span class="nx">now</span> <span class="o">=</span> <span class="nx">preSaved</span> <span class="o">||</span> <span class="nx">remainingSavings</span>
+		<span class="nx">output</span><span class="p">.</span><span class="nx">bucket</span><span class="p">.</span><span class="nx">monthly</span> <span class="o">=</span> <span class="nx">remainingIncome</span>
+	<span class="p">}</span>
+
+	<span class="kd">const</span> <span class="na">accCopy</span> <span class="p">:</span> <span class="nx">ProcessAccumulator</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="na">outputs</span><span class="p">:</span> <span class="nx">outputs</span><span class="p">.</span><span class="nx">concat</span><span class="p">([</span><span class="nx">output</span><span class="p">]),</span>
+		<span class="na">remainingIncome</span><span class="p">:</span> <span class="nx">remainingIncome</span><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span><span class="nx">output</span><span class="p">.</span><span class="nx">bucket</span><span class="p">.</span><span class="nx">monthly</span><span class="p">),</span>
+		<span class="na">remainingSavings</span><span class="p">:</span> <span class="nx">remainingSavings</span><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span><span class="nx">output</span><span class="p">.</span><span class="nx">bucket</span><span class="p">.</span><span class="nx">now</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="nx">accCopy</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Here, you can see how runValidations is being called:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ValidatorObjects</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">runValidations</span><span class="p">,</span> <span class="nx">validationInitialObject</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now that I’m reviewing the code in order to write this post, I realise that the validation handling could be improved. Rather than having the elements inside the validatorObjects be dictionaries containing the function and arguments, they can simply be the functions with the curried arguments.</p>
+
+<p>It is also viable to replace the reduce pattern and using a wrapper function that instead of having values stored in an accumulator, it keeps those values in local scope while running a <code class="language-plaintext highlighter-rouge">forEach</code> on the function list that will mutate the scoped values. However, I don’t see any significant benefits.</p>
+
+<p>You will have noticed that the signature of <code class="language-plaintext highlighter-rouge">process</code> contains an accumulator whose clone is mutated and returned. You guessed right, it’s because <code class="language-plaintext highlighter-rouge">process</code> is being called by a reduce function in a similar fashion to what we’ve covered. The process function walks through a list of goals while it determining its outputs. The accumulator will be a dictionary containing an empty array called <code class="language-plaintext highlighter-rouge">outputs</code>, we will add the output of each goal to this output array. At the end of the reduce call, the accumulator object will contain the full list of the outputs along with a <code class="language-plaintext highlighter-rouge">remainingIncome</code> and <code class="language-plaintext highlighter-rouge">remainingSavings</code>.</p>
+
+<p>We can now get an overview from the top, the root function simply called <code class="language-plaintext highlighter-rouge">allocator</code>. This function will first process the goals like we have covered and then aggregate the outputs to determine how much will be allocated to each bucket in total (in contrast to per goal as the validators do). This is fairly straight forward.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">allocator</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span><span class="p">:</span> <span class="nx">State</span><span class="p">)</span> <span class="p">:</span> <span class="nx">State</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="kd">const</span> <span class="na">goalOrder</span> <span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">getIn</span><span class="p">([</span><span class="dl">'</span><span class="s1">plan</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">goalsOrder</span><span class="dl">'</span><span class="p">])</span>
+	<span class="kd">const</span> <span class="na">currencyGroups</span> <span class="p">:</span> <span class="nx">CurrencyGroups</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">getIn</span><span class="p">([</span><span class="dl">'</span><span class="s1">plan</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">currencies</span><span class="dl">'</span><span class="p">])</span>
+	<span class="kd">const</span> <span class="na">netSavingsReturns</span> <span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">getIn</span><span class="p">([</span><span class="dl">'</span><span class="s1">plan</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">savingsReturns</span><span class="dl">'</span><span class="p">])</span>
+	<span class="kd">const</span> <span class="na">netInvestmentReturns</span> <span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">getIn</span><span class="p">([</span><span class="dl">'</span><span class="s1">plan</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">investmentReturns</span><span class="dl">'</span><span class="p">])</span>
+	<span class="kd">const</span> <span class="na">investmentTimeHorizon</span> <span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">getIn</span><span class="p">([</span><span class="dl">'</span><span class="s1">plan</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">investmentTimeHorizon</span><span class="dl">'</span><span class="p">])</span>
+
+	<span class="kd">let</span> <span class="nx">returnedState</span> <span class="o">=</span> <span class="nx">state</span>
+
+	<span class="nx">currencyGroups</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">crr</span><span class="p">,</span> <span class="nx">crrId</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="kd">const</span> <span class="na">currency</span> <span class="p">:</span> <span class="nx">validCurrencyStrings</span> <span class="o">=</span> <span class="nx">crr</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">currency</span><span class="dl">'</span><span class="p">)</span>
+
+		<span class="kd">const</span> <span class="na">goalsList</span> <span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">Goal</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">goals</span><span class="dl">'</span><span class="p">).</span><span class="nx">toIndexedSeq</span><span class="p">().</span><span class="nx">toArray</span><span class="p">()</span>
+			<span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="nx">goalSorter</span><span class="p">(</span><span class="nx">goalOrder</span><span class="p">))</span>
+			<span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">goal</span> <span class="o">=&gt;</span> <span class="nx">goal</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">currencyGroupId</span><span class="dl">'</span><span class="p">)</span> <span class="o">===</span> <span class="nx">crrId</span><span class="p">)</span>
+			<span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">goal</span> <span class="o">=&gt;</span> <span class="nx">goal</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">isFinalised</span><span class="dl">'</span><span class="p">)</span> <span class="o">||</span> <span class="nx">goal</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">initialGoalSelection</span><span class="dl">'</span><span class="p">))</span>
+
+		<span class="c1">// The select function will extract the necessary data from every goal</span>
+		<span class="kd">const</span> <span class="na">featuresList</span> <span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">GoalFeatures</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">goalsList</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">select</span><span class="p">(</span><span class="nx">netSavingsReturns</span><span class="p">,</span> <span class="nx">netInvestmentReturns</span><span class="p">,</span> <span class="nx">investmentTimeHorizon</span><span class="p">))</span>
+
+		<span class="kd">const</span> <span class="na">initialValue</span> <span class="p">:</span> <span class="nx">ProcessAccumulator</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="na">outputs</span><span class="p">:</span> <span class="p">[],</span>
+			<span class="na">remainingSavings</span><span class="p">:</span> <span class="nx">crr</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">totalSavings</span><span class="dl">'</span><span class="p">),</span>
+			<span class="na">remainingIncome</span><span class="p">:</span> <span class="nx">crr</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">totalIncome</span><span class="dl">'</span><span class="p">)</span>
+		<span class="p">}</span>
+
+		<span class="c1">// The process function determines the results for every goal and the total remainingSavings and remainingIncome</span>
+		<span class="kd">const</span> <span class="p">{</span>
+			<span class="nx">outputs</span><span class="p">,</span>
+			<span class="nx">remainingSavings</span><span class="p">,</span>
+			<span class="nx">remainingIncome</span>
+		<span class="p">}</span> <span class="o">=</span> <span class="nx">featuresList</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">process</span><span class="p">,</span> <span class="nx">initialValue</span><span class="p">)</span>
+
+		<span class="kd">const</span> <span class="na">bucketsAccumulator</span> <span class="p">:</span> <span class="nx">BucketsAccumulator</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="na">incomeOverboard</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">),</span>
+			<span class="na">buckets</span><span class="p">:</span> <span class="p">{</span>
+				<span class="na">savings</span><span class="p">:</span> <span class="p">{</span>
+					<span class="na">now</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">),</span>
+					<span class="na">monthly</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">)</span>
+				<span class="p">},</span>
+				<span class="na">investment</span><span class="p">:</span> <span class="p">{</span>
+					<span class="na">now</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">),</span>
+					<span class="na">monthly</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">)</span>
+				<span class="p">},</span>
+				<span class="na">emergency</span><span class="p">:</span> <span class="p">{</span>
+					<span class="na">now</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">),</span>
+					<span class="na">monthly</span><span class="p">:</span> <span class="k">new</span> <span class="nx">Money</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">currency</span><span class="p">)</span>
+				<span class="p">}</span>
+			<span class="p">},</span>
+			<span class="na">hasFailed</span><span class="p">:</span> <span class="kc">false</span>
+		<span class="p">}</span>
+
+		<span class="c1">// accumulateBuckets function will aggregate all the results and determine what's the incomeOverboard and the total buckets</span>
+		<span class="kd">const</span> <span class="p">{</span> <span class="nx">incomeOverboard</span><span class="p">,</span> <span class="nx">buckets</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">outputs</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">accumulateBuckets</span><span class="p">,</span> <span class="nx">bucketsAccumulator</span><span class="p">)</span>
+
+		<span class="c1">// applyOutputs will merge the results into the goals</span>
+		<span class="kd">const</span> <span class="nx">newGoalsList</span> <span class="o">=</span> <span class="nx">goalsList</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">applyOutputs</span><span class="p">(</span><span class="nx">outputs</span><span class="p">))</span>
+
+		<span class="c1">// listToMap converts the goals array into the expected map so it can be properly merged into the state</span>
+		<span class="kd">const</span> <span class="nx">newGoalsMap</span> <span class="o">=</span> <span class="nx">listToMap</span><span class="p">(</span><span class="nx">newGoalsList</span><span class="p">)</span>
+
+		<span class="nx">returnedState</span> <span class="o">=</span>	<span class="nx">returnedState</span><span class="p">.</span><span class="nx">mergeIn</span><span class="p">([</span><span class="dl">'</span><span class="s1">plan</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">currencies</span><span class="dl">'</span><span class="p">,</span> <span class="nx">crrId</span><span class="p">],</span> <span class="nx">fromJS</span><span class="p">({</span>
+			<span class="nx">remainingSavings</span><span class="p">,</span>
+			<span class="nx">remainingIncome</span><span class="p">,</span>
+			<span class="nx">incomeOverboard</span><span class="p">,</span>
+			<span class="nx">buckets</span>
+		<span class="p">})).</span><span class="nx">mergeIn</span><span class="p">([</span><span class="dl">'</span><span class="s1">goals</span><span class="dl">'</span><span class="p">],</span> <span class="nx">newGoalsMap</span><span class="p">)</span>
+	<span class="p">})</span>
+
+	<span class="k">return</span> <span class="nx">returnedState</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If you’re wondering why the accumulator function simply takes a state object as an argument and writes into it before returning it, it’s because the context for the whole process is a Redux state manager. This is also very convenient for testing and staying free from side effects.</p>
+
+<p>Thanks for sticking with me all the way through! I hope this has scared you away from trying to handle your own personal finances and trusting Finimize instead. If it hasn’t, please do tell us how to improve. Finimize MyLife is in stealth mode still figuring out stuff but they’ll soon be in lots of people’s lives. If you think this is a problem you can nail then it’s worth checking them out - they’re <a href="www.finimize.com/jobs">hiring</a>!</p>
+:ET
