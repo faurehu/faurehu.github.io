@@ -43,5 +43,39 @@ layout: default
       {% include disqus.html %}
   </div>
   {% endif %}
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    const element = document.createElement("a")
+    element.href = "https://twitter.com/intent/tweet?screen_name=mati_faure&ref_src=twsrc%5Etfw"
+    element.className = "twitter-mention-button"
+    element.setAttribute("data-size", "large")
+    element.setAttribute("data-text", "RE: {{site.url}}{{page.url}}")
+    element.setAttribute("data-lang", "en")
+    element.setAttribute("data-show-count", false)
+    element.innerHTML = "Tweet to @mati_faure"
 
+    const text = document.createElement("span")
+    text.style.fontWeight = "bold"
+    text.style.position = "absolute"
+    text.innerHTML = "What did you think?"
+
+    const container = document.createElement("div")
+    container.style.marginTop = "50px"
+    container.style.width = "540px"
+    container.appendChild(text)
+    container.appendChild(element)
+
+    const footnotes = document.getElementsByClassName("footnotes")
+    if (footnotes.length === 0) {
+      container.style.marginBottom = "50px"
+      const contentContainer = document.getElementsByClassName("content-container")
+      const footer = document.getElementsByClassName("footer")
+      contentContainer[0].insertBefore(container, footer[0])
+    } else {
+      const post = document.getElementsByClassName("post")
+      post[0].insertBefore(container, footnotes[0])
+    }
+  })
+</script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
