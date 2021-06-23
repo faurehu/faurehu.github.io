@@ -4,6 +4,9 @@ title:  "is the lobby register effective?"
 description: "what works and what's missing"
 date: 2020-10-30 16:57:08 +0100
 category: english
+epistemic_status: ""
+epistemic_effort: ""
+last_modified_at: ""
 ---
 
 ![png]({{ site.url }}/assets/images/lobby-register/image1.jpg)

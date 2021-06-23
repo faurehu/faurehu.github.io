@@ -4,6 +4,9 @@ title: "vim: introducción"
 description: editando texto eficientemente
 date: 2019-07-21 16:57:08 +0100
 category: spanish
+epistemic_status: ""
+epistemic_effort: ""
+last_modified_at: ""
 ---
 
 > _Este post lo escribí después de terminar el borrador para una charla que daré para la comunidad de [Javascript en Lima](https://limajs.org). En esta oportunidad podré utilizar un proyector para mostrar las ventajas de vim en tiempo real. Por otro lado, hacerlo de manera escrita es un poco más tedioso. Aún así, quiero dejar claro que nunca fue mi proposito enseñar vim - eso no se logra en un sólo post ni en una charla de 40 minutos - pero sí es mi intención evangelizar este sublime editor de texto. Por lo tanto, este no es un tutorial._

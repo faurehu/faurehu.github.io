@@ -6,6 +6,9 @@ date: 2021-06-15T18:45:47.686Z
 category: spanish
 image: "/assets/images/uploads/2021-06-15-13_47_43-polarizacion-en-el-peru-google-docs-—-mozilla-firefox.png"
 use_math: true
+epistemic_status: ""
+epistemic_effort: ""
+last_modified_at: ""
 ---
 ![](/assets/images/uploads/2021-06-15-13_47_43-polarizacion-en-el-peru-google-docs-—-mozilla-firefox.png)
 

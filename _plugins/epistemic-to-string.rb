@@ -1,12 +1,16 @@
 module Jekyll
   module AssetFilter
     def effort_to_string(input)
-      print input
-      input > 50 ? "high effort" : "low effort"
+      if input == "" or input.nil?
+        return ""
+      end
+      Integer(input) > 50 ? "high effort" : "low effort"
     end
     def status_to_string(input)
-      print input
-      input > 50 ? "generalizable" : "specific"
+      if input == "" or input.nil?
+        return ""
+      end
+      Integer(input) > 50 ? "generalizable" : "specific"
     end
   end
 end

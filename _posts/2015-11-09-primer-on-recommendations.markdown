@@ -4,6 +4,9 @@ title:  "primer on recommendation engines"
 description: "build one with R studio"
 date: 2015-11-09 16:57:08 +0100
 category: english
+epistemic_status: ""
+epistemic_effort: ""
+last_modified_at: ""
 ---
 
 Amazon used to employ people to recommend readers the books they might be interested in reading next. Not only that wasn't going to scale well, but when they automated the process of making recommendations, sales had a significant boost.

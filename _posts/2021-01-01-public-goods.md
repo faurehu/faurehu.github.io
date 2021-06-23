@@ -5,6 +5,9 @@ description: "working together ain't easy"
 date: 2021-01-01 00:00:00 +0100
 use_math: true
 category: english
+epistemic_status: ""
+epistemic_effort: ""
+last_modified_at: ""
 ---
 
 ![png]({{ site.url }}/assets/images/public-goods/image1.jpg)

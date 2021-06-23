@@ -5,6 +5,9 @@ description: "first look on the origins of a historical protest"
 date: 2020-11-19 00:00:00 +0100
 use_math: true
 category: english
+epistemic_status: ""
+epistemic_effort: ""
+last_modified_at: ""
 ---
 
 ![png]({{ site.url }}/assets/images/happened-peru/image1.jpg)

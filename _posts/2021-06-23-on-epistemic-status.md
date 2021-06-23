@@ -3,11 +3,11 @@ layout: post
 title: on epistemic status
 description: an experiment
 date: 2021-06-23T01:53:44.924Z
-last_modified_at: 2021-06-23T02:02:00.207Z
 category: english
 image: /assets/images/public-goods/image1.jpg
 epistemic_status: ""
 epistemic_effort: ""
+last_modified_at: ""
 use_math: true
 ---
 Let me state some facts:
@@ -21,4 +21,4 @@ For these reasons, I will be prefacing my posts in this blog with an epistemic s
 
 It will be categorised in two dimensions: applicability and effort. If I think whatever I've written applies to every relevant case, it'll be deemed "_Generalizable_", otherwise, they'll be "_Specific_". As for effort, it'll just disclose the amount of effort that I feel I've put into evaluating my own claims.
 
-The main takeaway is to consider my blog to be work-in-progress. The best way to learn is to learn in public, and I want to be able to make mistakes without regretting them. In any case, my post update history is always public on \[Github](https://github.com/faurehu/faurehu.github.io/tree/master/_posts).
+The main takeaway is to consider my blog to be work-in-progress. The best way to learn is to learn in public, and I want to be able to make mistakes without regretting them. In any case, my post update history is always public on [Github](https://github.com/faurehu/faurehu.github.io/tree/master/_posts).

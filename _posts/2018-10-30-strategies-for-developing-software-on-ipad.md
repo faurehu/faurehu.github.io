@@ -4,6 +4,9 @@ title:  "strategies for software development on the iPad"
 description: "or how to survive without a computer"
 date: 2018-10-30 16:57:08 +0100
 category: english
+epistemic_status: ""
+epistemic_effort: ""
+last_modified_at: ""
 ---
 
 Apple has released a new iPad Pro intended to replace a traditional computer, at least for most users. This means that an iPad is now should now be fully equipped to support your spreadsheet activities and photo editing endeavours, which will be enough for most. Apart from video editing or hosting services, there remains a task that escapes the iPad's realm: software developing.
