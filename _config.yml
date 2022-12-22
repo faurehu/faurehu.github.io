@@ -11,7 +11,7 @@ author:
   twitter:          mati_faure
   github:           faurehu
   stackoverflow:    2760045/faurehu
-  linkedin:         faurehu
+#  linkedin:         faurehu
   email:            hi@faure.hu
 
 copyright:
@@ -56,10 +56,10 @@ nav:
     url:            "https://twitter.com/mati_faure"
   - name:           "Github"
     url:            "https://github.com/faurehu/faurehu.github.io"
-  - name:           "Goodreads"
-    url:            "https://www.goodreads.com/user/show/76666744-faure"
-  - name:           "Instapaper"
-    url:            "https://www.instapaper.com/p/mfaure"
+#  - name:           "Goodreads"
+#    url:            "https://www.goodreads.com/user/show/76666744-faure"
+#  - name:           "Instapaper"
+#    url:            "https://www.instapaper.com/p/mfaure"
 
 # Sass
 sass:
