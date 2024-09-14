@@ -1,7 +1,7 @@
 ---
 layout: post
 title: por qué tanto odio?
-description: ensayo sobre el sentido de justica
+description: ensayo sobre el sentido de justicia
 date: 2024-09-14T17:46:23.627Z
 last_modified_at: 2024-09-14T17:46:23.635Z
 category: spanish
