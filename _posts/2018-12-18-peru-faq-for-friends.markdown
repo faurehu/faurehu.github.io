@@ -71,7 +71,7 @@ What I'll say is that I have managed to pull off a decent record in this country
 I particularly enjoyed going to Huaraz, Iquitos and Ayacucho, they all offer good adventure experiences. If you drive to Huaraz, you will have amazing views and can also take a detour to stop by the ruins of the Chavin, a major pre-Inca culture. Also, I would travel to Ayacucho for having a single guinea pig meal. Other cities and destinations I hear good things about are Arequipa, Puno and Mancora.
 
 <span id="grid22">
-![jpg]({{site.url}}/assets/images/peru-faq/IMG_2883.jpg)
+![jpg]({{site.url}}/assets/images/peru-faq/IMG_0562.jpeg)
 ![jpg]({{site.url}}/assets/images/peru-faq/IMG_3350.png)
 </span>
 
