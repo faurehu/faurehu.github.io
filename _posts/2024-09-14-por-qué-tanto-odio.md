@@ -9,7 +9,7 @@ image: assets/images/uploads/golpe-2379801761.jpg
 epistemic_status: ""
 use_math: true
 ---
-![png]({{ site.url }}assets/images/uploads/golpe-2379801761.jpg)
+![png]({{ site.url }}/assets/images/uploads/golpe-2379801761.jpg)
 
 Quiero comenzar destacando el renovado debate sobre el legado de Alberto Fujimori tras su reciente fallecimiento. Esta reacción es comprensible, ya que ninguno de nosotros experimentó los efectos de su gobierno en su totalidad, más bien, solamente tenemos la versión propia de nuestra pequeña esquina de un país tan grande como el Perú. Como nación, debemos tomar conciencia de estas perspectivas diversas, reconocerlas y enfrentarnos a la complejidad de su legado—un legado que, si tratamos de resumir en un solo tuit o comentario casual en línea, solo invita a extender esta discordia que nos ha terminado de agobiar estos últimos días, por no decir años.
 
