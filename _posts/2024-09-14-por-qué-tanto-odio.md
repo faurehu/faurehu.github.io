@@ -9,6 +9,8 @@ image: assets/images/uploads/golpe-2379801761.jpg
 epistemic_status: ""
 use_math: true
 ---
+![png]({{ site.url }}assets/images/uploads/golpe-2379801761.jpg)
+
 Quiero comenzar destacando el renovado debate sobre el legado de Alberto Fujimori tras su reciente fallecimiento. Esta reacción es comprensible, ya que ninguno de nosotros experimentó los efectos de su gobierno en su totalidad, más bien, solamente tenemos la versión propia de nuestra pequeña esquina de un país tan grande como el Perú. Como nación, debemos tomar conciencia de estas perspectivas diversas, reconocerlas y enfrentarnos a la complejidad de su legado—un legado que, si tratamos de resumir en un solo tuit o comentario casual en línea, solo invita a extender esta discordia que nos ha terminado de agobiar estos últimos días, por no decir años.
 
 Si alguien está contando la versión de una persona que vivió 86 años en 280 caracteres, esta persona no está interesada en compartir la verdad del asunto, solamente está interesada en que las próximas elecciones tú votes como mejor le conviene. No olvidemos que la historia está llena de figuras que hicieron cosas positivas por sus países pero cuyos legados fueron embarrados por crímenes que cometieron. Podemos reconocer el beneficio de sus decisiones mientras aceptamos que su legado está profundamente viciado[^1]. Hacer eso es lograr tener en cuenta la verdadera complejidad del asunto. 
