@@ -15,7 +15,7 @@ author:
   email:            hi@faure.hu
 
 copyright:
-  year:             2023
+  year:             2024
   name:             Matias Faure
 
 # Google-analytics
@@ -56,6 +56,8 @@ nav:
     url:            "https://twitter.com/mati_faure"
   - name:           "Github"
     url:            "https://github.com/faurehu/faurehu.github.io"
+  - name:           "Substack"
+    url:            "https://encuadrado.substack.com/"
 #  - name:           "Goodreads"
 #    url:            "https://www.goodreads.com/user/show/76666744-faure"
 #  - name:           "Instapaper"
