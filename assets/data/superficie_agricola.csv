@@ -1,0 +1,241 @@
+departamento,año,tipo_superficie,hectareas
+Amazonas,2021,Total superficie agrícola,324686
+Amazonas,2021,Agrícola con cultivos,216606
+Amazonas,2021,Tierras en barbecho,24990
+Amazonas,2021,Tierras agrícolas no trabajadas,79523
+Amazonas,2021,Tierras en descanso,3567
+Amazonas,2022,Total superficie agrícola,355754
+Amazonas,2022,Agrícola con cultivos,252688
+Amazonas,2022,Tierras en barbecho,25629
+Amazonas,2022,Tierras agrícolas no trabajadas,72853
+Amazonas,2022,Tierras en descanso,4584
+Áncash,2021,Total superficie agrícola,254233
+Áncash,2021,Agrícola con cultivos,128636
+Áncash,2021,Tierras en barbecho,47530
+Áncash,2021,Tierras agrícolas no trabajadas,49581
+Áncash,2021,Tierras en descanso,28486
+Áncash,2022,Total superficie agrícola,215130
+Áncash,2022,Agrícola con cultivos,92384
+Áncash,2022,Tierras en barbecho,40915
+Áncash,2022,Tierras agrícolas no trabajadas,27250
+Áncash,2022,Tierras en descanso,54580
+Apurímac,2021,Total superficie agrícola,109184
+Apurímac,2021,Agrícola con cultivos,21271
+Apurímac,2021,Tierras en barbecho,46861
+Apurímac,2021,Tierras agrícolas no trabajadas,20807
+Apurímac,2021,Tierras en descanso,20245
+Apurímac,2022,Total superficie agrícola,126091
+Apurímac,2022,Agrícola con cultivos,29152
+Apurímac,2022,Tierras en barbecho,48485
+Apurímac,2022,Tierras agrícolas no trabajadas,25318
+Apurímac,2022,Tierras en descanso,23136
+Arequipa,2021,Total superficie agrícola,157223
+Arequipa,2021,Agrícola con cultivos,97869
+Arequipa,2021,Tierras en barbecho,42660
+Arequipa,2021,Tierras agrícolas no trabajadas,13665
+Arequipa,2021,Tierras en descanso,3029
+Arequipa,2022,Total superficie agrícola,228681
+Arequipa,2022,Agrícola con cultivos,93064
+Arequipa,2022,Tierras en barbecho,27975
+Arequipa,2022,Tierras agrícolas no trabajadas,104100
+Arequipa,2022,Tierras en descanso,3541
+Ayacucho,2021,Total superficie agrícola,238994
+Ayacucho,2021,Agrícola con cultivos,91761
+Ayacucho,2021,Tierras en barbecho,75996
+Ayacucho,2021,Tierras agrícolas no trabajadas,48907
+Ayacucho,2021,Tierras en descanso,22330
+Ayacucho,2022,Total superficie agrícola,180596
+Ayacucho,2022,Agrícola con cultivos,69371
+Ayacucho,2022,Tierras en barbecho,56804
+Ayacucho,2022,Tierras agrícolas no trabajadas,33535
+Ayacucho,2022,Tierras en descanso,20886
+Cajamarca,2021,Total superficie agrícola,598757
+Cajamarca,2021,Agrícola con cultivos,353632
+Cajamarca,2021,Tierras en barbecho,106906
+Cajamarca,2021,Tierras agrícolas no trabajadas,104057
+Cajamarca,2021,Tierras en descanso,34163
+Cajamarca,2022,Total superficie agrícola,667813
+Cajamarca,2022,Agrícola con cultivos,413894
+Cajamarca,2022,Tierras en barbecho,102727
+Cajamarca,2022,Tierras agrícolas no trabajadas,127593
+Cajamarca,2022,Tierras en descanso,23600
+Cusco,2021,Total superficie agrícola,407516
+Cusco,2021,Agrícola con cultivos,127235
+Cusco,2021,Tierras en barbecho,85439
+Cusco,2021,Tierras agrícolas no trabajadas,57799
+Cusco,2021,Tierras en descanso,137043
+Cusco,2022,Total superficie agrícola,365466
+Cusco,2022,Agrícola con cultivos,152910
+Cusco,2022,Tierras en barbecho,77241
+Cusco,2022,Tierras agrícolas no trabajadas,26659
+Cusco,2022,Tierras en descanso,108656
+Huancavelica,2021,Total superficie agrícola,142936
+Huancavelica,2021,Agrícola con cultivos,24653
+Huancavelica,2021,Tierras en barbecho,60539
+Huancavelica,2021,Tierras agrícolas no trabajadas,17049
+Huancavelica,2021,Tierras en descanso,40694
+Huancavelica,2022,Total superficie agrícola,115258
+Huancavelica,2022,Agrícola con cultivos,17450
+Huancavelica,2022,Tierras en barbecho,44427
+Huancavelica,2022,Tierras agrícolas no trabajadas,8013
+Huancavelica,2022,Tierras en descanso,45368
+Huánuco,2021,Total superficie agrícola,820981
+Huánuco,2021,Agrícola con cultivos,485511
+Huánuco,2021,Tierras en barbecho,75149
+Huánuco,2021,Tierras agrícolas no trabajadas,207586
+Huánuco,2021,Tierras en descanso,52735
+Huánuco,2022,Total superficie agrícola,681812
+Huánuco,2022,Agrícola con cultivos,292974
+Huánuco,2022,Tierras en barbecho,72519
+Huánuco,2022,Tierras agrícolas no trabajadas,185264
+Huánuco,2022,Tierras en descanso,131055
+Ica,2021,Total superficie agrícola,147466
+Ica,2021,Agrícola con cultivos,94952
+Ica,2021,Tierras en barbecho,16076
+Ica,2021,Tierras agrícolas no trabajadas,36303
+Ica,2021,Tierras en descanso,135
+Ica,2022,Total superficie agrícola,148957
+Ica,2022,Agrícola con cultivos,91032
+Ica,2022,Tierras en barbecho,18498
+Ica,2022,Tierras agrícolas no trabajadas,39402
+Ica,2022,Tierras en descanso,25
+Junín,2021,Total superficie agrícola,351142
+Junín,2021,Agrícola con cultivos,234057
+Junín,2021,Tierras en barbecho,76091
+Junín,2021,Tierras agrícolas no trabajadas,33889
+Junín,2021,Tierras en descanso,7105
+Junín,2022,Total superficie agrícola,324532
+Junín,2022,Agrícola con cultivos,217915
+Junín,2022,Tierras en barbecho,64524
+Junín,2022,Tierras agrícolas no trabajadas,35579
+Junín,2022,Tierras en descanso,6514
+La Libertad,2021,Total superficie agrícola,494151
+La Libertad,2021,Agrícola con cultivos,258817
+La Libertad,2021,Tierras en barbecho,115450
+La Libertad,2021,Tierras agrícolas no trabajadas,81757
+La Libertad,2021,Tierras en descanso,38129
+La Libertad,2022,Total superficie agrícola,497726
+La Libertad,2022,Agrícola con cultivos,264034
+La Libertad,2022,Tierras en barbecho,113759
+La Libertad,2022,Tierras agrícolas no trabajadas,90040
+La Libertad,2022,Tierras en descanso,29893
+Lambayeque,2021,Total superficie agrícola,301849
+Lambayeque,2021,Agrícola con cultivos,144851
+Lambayeque,2021,Tierras en barbecho,70391
+Lambayeque,2021,Tierras agrícolas no trabajadas,85280
+Lambayeque,2021,Tierras en descanso,1327
+Lambayeque,2022,Total superficie agrícola,239971
+Lambayeque,2022,Agrícola con cultivos,150716
+Lambayeque,2022,Tierras en barbecho,46910
+Lambayeque,2022,Tierras agrícolas no trabajadas,42278
+Lambayeque,2022,Tierras en descanso,67
+Lima,2021,Total superficie agrícola,187272
+Lima,2021,Agrícola con cultivos,144472
+Lima,2021,Tierras en barbecho,13073
+Lima,2021,Tierras agrícolas no trabajadas,28564
+Lima,2021,Tierras en descanso,1162
+Lima,2022,Total superficie agrícola,157948
+Lima,2022,Agrícola con cultivos,124067
+Lima,2022,Tierras en barbecho,12829
+Lima,2022,Tierras agrícolas no trabajadas,15816
+Lima,2022,Tierras en descanso,5236
+Loreto,2021,Total superficie agrícola,415228
+Loreto,2021,Agrícola con cultivos,180323
+Loreto,2021,Tierras en barbecho,36237
+Loreto,2021,Tierras agrícolas no trabajadas,198668
+Loreto,2021,Tierras en descanso,0
+Loreto,2022,Total superficie agrícola,292426
+Loreto,2022,Agrícola con cultivos,149837
+Loreto,2022,Tierras en barbecho,30532
+Loreto,2022,Tierras agrícolas no trabajadas,112057
+Loreto,2022,Tierras en descanso,0
+Madre de Dios,2021,Total superficie agrícola,192947
+Madre de Dios,2021,Agrícola con cultivos,101666
+Madre de Dios,2021,Tierras en barbecho,13093
+Madre de Dios,2021,Tierras agrícolas no trabajadas,78189
+Madre de Dios,2021,Tierras en descanso,0
+Madre de Dios,2022,Total superficie agrícola,180111
+Madre de Dios,2022,Agrícola con cultivos,104818
+Madre de Dios,2022,Tierras en barbecho,6337
+Madre de Dios,2022,Tierras agrícolas no trabajadas,68956
+Madre de Dios,2022,Tierras en descanso,0
+Moquegua,2021,Total superficie agrícola,24843
+Moquegua,2021,Agrícola con cultivos,11557
+Moquegua,2021,Tierras en barbecho,2607
+Moquegua,2021,Tierras agrícolas no trabajadas,9434
+Moquegua,2021,Tierras en descanso,1245
+Moquegua,2022,Total superficie agrícola,23148
+Moquegua,2022,Agrícola con cultivos,10439
+Moquegua,2022,Tierras en barbecho,2016
+Moquegua,2022,Tierras agrícolas no trabajadas,8758
+Moquegua,2022,Tierras en descanso,1936
+Pasco,2021,Total superficie agrícola,181822
+Pasco,2021,Agrícola con cultivos,121184
+Pasco,2021,Tierras en barbecho,12554
+Pasco,2021,Tierras agrícolas no trabajadas,22889
+Pasco,2021,Tierras en descanso,25195
+Pasco,2022,Total superficie agrícola,209909
+Pasco,2022,Agrícola con cultivos,145820
+Pasco,2022,Tierras en barbecho,16888
+Pasco,2022,Tierras agrícolas no trabajadas,24364
+Pasco,2022,Tierras en descanso,22836
+Piura,2021,Total superficie agrícola,373659
+Piura,2021,Agrícola con cultivos,223434
+Piura,2021,Tierras en barbecho,60653
+Piura,2021,Tierras agrícolas no trabajadas,87751
+Piura,2021,Tierras en descanso,1821
+Piura,2022,Total superficie agrícola,342730
+Piura,2022,Agrícola con cultivos,184487
+Piura,2022,Tierras en barbecho,64276
+Piura,2022,Tierras agrícolas no trabajadas,90124
+Piura,2022,Tierras en descanso,3843
+Puno,2021,Total superficie agrícola,416271
+Puno,2021,Agrícola con cultivos,92804
+Puno,2021,Tierras en barbecho,185878
+Puno,2021,Tierras agrícolas no trabajadas,67080
+Puno,2021,Tierras en descanso,70509
+Puno,2022,Total superficie agrícola,294367
+Puno,2022,Agrícola con cultivos,49511
+Puno,2022,Tierras en barbecho,128500
+Puno,2022,Tierras agrícolas no trabajadas,46839
+Puno,2022,Tierras en descanso,69517
+San Martín,2021,Total superficie agrícola,927688
+San Martín,2021,Agrícola con cultivos,561009
+San Martín,2021,Tierras en barbecho,47906
+San Martín,2021,Tierras agrícolas no trabajadas,318774
+San Martín,2021,Tierras en descanso,0
+San Martín,2022,Total superficie agrícola,805384
+San Martín,2022,Agrícola con cultivos,534383
+San Martín,2022,Tierras en barbecho,60846
+San Martín,2022,Tierras agrícolas no trabajadas,210156
+San Martín,2022,Tierras en descanso,0
+Tacna,2021,Total superficie agrícola,70189
+Tacna,2021,Agrícola con cultivos,38172
+Tacna,2021,Tierras en barbecho,4238
+Tacna,2021,Tierras agrícolas no trabajadas,25696
+Tacna,2021,Tierras en descanso,2083
+Tacna,2022,Total superficie agrícola,68954
+Tacna,2022,Agrícola con cultivos,37966
+Tacna,2022,Tierras en barbecho,7467
+Tacna,2022,Tierras agrícolas no trabajadas,20745
+Tacna,2022,Tierras en descanso,2776
+Tumbes,2021,Total superficie agrícola,23818
+Tumbes,2021,Agrícola con cultivos,17005
+Tumbes,2021,Tierras en barbecho,3981
+Tumbes,2021,Tierras agrícolas no trabajadas,2832
+Tumbes,2021,Tierras en descanso,0
+Tumbes,2022,Total superficie agrícola,23047
+Tumbes,2022,Agrícola con cultivos,17849
+Tumbes,2022,Tierras en barbecho,1637
+Tumbes,2022,Tierras agrícolas no trabajadas,3560
+Tumbes,2022,Tierras en descanso,0
+Ucayali,2021,Total superficie agrícola,332902
+Ucayali,2021,Agrícola con cultivos,181432
+Ucayali,2021,Tierras en barbecho,18167
+Ucayali,2021,Tierras agrícolas no trabajadas,133303
+Ucayali,2021,Tierras en descanso,0
+Ucayali,2022,Total superficie agrícola,287686
+Ucayali,2022,Agrícola con cultivos,161948
+Ucayali,2022,Tierras en barbecho,24619
+Ucayali,2022,Tierras agrícolas no trabajadas,101119
+Ucayali,2022,Tierras en descanso,0

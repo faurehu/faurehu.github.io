@@ -1,0 +1,207 @@
+{
+  "categories": [
+    {
+        "name": "Gobierno",
+        "variable": "gobierno",
+        "items": [
+            {
+                "name": "Gobiernos locales",
+                "title": "Evolución de provincias y distritos",
+                "type": "choropleth",
+                "datafile": "mapa_politico.csv",
+                "source": "Instituto Nacional de Estadística e Informática (INEI) - Dirección Nacional de Censos y Encuestas.",
+                "params": {
+                    "value": "valor",
+                    "by": ["año","unidad"],
+                    "total": true
+                }
+            }
+        ]
+    },
+    {
+      "name": "Medio Ambiente",
+      "variable": "medio_ambiente",
+      "items": [
+        {
+          "name": "Temperatura promedio",
+          "type": "choropleth",
+          "title": "Temperatura promedio anual (Grados Celsius)",
+          "datafile": "temperatura_promedio.csv",
+          "source": "Servicio Nacional de Meteorología e Hidrología (SENAMHI)",
+          "params": {
+            "value": "temperatura_promedio",
+            "by": ["año"]
+          }
+        },
+        {
+          "name": "Temperatura máxima",
+          "type": "choropleth",
+          "title": "Temperatura máxima promedio anual (Grados Celsius)",
+          "datafile": "temperatura_maxima.csv",
+          "source": "Servicio Nacional de Meteorología e Hidrología (SENAMHI)",
+          "params": {
+            "value": "temperatura_maxima_promedio",
+            "by": ["año"]
+          }
+        },
+        {
+          "name": "Precipitación total",
+          "type": "choropleth",
+          "title": "Precipitación total anual (Milílitros)",
+          "datafile": "precipitacion_total.csv",
+          "source": "Servicio Nacional de Meteorología e Hidrología (SENAMHI)",
+          "params": {
+            "value": "precipitacion_total_anual",
+            "by": ["año"],
+            "total": true
+          }
+        },
+        {
+          "name": "Superficie agropecuaria",
+          "type": "choropleth",
+          "title": "Superficie agropecuaria por usos de tierra (Hectáreas)",
+          "datafile": "superficie_agropecuaria.csv",
+          "source": "Instituto Nacional de Estadística e Informática (INEI) - Encuesta Nacional Agraria (ENA) 2021-2022",
+          "params": {
+            "value": "hectareas",
+            "by": ["año", "superficie"],
+            "total": true
+          }
+        },
+        {
+          "name": "Superficie agrícola",
+          "type": "choropleth",
+          "title": "Superficie agrícola por usos de tierra (Hectáreas)",
+          "datafile": "superficie_agricola.csv",
+          "source": "Instituto Nacional de Estadística e Informática (INEI) - Encuesta Nacional Agraria (ENA) 2021-2022",
+          "params": {
+            "value": "hectareas",
+            "by": ["año", "tipo_superficie"],
+            "total": true
+          }
+        },
+        {
+          "name": "Municipalidades con contaminación",
+          "type": "choropleth",
+          "title": "Municipalidades que informaron que existen elementos que originan contaminación ambiental",
+          "datafile": "municipalidades_contaminacion.csv",
+          "source": "Instituto Nacional de Estadística e Informática (INEI) - Registro Nacional de Municipalidades 2021-2023",
+          "params": {
+            "value": "municipalidades",
+            "by": ["año", "tipo"],
+            "with_lima": true,
+            "total": true
+          }
+        },
+        {
+          "name": "Emergencias por eventos de naturaleza",
+          "type": "choropleth",
+          "title": "Emergencias ocasionadas por eventos naturales y antrópicos",
+          "datafile": "emergencias_naturales.csv",
+          "source": "Instituto Nacional de Defensa Civil (INDECI)",
+          "params": {
+            "value": "emergencias",
+            "by": ["año"],
+            "total": true
+          }
+        }
+      ]
+    }, {
+      "name": "Energía",
+      "variable": "energia",
+      "items": [
+        {
+          "name": "Consumo final de energía",
+          "type": "stacked_area",
+          "title": "Consumo final de energía, según tipo de fuente (Terajoule)",
+          "datafile": "fuente_energia.csv",
+          "source": "Ministerio de Energía y Minas (MINEM) - Dirección General de Eficiencia Energética (DGEE)",
+          "params": {
+            "value": "valor",
+            "x": "año",
+            "area": ["tipo_de_fuente", "nivel"]
+          }
+        },
+        {
+          "name": "Importación de energía",
+          "type": "stacked_area",
+          "title": "Importación de energía neta (Terajoule)",
+          "datafile": "importacion_energia.csv",
+          "source": "Ministerio de Energía y Minas (MINEM) - Dirección General de Eficiencia Energética",
+          "params": {
+            "value": "importacion_energia_neta",
+            "x": "año",
+            "area": false
+          }
+        },
+        {
+          "name": "Producción de energía eléctrica",
+          "type": "stacked_area",
+          "title": "Producción de energía eléctrica (Terajoule)",
+          "datafile": "produccion_electrica.csv",
+          "source": "Ministerio de Energía y Minas (MINEM) - Dirección General de Eficiencia Energética",
+          "params": {
+            "value": "produccion",
+            "x": "año",
+            "area": false
+          }
+        },
+        {
+          "name": "Producción de energía hidroeléctrica",
+          "type": "stacked_area",
+          "title": "Producción de energía hidroeléctrica (Terajoule)",
+          "datafile": "produccion_hidroelectrica.csv",
+          "source": "Ministerio de Energía y Minas (MINEM) - Dirección General de Eficiencia Energética",
+          "params": {
+            "value": "produccion",
+            "x": "año",
+            "area": false
+          }
+        },
+        {
+          "name": "Consumo de energía eléctrica",
+          "type": "stacked_area",
+          "title": "Consumo de energía eléctrica (Terajoule / mil hab.)",
+          "datafile": "consumo_electrica_habitantes.csv",
+          "source": "Ministerio de Energía y Minas (MINEM) - Dirección General de Eficiencia Energética",
+          "params": {
+            "value": "consumo_por_mil_hab",
+            "x": "año",
+            "area": false
+          }
+        },
+        {
+          "name": "Consumo de energía total",
+          "type": "stacked_area",
+          "title": "Consumo de energía total (Terajoule / mil hab.)",
+          "datafile": "consumo_energia_total_habitantes.csv",
+          "source": "Ministerio de Energía y Minas (MINEM) - Dirección General de Eficiencia Energética",
+          "params": {
+            "value": "consumo_por_mil_hab",
+            "x": "año",
+            "area": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Vivienda",
+      "variable": "vivienda",
+      "items": [
+          {
+              "name": "Barrios marginales",
+              "title": "Población urbana que vive en barrios marginales (%)",
+              "type": "choropleth",
+              "datafile": "barrios_marginales.csv",
+              "source": "Instituto Nacional de Estadística e Informática (INEI) - Encuesta Nacional de Hogares (ENAHO)",
+              "params": {
+                "value": "porcentaje",
+                "by": ["año"],
+                "with_lima": true,
+                "total": true
+              }
+          }
+      ]
+  }
+  ]
+} 

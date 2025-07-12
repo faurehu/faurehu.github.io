@@ -1,0 +1,441 @@
+departamento,año,unidad,valor
+Arequipa,1940,provincias,8
+Arequipa,1940,distritos,84
+Arequipa,1961,provincias,8
+Arequipa,1961,distritos,101
+Arequipa,1972,provincias,8
+Arequipa,1972,distritos,105
+Arequipa,1981,provincias,8
+Arequipa,1981,distritos,105
+Arequipa,1993,provincias,8
+Arequipa,1993,distritos,107
+Arequipa,2005,provincias,8
+Arequipa,2005,distritos,109
+Arequipa,2007,provincias,8
+Arequipa,2007,distritos,109
+Arequipa,2017,provincias,8
+Arequipa,2017,distritos,109
+Ayacucho,1940,provincias,7
+Ayacucho,1940,distritos,68
+Ayacucho,1961,provincias,7
+Ayacucho,1961,distritos,86
+Ayacucho,1972,provincias,7
+Ayacucho,1972,distritos,102
+Ayacucho,1981,provincias,7
+Ayacucho,1981,distritos,102
+Ayacucho,1993,provincias,11
+Ayacucho,1993,distritos,109
+Ayacucho,2005,provincias,11
+Ayacucho,2005,distritos,111
+Ayacucho,2007,provincias,11
+Ayacucho,2007,distritos,111
+Ayacucho,2017,provincias,11
+Ayacucho,2017,distritos,119
+Cajamarca,1940,provincias,8
+Cajamarca,1940,distritos,73
+Cajamarca,1961,provincias,9
+Cajamarca,1961,distritos,98
+Cajamarca,1972,provincias,11
+Cajamarca,1972,distritos,110
+Cajamarca,1981,provincias,11
+Cajamarca,1981,distritos,109
+Cajamarca,1993,provincias,13
+Cajamarca,1993,distritos,125
+Cajamarca,2005,provincias,13
+Cajamarca,2005,distritos,127
+Cajamarca,2007,provincias,13
+Cajamarca,2007,distritos,127
+Cajamarca,2017,provincias,13
+Cajamarca,2017,distritos,127
+Callao,1940,provincias,1
+Callao,1940,distritos,3
+Callao,1961,provincias,1
+Callao,1961,distritos,3
+Callao,1972,provincias,1
+Callao,1972,distritos,6
+Callao,1981,provincias,1
+Callao,1981,distritos,6
+Callao,1993,provincias,1
+Callao,1993,distritos,6
+Callao,2005,provincias,1
+Callao,2005,distritos,6
+Callao,2007,provincias,1
+Callao,2007,distritos,6
+Callao,2017,provincias,1
+Callao,2017,distritos,7
+Cusco,1940,provincias,13
+Cusco,1940,distritos,71
+Cusco,1961,provincias,13
+Cusco,1961,distritos,92
+Cusco,1972,provincias,13
+Cusco,1972,distritos,101
+Cusco,1981,provincias,13
+Cusco,1981,distritos,101
+Cusco,1993,provincias,13
+Cusco,1993,distritos,106
+Cusco,2005,provincias,13
+Cusco,2005,distritos,108
+Cusco,2007,provincias,13
+Cusco,2007,distritos,108
+Cusco,2017,provincias,13
+Cusco,2017,distritos,112
+Huancavelica,1940,provincias,4
+Huancavelica,1940,distritos,43
+Huancavelica,1961,provincias,5
+Huancavelica,1961,distritos,81
+Huancavelica,1972,provincias,5
+Huancavelica,1972,distritos,90
+Huancavelica,1981,provincias,5
+Huancavelica,1981,distritos,90
+Huancavelica,1993,provincias,7
+Huancavelica,1993,distritos,93
+Huancavelica,2005,provincias,7
+Huancavelica,2005,distritos,94
+Huancavelica,2007,provincias,7
+Huancavelica,2007,distritos,94
+Huancavelica,2017,provincias,7
+Huancavelica,2017,distritos,100
+Huánuco,1940,provincias,6
+Huánuco,1940,distritos,42
+Huánuco,1961,provincias,7
+Huánuco,1961,distritos,66
+Huánuco,1972,provincias,7
+Huánuco,1972,distritos,68
+Huánuco,1981,provincias,7
+Huánuco,1981,distritos,68
+Huánuco,1993,provincias,9
+Huánuco,1993,distritos,74
+Huánuco,2005,provincias,11
+Huánuco,2005,distritos,76
+Huánuco,2007,provincias,11
+Huánuco,2007,distritos,76
+Huánuco,2017,provincias,11
+Huánuco,2017,distritos,84
+Ica,1940,provincias,3
+Ica,1940,distritos,20
+Ica,1961,provincias,4
+Ica,1961,distritos,32
+Ica,1972,provincias,5
+Ica,1972,distritos,39
+Ica,1981,provincias,5
+Ica,1981,distritos,39
+Ica,1993,provincias,5
+Ica,1993,distritos,43
+Ica,2005,provincias,5
+Ica,2005,distritos,43
+Ica,2007,provincias,5
+Ica,2007,distritos,43
+Ica,2017,provincias,5
+Ica,2017,distritos,43
+Junín,1940,provincias,5
+Junín,1940,distritos,72
+Junín,1961,provincias,6
+Junín,1961,distritos,103
+Junín,1972,provincias,7
+Junín,1972,distritos,120
+Junín,1981,provincias,8
+Junín,1981,distritos,122
+Junín,1993,provincias,8
+Junín,1993,distritos,123
+Junín,2005,provincias,9
+Junín,2005,distritos,123
+Junín,2007,provincias,9
+Junín,2007,distritos,123
+Junín,2017,provincias,9
+Junín,2017,distritos,124
+La Libertad,1940,provincias,7
+La Libertad,1940,distritos,55
+La Libertad,1961,provincias,7
+La Libertad,1961,distritos,66
+La Libertad,1972,provincias,7
+La Libertad,1972,distritos,72
+La Libertad,1981,provincias,7
+La Libertad,1981,distritos,72
+La Libertad,1993,provincias,10
+La Libertad,1993,distritos,80
+La Libertad,2005,provincias,12
+La Libertad,2005,distritos,83
+La Libertad,2007,provincias,12
+La Libertad,2007,distritos,83
+La Libertad,2017,provincias,12
+La Libertad,2017,distritos,83
+Lambayeque,1940,provincias,2
+Lambayeque,1940,distritos,25
+Lambayeque,1961,provincias,3
+Lambayeque,1961,distritos,31
+Lambayeque,1972,provincias,3
+Lambayeque,1972,distritos,32
+Lambayeque,1981,provincias,3
+Lambayeque,1981,distritos,32
+Lambayeque,1993,provincias,3
+Lambayeque,1993,distritos,33
+Lambayeque,2005,provincias,3
+Lambayeque,2005,distritos,38
+Lambayeque,2007,provincias,3
+Lambayeque,2007,distritos,38
+Lambayeque,2017,provincias,3
+Lambayeque,2017,distritos,38
+Lima,1940,provincias,7
+Lima,1940,distritos,101
+Lima,1961,provincias,7
+Lima,1961,distritos,141
+Lima,1972,provincias,7
+Lima,1972,distritos,165
+Lima,1981,provincias,8
+Lima,1981,distritos,166
+Lima,1993,provincias,10
+Lima,1993,distritos,171
+Lima,2005,provincias,10
+Lima,2005,distritos,171
+Lima,2007,provincias,10
+Lima,2007,distritos,171
+Lima,2017,provincias,10
+Lima,2017,distritos,171
+Loreto,1940,provincias,3
+Loreto,1940,distritos,22
+Loreto,1961,provincias,6
+Loreto,1961,distritos,46
+Loreto,1972,provincias,6
+Loreto,1972,distritos,52
+Loreto,1981,provincias,5
+Loreto,1981,distritos,37
+Loreto,1993,provincias,6
+Loreto,1993,distritos,45
+Loreto,2005,provincias,7
+Loreto,2005,distritos,51
+Loreto,2007,provincias,7
+Loreto,2007,distritos,51
+Loreto,2017,provincias,8
+Loreto,2017,distritos,53
+Madre de Dios,1940,provincias,3
+Madre de Dios,1940,distritos,8
+Madre de Dios,1961,provincias,3
+Madre de Dios,1961,distritos,8
+Madre de Dios,1972,provincias,3
+Madre de Dios,1972,distritos,9
+Madre de Dios,1981,provincias,3
+Madre de Dios,1981,distritos,9
+Madre de Dios,1993,provincias,3
+Madre de Dios,1993,distritos,9
+Madre de Dios,2005,provincias,3
+Madre de Dios,2005,distritos,11
+Madre de Dios,2007,provincias,3
+Madre de Dios,2007,distritos,11
+Madre de Dios,2017,provincias,3
+Madre de Dios,2017,distritos,11
+Moquegua,1940,provincias,2
+Moquegua,1940,distritos,9
+Moquegua,1961,provincias,2
+Moquegua,1961,distritos,16
+Moquegua,1972,provincias,3
+Moquegua,1972,distritos,19
+Moquegua,1981,provincias,3
+Moquegua,1981,distritos,20
+Moquegua,1993,provincias,3
+Moquegua,1993,distritos,20
+Moquegua,2005,provincias,3
+Moquegua,2005,distritos,20
+Moquegua,2007,provincias,3
+Moquegua,2007,distritos,20
+Moquegua,2017,provincias,3
+Moquegua,2017,distritos,20
+Pasco,1961,provincias,3
+Pasco,1961,distritos,25
+Pasco,1972,provincias,3
+Pasco,1972,distritos,27
+Pasco,1981,provincias,3
+Pasco,1981,distritos,27
+Pasco,1993,provincias,3
+Pasco,1993,distritos,28
+Pasco,2005,provincias,3
+Pasco,2005,distritos,28
+Pasco,2007,provincias,3
+Pasco,2007,distritos,28
+Pasco,2017,provincias,3
+Pasco,2017,distritos,29
+Piura,1940,provincias,6
+Piura,1940,distritos,39
+Piura,1961,provincias,7
+Piura,1961,distritos,49
+Piura,1972,provincias,7
+Piura,1972,distritos,61
+Piura,1981,provincias,7
+Piura,1981,distritos,61
+Piura,1993,provincias,7
+Piura,1993,distritos,64
+Piura,2005,provincias,8
+Piura,2005,distritos,64
+Piura,2007,provincias,8
+Piura,2007,distritos,64
+Piura,2017,provincias,8
+Piura,2017,distritos,65
+Puno,1940,provincias,9
+Puno,1940,distritos,83
+Puno,1961,provincias,9
+Puno,1961,distritos,89
+Puno,1972,provincias,9
+Puno,1972,distritos,95
+Puno,1981,provincias,9
+Puno,1981,distritos,95
+Puno,1993,provincias,13
+Puno,1993,distritos,106
+Puno,2005,provincias,13
+Puno,2005,distritos,109
+Puno,2007,provincias,13
+Puno,2007,distritos,109
+Puno,2017,provincias,13
+Puno,2017,distritos,110
+San Martín,1940,provincias,6
+San Martín,1940,distritos,35
+San Martín,1961,provincias,6
+San Martín,1961,distritos,53
+San Martín,1972,provincias,6
+San Martín,1972,distritos,69
+San Martín,1981,provincias,6
+San Martín,1981,distritos,69
+San Martín,1993,provincias,10
+San Martín,1993,distritos,77
+San Martín,2005,provincias,10
+San Martín,2005,distritos,77
+San Martín,2007,provincias,10
+San Martín,2007,distritos,77
+San Martín,2017,provincias,10
+San Martín,2017,distritos,77
+Tacna,1940,provincias,2
+Tacna,1940,distritos,12
+Tacna,1961,provincias,2
+Tacna,1961,distritos,22
+Tacna,1972,provincias,2
+Tacna,1972,distritos,23
+Tacna,1981,provincias,2
+Tacna,1981,distritos,23
+Tacna,1993,provincias,4
+Tacna,1993,distritos,26
+Tacna,2005,provincias,4
+Tacna,2005,distritos,27
+Tacna,2007,provincias,4
+Tacna,2007,distritos,27
+Tacna,2017,provincias,4
+Tacna,2017,distritos,28
+Tumbes,1940,provincias,1
+Tumbes,1940,distritos,5
+Tumbes,1961,provincias,3
+Tumbes,1961,distritos,9
+Tumbes,1972,provincias,3
+Tumbes,1972,distritos,11
+Tumbes,1981,provincias,3
+Tumbes,1981,distritos,11
+Tumbes,1993,provincias,3
+Tumbes,1993,distritos,12
+Tumbes,2005,provincias,3
+Tumbes,2005,distritos,12
+Tumbes,2007,provincias,3
+Tumbes,2007,distritos,13
+Tumbes,2017,provincias,3
+Tumbes,2017,distritos,13
+Ucayali,1981,provincias,2
+Ucayali,1981,distritos,15
+Ucayali,1993,provincias,4
+Ucayali,1993,distritos,12
+Ucayali,2005,provincias,4
+Ucayali,2005,distritos,14
+Ucayali,2007,provincias,4
+Ucayali,2007,distritos,15
+Ucayali,2017,provincias,4
+Ucayali,2017,distritos,17
+Áncash,1940,provincias,10
+Áncash,1940,distritos,102
+Áncash,1961,provincias,15
+Áncash,1961,distritos,142
+Áncash,1972,provincias,16
+Áncash,1972,distritos,154
+Áncash,1981,provincias,16
+Áncash,1981,distritos,154
+Áncash,1993,provincias,20
+Áncash,1993,distritos,165
+Áncash,2005,provincias,20
+Áncash,2005,distritos,166
+Áncash,2007,provincias,20
+Áncash,2007,distritos,166
+Áncash,2017,provincias,20
+Áncash,2017,distritos,166
+Amazonas,1940,provincias,4
+Amazonas,1940,distritos,56
+Amazonas,1961,provincias,5
+Amazonas,1961,distritos,74
+Amazonas,1972,provincias,5
+Amazonas,1972,distritos,77
+Amazonas,1981,provincias,5
+Amazonas,1981,distritos,78
+Amazonas,1993,provincias,7
+Amazonas,1993,distritos,83
+Amazonas,2005,provincias,7
+Amazonas,2005,distritos,83
+Amazonas,2007,provincias,7
+Amazonas,2007,distritos,84
+Amazonas,2017,provincias,7
+Amazonas,2017,distritos,84
+San Martín,1940,provincias,6
+San Martín,1940,distritos,35
+San Martín,1961,provincias,6
+San Martín,1961,distritos,53
+San Martín,1972,provincias,6
+San Martín,1972,distritos,69
+San Martín,1981,provincias,6
+San Martín,1981,distritos,69
+San Martín,1993,provincias,10
+San Martín,1993,distritos,77
+San Martín,2005,provincias,10
+San Martín,2005,distritos,77
+San Martín,2007,provincias,10
+San Martín,2007,distritos,77
+San Martín,2017,provincias,10
+San Martín,2017,distritos,77
+Huánuco,1940,provincias,6
+Huánuco,1940,distritos,42
+Huánuco,1961,provincias,7
+Huánuco,1961,distritos,66
+Huánuco,1972,provincias,7
+Huánuco,1972,distritos,68
+Huánuco,1981,provincias,7
+Huánuco,1981,distritos,68
+Huánuco,1993,provincias,9
+Huánuco,1993,distritos,74
+Huánuco,2005,provincias,11
+Huánuco,2005,distritos,76
+Huánuco,2007,provincias,11
+Huánuco,2007,distritos,76
+Huánuco,2017,provincias,11
+Huánuco,2017,distritos,84
+Junín,1940,provincias,5
+Junín,1940,distritos,72
+Junín,1961,provincias,6
+Junín,1961,distritos,103
+Junín,1972,provincias,7
+Junín,1972,distritos,120
+Junín,1981,provincias,8
+Junín,1981,distritos,122
+Junín,1993,provincias,8
+Junín,1993,distritos,123
+Junín,2005,provincias,9
+Junín,2005,distritos,123
+Junín,2007,provincias,9
+Junín,2007,distritos,123
+Junín,2017,provincias,9
+Junín,2017,distritos,124
+Apurímac,1940,provincias,5
+Apurímac,1940,distritos,36
+Apurímac,1961,provincias,6
+Apurímac,1961,distritos,58
+Apurímac,1972,provincias,6
+Apurímac,1972,distritos,69
+Apurímac,1981,provincias,6
+Apurímac,1981,distritos,69
+Apurímac,1993,provincias,7
+Apurímac,1993,distritos,76
+Apurímac,2005,provincias,7
+Apurímac,2005,distritos,80
+Apurímac,2007,provincias,7
+Apurímac,2007,distritos,80
+Apurímac,2017,provincias,7
+Apurímac,2017,distritos,84

@@ -1,0 +1,55 @@
+---
+layout: default
+title: "Peru Data"
+---
+
+<div class="super_header">
+  <div>
+    <img class="profile" src="{{site.url}}/assets/images/profile.jpg">
+  </div>
+  <header class="header">
+    <div class="header-title">
+      <a href="{{ site.url }}{{ site.baseurl }}">{{ site.name }}</a>
+    </div>
+    <nav class="header-nav">
+      {% if page.url == "/index.html" %}
+        <a class="outlink" href="/es">español</a>
+      {% else %}
+        <a class="outlink" href="/">english</a>
+      {% endif %}
+      {% for nav in site.nav %}
+      {% if nav.url contains 'http://' or nav.url contains 'https://' %}
+      <a class="outlink" href="{{ nav.url }}">{{ nav.name }}</a>
+      {% else %}
+      <a class="outlink" href="{{ nav.url | prepend: site.baseurl }}">{{ nav.name }}</a>
+      {% endif %}
+      {% endfor %}
+    </nav>
+  </header>
+</div>
+
+<div class="content">
+  <!-- React Widget Container -->
+  <div id="peru-data-widget"></div>
+  
+  <!-- React and ReactDOM CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- D3 and TopoJSON for choropleth maps -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+  
+  <!-- Widget Scripts (organized structure) -->
+  <script type="text/babel" src="{{ site.baseurl }}/assets/js/peru-data-widget/data.js"></script>
+  <script type="text/babel" src="{{ site.baseurl }}/assets/js/peru-data-widget/dataLoader.js"></script>
+  <script type="text/babel" src="{{ site.baseurl }}/assets/js/peru-data-widget/utils.js"></script>
+  <script type="text/babel" src="{{ site.baseurl }}/assets/js/peru-data-widget/ChartOptions.jsx"></script>
+  <script type="text/babel" src="{{ site.baseurl }}/assets/js/peru-data-widget/ChoroplethMap.jsx"></script>
+  <script type="text/babel" src="{{ site.baseurl }}/assets/js/peru-data-widget/StackedAreaChart.jsx"></script>
+  <script type="text/babel" src="{{ site.baseurl }}/assets/js/peru-data-widget/PeruDataWidget.jsx"></script>
+  <script type="text/babel" src="{{ site.baseurl }}/assets/js/peru-data-widget/main.js"></script>
+</div>
+
+<img class="banner" src="{{ site.url }}/assets/images/banner.jpg"> 

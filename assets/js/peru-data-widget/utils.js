@@ -1,0 +1,108 @@
+// Peru Data Widget - Utilities
+// Common utility functions for the Peru data widget
+
+// Format numbers based on metric type
+const formatNumber = (num, metricType) => {
+  const formatters = {
+    population: (n) => n.toLocaleString(),
+    gdp: (n) => `$${n}B`,
+    inflation: (n) => `${n}%`,
+    exports: (n) => `$${n}B`,
+    imports: (n) => `$${n}B`,
+    unemployment: (n) => `${n}%`,
+    exchangeRate: (n) => `${n} PEN/USD`
+  };
+  
+  return formatters[metricType] ? formatters[metricType](num) : num.toString();
+};
+
+// Calculate percentage change between two values
+const calculatePercentageChange = (current, previous) => {
+  if (previous === 0) return 0;
+  return ((current - previous) / previous) * 100;
+};
+
+// Get trend indicator (up, down, or stable)
+const getTrendIndicator = (current, previous, threshold = 0.1) => {
+  const change = calculatePercentageChange(current, previous);
+  if (Math.abs(change) < threshold) return 'stable';
+  return change > 0 ? 'up' : 'down';
+};
+
+// Generate trend color based on metric and direction
+const getTrendColor = (metric, trend) => {
+  const colorMap = {
+    population: { up: '#28a745', down: '#dc3545', stable: '#6c757d' },
+    gdp: { up: '#28a745', down: '#dc3545', stable: '#6c757d' },
+    inflation: { up: '#dc3545', down: '#28a745', stable: '#6c757d' },
+    exports: { up: '#28a745', down: '#dc3545', stable: '#6c757d' },
+    imports: { up: '#dc3545', down: '#28a745', stable: '#6c757d' },
+    unemployment: { up: '#dc3545', down: '#28a745', stable: '#6c757d' },
+    exchangeRate: { up: '#dc3545', down: '#28a745', stable: '#6c757d' }
+  };
+  
+  return colorMap[metric]?.[trend] || '#6c757d';
+};
+
+// Get trend arrow symbol
+const getTrendArrow = (trend) => {
+  const arrows = {
+    up: '↗️',
+    down: '↘️',
+    stable: '→'
+  };
+  return arrows[trend] || '→';
+};
+
+// Validate data structure
+const validateData = (data) => {
+  if (!Array.isArray(data)) return false;
+  
+  const requiredFields = ['year', 'population', 'gdp'];
+  return data.every(item => 
+    requiredFields.every(field => 
+      item.hasOwnProperty(field) && item[field] !== null && item[field] !== undefined
+    )
+  );
+};
+
+// Sort data by year
+const sortDataByYear = (data, ascending = true) => {
+  return [...data].sort((a, b) => {
+    return ascending ? a.year - b.year : b.year - a.year;
+  });
+};
+
+// Get latest data point
+const getLatestData = (data) => {
+  const sorted = sortDataByYear(data, false);
+  return sorted[0] || null;
+};
+
+// Get data for specific year
+const getDataForYear = (data, year) => {
+  return data.find(item => item.year === year) || null;
+};
+
+// Calculate average for a metric
+const calculateAverage = (data, metric) => {
+  const values = data.map(item => item[metric]).filter(val => !isNaN(val));
+  if (values.length === 0) return 0;
+  return values.reduce((sum, val) => sum + val, 0) / values.length;
+};
+
+// Export for use in other files
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    formatNumber,
+    calculatePercentageChange,
+    getTrendIndicator,
+    getTrendColor,
+    getTrendArrow,
+    validateData,
+    sortDataByYear,
+    getLatestData,
+    getDataForYear,
+    calculateAverage
+  };
+} 

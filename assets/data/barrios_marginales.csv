@@ -1,0 +1,271 @@
+departamento,año,porcentaje
+Total,2014,47.1
+Total,2015,46.6
+Total,2016,45.9
+Total,2017,45.5
+Total,2018,44.2
+Total,2019,42.1
+Total,2020,43.7
+Total,2021,44.9
+Total,2022,45.1
+Total,2023,44.6
+Amazonas,2014,80.5
+Amazonas,2015,78.6
+Amazonas,2016,78.6
+Amazonas,2017,72
+Amazonas,2018,77.4
+Amazonas,2019,75.3
+Amazonas,2020,76.8
+Amazonas,2021,73.3
+Amazonas,2022,75.6
+Amazonas,2023,65.3
+Áncash,2014,52
+Áncash,2015,55.5
+Áncash,2016,50.7
+Áncash,2017,54.8
+Áncash,2018,48.9
+Áncash,2019,46.5
+Áncash,2020,49.5
+Áncash,2021,56.7
+Áncash,2022,53.7
+Áncash,2023,51.6
+Apurímac,2014,77.4
+Apurímac,2015,71.5
+Apurímac,2016,74.7
+Apurímac,2017,72
+Apurímac,2018,70.7
+Apurímac,2019,63.8
+Apurímac,2020,64.6
+Apurímac,2021,64.3
+Apurímac,2022,64.3
+Apurímac,2023,63
+Arequipa,2014,26
+Arequipa,2015,26.5
+Arequipa,2016,26.7
+Arequipa,2017,21.2
+Arequipa,2018,21.9
+Arequipa,2019,18.6
+Arequipa,2020,22.4
+Arequipa,2021,24.8
+Arequipa,2022,25.8
+Arequipa,2023,29.2
+Ayacucho,2014,71.1
+Ayacucho,2015,73.6
+Ayacucho,2016,70.6
+Ayacucho,2017,70
+Ayacucho,2018,67.6
+Ayacucho,2019,66.2
+Ayacucho,2020,66.9
+Ayacucho,2021,66.9
+Ayacucho,2022,75
+Ayacucho,2023,65.1
+Cajamarca,2014,64.3
+Cajamarca,2015,61.1
+Cajamarca,2016,61.9
+Cajamarca,2017,59.3
+Cajamarca,2018,59.7
+Cajamarca,2019,51.3
+Cajamarca,2020,56.2
+Cajamarca,2021,56.6
+Cajamarca,2022,56.4
+Cajamarca,2023,51.1
+Callao,2014,40.6
+Callao,2015,39.6
+Callao,2016,36.6
+Callao,2017,37.1
+Callao,2018,36.1
+Callao,2019,29.4
+Callao,2020,33.5
+Callao,2021,35.7
+Callao,2022,36.4
+Callao,2023,35.2
+Cusco,2014,74.9
+Cusco,2015,71.6
+Cusco,2016,76
+Cusco,2017,75.7
+Cusco,2018,69.8
+Cusco,2019,64.9
+Cusco,2020,71.6
+Cusco,2021,69.1
+Cusco,2022,66.7
+Cusco,2023,67.8
+Huancavelica,2014,80.2
+Huancavelica,2015,75.6
+Huancavelica,2016,74.8
+Huancavelica,2017,67
+Huancavelica,2018,77.2
+Huancavelica,2019,74.4
+Huancavelica,2020,73.8
+Huancavelica,2021,75.3
+Huancavelica,2022,74.4
+Huancavelica,2023,74.8
+Huánuco,2014,60.7
+Huánuco,2015,59.3
+Huánuco,2016,59.9
+Huánuco,2017,65.2
+Huánuco,2018,61.4
+Huánuco,2019,60.4
+Huánuco,2020,61.9
+Huánuco,2021,67.8
+Huánuco,2022,66.3
+Huánuco,2023,64.5
+Ica,2014,48.1
+Ica,2015,46.4
+Ica,2016,43.3
+Ica,2017,41.9
+Ica,2018,43.6
+Ica,2019,42.4
+Ica,2020,43.2
+Ica,2021,49.9
+Ica,2022,49.3
+Ica,2023,47.1
+Junín,2014,56.8
+Junín,2015,55.9
+Junín,2016,56.3
+Junín,2017,58.4
+Junín,2018,61
+Junín,2019,53.6
+Junín,2020,54.8
+Junín,2021,51.2
+Junín,2022,54
+Junín,2023,49.4
+La Libertad,2014,58.3
+La Libertad,2015,60
+La Libertad,2016,57.3
+La Libertad,2017,55.3
+La Libertad,2018,58.5
+La Libertad,2019,51.3
+La Libertad,2020,52.9
+La Libertad,2021,53.3
+La Libertad,2022,54.3
+La Libertad,2023,54.7
+Lambayeque,2014,54.7
+Lambayeque,2015,53.9
+Lambayeque,2016,52.4
+Lambayeque,2017,54.6
+Lambayeque,2018,47.8
+Lambayeque,2019,46.4
+Lambayeque,2020,45.3
+Lambayeque,2021,43.2
+Lambayeque,2022,40.4
+Lambayeque,2023,39.4
+Lima Metropolitana,2014,29.3
+Lima Metropolitana,2015,28.4
+Lima Metropolitana,2016,27.6
+Lima Metropolitana,2017,29.3
+Lima Metropolitana,2018,27.5
+Lima Metropolitana,2019,26.9
+Lima Metropolitana,2020,27.4
+Lima Metropolitana,2021,29.1
+Lima Metropolitana,2022,28.7
+Lima Metropolitana,2023,28.2
+Lima,2014,68
+Lima,2015,61.3
+Lima,2016,62.4
+Lima,2017,61.5
+Lima,2018,59.6
+Lima,2019,62.2
+Lima,2020,57.7
+Lima,2021,59.3
+Lima,2022,61
+Lima,2023,61.6
+Loreto,2014,73.8
+Loreto,2015,73.8
+Loreto,2016,73.7
+Loreto,2017,71.8
+Loreto,2018,71.2
+Loreto,2019,69.1
+Loreto,2020,67.4
+Loreto,2021,77
+Loreto,2022,77.4
+Loreto,2023,76.4
+Madre de Dios,2014,69.7
+Madre de Dios,2015,74.7
+Madre de Dios,2016,71.4
+Madre de Dios,2017,69.9
+Madre de Dios,2018,69
+Madre de Dios,2019,73.3
+Madre de Dios,2020,72.6
+Madre de Dios,2021,61
+Madre de Dios,2022,63.7
+Madre de Dios,2023,66.3
+Moquegua,2014,31.8
+Moquegua,2015,42.5
+Moquegua,2016,44.4
+Moquegua,2017,40.6
+Moquegua,2018,34.7
+Moquegua,2019,33.3
+Moquegua,2020,37.7
+Moquegua,2021,45
+Moquegua,2022,36.4
+Moquegua,2023,40.7
+Pasco,2014,65.2
+Pasco,2015,68.6
+Pasco,2016,71.8
+Pasco,2017,65.4
+Pasco,2018,63.7
+Pasco,2019,61.5
+Pasco,2020,61.9
+Pasco,2021,63.3
+Pasco,2022,65
+Pasco,2023,57.6
+Piura,2014,61.8
+Piura,2015,60.1
+Piura,2016,63.8
+Piura,2017,55.9
+Piura,2018,54.5
+Piura,2019,54.2
+Piura,2020,59.5
+Piura,2021,56.5
+Piura,2022,59.7
+Piura,2023,61
+Puno,2014,63.4
+Puno,2015,66.4
+Puno,2016,60.4
+Puno,2017,58.5
+Puno,2018,59.4
+Puno,2019,54.1
+Puno,2020,62.8
+Puno,2021,63.4
+Puno,2022,58.9
+Puno,2023,64.3
+San Martín,2014,61
+San Martín,2015,65.4
+San Martín,2016,60
+San Martín,2017,58.8
+San Martín,2018,58.2
+San Martín,2019,57.5
+San Martín,2020,61
+San Martín,2021,55.4
+San Martín,2022,57.8
+San Martín,2023,54.5
+Tacna,2014,19.5
+Tacna,2015,19.6
+Tacna,2016,24.9
+Tacna,2017,19.9
+Tacna,2018,17.7
+Tacna,2019,16.3
+Tacna,2020,15.5
+Tacna,2021,19.9
+Tacna,2022,26.5
+Tacna,2023,23.6
+Tumbes,2014,68.9
+Tumbes,2015,70.4
+Tumbes,2016,72.8
+Tumbes,2017,71.2
+Tumbes,2018,69.4
+Tumbes,2019,70.6
+Tumbes,2020,66.4
+Tumbes,2021,71.2
+Tumbes,2022,70.4
+Tumbes,2023,73
+Ucayali,2014,90.2
+Ucayali,2015,86.3
+Ucayali,2016,85
+Ucayali,2017,86.3
+Ucayali,2018,79.5
+Ucayali,2019,82.4
+Ucayali,2020,84
+Ucayali,2021,85.1
+Ucayali,2022,83.3
+Ucayali,2023,85.2

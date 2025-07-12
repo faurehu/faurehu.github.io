@@ -1,0 +1,145 @@
+departamento,superficie,hectareas,año
+Amazonas,Superficie agropecuaria,892594,2021
+Amazonas,Superficie agrícola,324686,2021
+Amazonas,Superficie no agrícola,567908,2021
+Amazonas,Superficie agropecuaria,660800,2022
+Amazonas,Superficie agrícola,355754,2022
+Amazonas,Superficie no agrícola,305046,2022
+Áncash,Superficie agropecuaria,316273,2021
+Áncash,Superficie agrícola,254233,2021
+Áncash,Superficie no agrícola,62040,2021
+Áncash,Superficie agropecuaria,272078,2022
+Áncash,Superficie agrícola,215130,2022
+Áncash,Superficie no agrícola,56948,2022
+Apurímac,Superficie agropecuaria,135424,2021
+Apurímac,Superficie agrícola,109184,2021
+Apurímac,Superficie no agrícola,26241,2021
+Apurímac,Superficie agropecuaria,147607,2022
+Apurímac,Superficie agrícola,126091,2022
+Apurímac,Superficie no agrícola,21516,2022
+Arequipa,Superficie agropecuaria,1148353,2021
+Arequipa,Superficie agrícola,157223,2021
+Arequipa,Superficie no agrícola,991130,2021
+Arequipa,Superficie agropecuaria,878550,2022
+Arequipa,Superficie agrícola,228681,2022
+Arequipa,Superficie no agrícola,649869,2022
+Ayacucho,Superficie agropecuaria,372905,2021
+Ayacucho,Superficie agrícola,238994,2021
+Ayacucho,Superficie no agrícola,133911,2021
+Ayacucho,Superficie agropecuaria,260518,2022
+Ayacucho,Superficie agrícola,180596,2022
+Ayacucho,Superficie no agrícola,79922,2022
+Cajamarca,Superficie agropecuaria,1091669,2021
+Cajamarca,Superficie agrícola,598757,2021
+Cajamarca,Superficie no agrícola,492912,2021
+Cajamarca,Superficie agropecuaria,1131334,2022
+Cajamarca,Superficie agrícola,667813,2022
+Cajamarca,Superficie no agrícola,463522,2022
+Cusco,Superficie agropecuaria,1498788,2021
+Cusco,Superficie agrícola,407516,2021
+Cusco,Superficie no agrícola,1091273,2021
+Cusco,Superficie agropecuaria,1463728,2022
+Cusco,Superficie agrícola,365466,2022
+Cusco,Superficie no agrícola,1098262,2022
+Huancavelica,Superficie agropecuaria,185115,2021
+Huancavelica,Superficie agrícola,142936,2021
+Huancavelica,Superficie no agrícola,42179,2021
+Huancavelica,Superficie agropecuaria,155123,2022
+Huancavelica,Superficie agrícola,115258,2022
+Huancavelica,Superficie no agrícola,39865,2022
+Huánuco,Superficie agropecuaria,1339074,2021
+Huánuco,Superficie agrícola,820981,2021
+Huánuco,Superficie no agrícola,518093,2021
+Huánuco,Superficie agropecuaria,998113,2022
+Huánuco,Superficie agrícola,681812,2022
+Huánuco,Superficie no agrícola,316300,2022
+Ica,Superficie agropecuaria,170005,2021
+Ica,Superficie agrícola,147466,2021
+Ica,Superficie no agrícola,22539,2021
+Ica,Superficie agropecuaria,162628,2022
+Ica,Superficie agrícola,148957,2022
+Ica,Superficie no agrícola,13671,2022
+Junín,Superficie agropecuaria,762366,2021
+Junín,Superficie agrícola,351142,2021
+Junín,Superficie no agrícola,411224,2021
+Junín,Superficie agropecuaria,596660,2022
+Junín,Superficie agrícola,324532,2022
+Junín,Superficie no agrícola,272128,2022
+La Libertad,Superficie agropecuaria,679526,2021
+La Libertad,Superficie agrícola,494151,2021
+La Libertad,Superficie no agrícola,185374,2021
+La Libertad,Superficie agropecuaria,666387,2022
+La Libertad,Superficie agrícola,497726,2022
+La Libertad,Superficie no agrícola,168661,2022
+Lambayeque,Superficie agropecuaria,368539,2021
+Lambayeque,Superficie agrícola,301849,2021
+Lambayeque,Superficie no agrícola,66690,2021
+Lambayeque,Superficie agropecuaria,301649,2022
+Lambayeque,Superficie agrícola,239971,2022
+Lambayeque,Superficie no agrícola,61678,2022
+Lima,Superficie agropecuaria,293320,2021
+Lima,Superficie agrícola,187272,2021
+Lima,Superficie no agrícola,106049,2021
+Lima,Superficie agropecuaria,208957,2022
+Lima,Superficie agrícola,157948,2022
+Lima,Superficie no agrícola,51009,2022
+Loreto,Superficie agropecuaria,699893,2021
+Loreto,Superficie agrícola,415228,2021
+Loreto,Superficie no agrícola,284665,2021
+Loreto,Superficie agropecuaria,468177,2022
+Loreto,Superficie agrícola,292426,2022
+Loreto,Superficie no agrícola,175752,2022
+Madre de Dios,Superficie agropecuaria,565374,2021
+Madre de Dios,Superficie agrícola,192947,2021
+Madre de Dios,Superficie no agrícola,372427,2021
+Madre de Dios,Superficie agropecuaria,436934,2022
+Madre de Dios,Superficie agrícola,180111,2022
+Madre de Dios,Superficie no agrícola,256823,2022
+Moquegua,Superficie agropecuaria,193841,2021
+Moquegua,Superficie agrícola,24843,2021
+Moquegua,Superficie no agrícola,168998,2021
+Moquegua,Superficie agropecuaria,126339,2022
+Moquegua,Superficie agrícola,23148,2022
+Moquegua,Superficie no agrícola,103191,2022
+Pasco,Superficie agropecuaria,593315,2021
+Pasco,Superficie agrícola,181822,2021
+Pasco,Superficie no agrícola,411493,2021
+Pasco,Superficie agropecuaria,617981,2022
+Pasco,Superficie agrícola,209909,2022
+Pasco,Superficie no agrícola,408072,2022
+Piura,Superficie agropecuaria,471004,2021
+Piura,Superficie agrícola,373659,2021
+Piura,Superficie no agrícola,97345,2021
+Piura,Superficie agropecuaria,486320,2022
+Piura,Superficie agrícola,342730,2022
+Piura,Superficie no agrícola,143589,2022
+Puno,Superficie agropecuaria,3081798,2021
+Puno,Superficie agrícola,416271,2021
+Puno,Superficie no agrícola,2665527,2021
+Puno,Superficie agropecuaria,3476629,2022
+Puno,Superficie agrícola,294367,2022
+Puno,Superficie no agrícola,3182262,2022
+San Martín,Superficie agropecuaria,1281885,2021
+San Martín,Superficie agrícola,927688,2021
+San Martín,Superficie no agrícola,354197,2021
+San Martín,Superficie agropecuaria,1098380,2022
+San Martín,Superficie agrícola,805384,2022
+San Martín,Superficie no agrícola,292996,2022
+Tacna,Superficie agropecuaria,196430,2021
+Tacna,Superficie agrícola,70189,2021
+Tacna,Superficie no agrícola,126241,2021
+Tacna,Superficie agropecuaria,214201,2022
+Tacna,Superficie agrícola,68954,2022
+Tacna,Superficie no agrícola,145247,2022
+Tumbes,Superficie agropecuaria,25789,2021
+Tumbes,Superficie agrícola,23818,2021
+Tumbes,Superficie no agrícola,1972,2021
+Tumbes,Superficie agropecuaria,25898,2022
+Tumbes,Superficie agrícola,23047,2022
+Tumbes,Superficie no agrícola,2852,2022
+Ucayali,Superficie agropecuaria,486159,2021
+Ucayali,Superficie agrícola,332902,2021
+Ucayali,Superficie no agrícola,153257,2021
+Ucayali,Superficie agropecuaria,531650,2022
+Ucayali,Superficie agrícola,287686,2022
+Ucayali,Superficie no agrícola,243964,2022

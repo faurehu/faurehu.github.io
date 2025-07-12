@@ -1,0 +1,154 @@
+tipo_de_fuente,año,valor,nivel
+Carbón mineral,2014,26519,Energía primaria
+Carbón mineral,2015,29206,Energía primaria
+Carbón mineral,2016,23286,Energía primaria
+Carbón mineral,2017,19899,Energía primaria
+Carbón mineral,2018,21280,Energía primaria
+Carbón mineral,2019,22039,Energía primaria
+Carbón mineral,2020,14259,Energía primaria
+Carbón mineral,2021,21738,Energía primaria
+Carbón mineral,2022,24251,Energía primaria
+Leña,2014,97025,Energía primaria
+Leña,2015,95718,Energía primaria
+Leña,2016,94074,Energía primaria
+Leña,2017,90977,Energía primaria
+Leña,2018,92228,Energía primaria
+Leña,2019,93698,Energía primaria
+Leña,2020,96760,Energía primaria
+Leña,2021,106844,Energía primaria
+Leña,2022,101627,Energía primaria
+Bosta/Yareta,2014,5941,Energía primaria
+Bosta/Yareta,2015,5752,Energía primaria
+Bosta/Yareta,2016,5519,Energía primaria
+Bosta/Yareta,2017,5690,Energía primaria
+Bosta/Yareta,2018,4637,Energía primaria
+Bosta/Yareta,2019,4374,Energía primaria
+Bosta/Yareta,2020,4654,Energía primaria
+Bosta/Yareta,2021,4405,Energía primaria
+Bosta/Yareta,2022,4466,Energía primaria
+Bagazo,2014,1362,Energía primaria
+Bagazo,2015,5174,Energía primaria
+Bagazo,2016,6575,Energía primaria
+Bagazo,2017,2709,Energía primaria
+Bagazo,2018,6173,Energía primaria
+Bagazo,2019,8932,Energía primaria
+Bagazo,2020,6422,Energía primaria
+Bagazo,2021,4398,Energía primaria
+Bagazo,2022,3413,Energía primaria
+Solar,2014,335,Energía primaria
+Solar,2015,1067,Energía primaria
+Solar,2016,1383,Energía primaria
+Solar,2017,1382,Energía primaria
+Solar,2018,1436,Energía primaria
+Solar,2019,1482,Energía primaria
+Solar,2020,1515,Energía primaria
+Solar,2021,1583,Energía primaria
+Solar,2022,1604,Energía primaria
+No energéticos,2014,2725,Energía primaria
+No energéticos,2015,3939,Energía primaria
+No energéticos,2016,2090,Energía primaria
+No energéticos,2017,2593,Energía primaria
+No energéticos,2018,2405,Energía primaria
+No energéticos,2019,2916,Energía primaria
+No energéticos,2020,2579,Energía primaria
+No energéticos,2021,2331,Energía primaria
+No energéticos,2022,3905,Energía primaria
+Bunker,2014,NA,Energía secundaria
+Bunker,2015,NA,Energía secundaria
+Bunker,2016,NA,Energía secundaria
+Bunker,2017,48756,Energía secundaria
+Bunker,2018,50235,Energía secundaria
+Bunker,2019,48778,Energía secundaria
+Bunker,2020,20844,Energía secundaria
+Bunker,2021,24383,Energía secundaria
+Bunker,2022,30327,Energía secundaria
+Coque,2014,2469,Energía secundaria
+Coque,2015,1119,Energía secundaria
+Coque,2016,2478,Energía secundaria
+Coque,2017,2111,Energía secundaria
+Coque,2018,2098,Energía secundaria
+Coque,2019,1566,Energía secundaria
+Coque,2020,1685,Energía secundaria
+Coque,2021,1503,Energía secundaria
+Coque,2022,1629,Energía secundaria
+Carbón vegetal,2014,5967,Energía secundaria
+Carbón vegetal,2015,5523,Energía secundaria
+Carbón vegetal,2016,5379,Energía secundaria
+Carbón vegetal,2017,4956,Energía secundaria
+Carbón vegetal,2018,4795,Energía secundaria
+Carbón vegetal,2019,4783,Energía secundaria
+Carbón vegetal,2020,5191,Energía secundaria
+Carbón vegetal,2021,5587,Energía secundaria
+Carbón vegetal,2022,5334,Energía secundaria
+Gas licuado de petróleo,2014,72511,Energía secundaria
+Gas licuado de petróleo,2015,75002,Energía secundaria
+Gas licuado de petróleo,2016,79352,Energía secundaria
+Gas licuado de petróleo,2017,82800,Energía secundaria
+Gas licuado de petróleo,2018,88503,Energía secundaria
+Gas licuado de petróleo,2019,92047,Energía secundaria
+Gas licuado de petróleo,2020,81654,Energía secundaria
+Gas licuado de petróleo,2021,90810,Energía secundaria
+Gas licuado de petróleo,2022,92856,Energía secundaria
+Gasolina motor /Gasohol,2014,67464,Energía secundaria
+Gasolina motor /Gasohol,2015,74681,Energía secundaria
+Gasolina motor /Gasohol,2016,83681,Energía secundaria
+Gasolina motor /Gasohol,2017,87115,Energía secundaria
+Gasolina motor /Gasohol,2018,91215,Energía secundaria
+Gasolina motor /Gasohol,2019,96926,Energía secundaria
+Gasolina motor /Gasohol,2020,75287,Energía secundaria
+Gasolina motor /Gasohol,2021,99742,Energía secundaria
+Gasolina motor /Gasohol,2022,96994,Energía secundaria
+Kerosene/Turbo,2014,37208,Energía secundaria
+Kerosene/Turbo,2015,39187,Energía secundaria
+Kerosene/Turbo,2016,43449,Energía secundaria
+Kerosene/Turbo,2017,15351,Energía secundaria
+Kerosene/Turbo,2018,16141,Energía secundaria
+Kerosene/Turbo,2019,16240,Energía secundaria
+Kerosene/Turbo,2020,6269,Energía secundaria
+Kerosene/Turbo,2021,8580,Energía secundaria
+Kerosene/Turbo,2022,11658,Energía secundaria
+Diesel Oil/DB2/DB5,2014,204762,Energía secundaria
+Diesel Oil/DB2/DB5,2015,219296,Energía secundaria
+Diesel Oil/DB2/DB5,2016,227523,Energía secundaria
+Diesel Oil/DB2/DB5,2017,223982,Energía secundaria
+Diesel Oil/DB2/DB5,2018,230326,Energía secundaria
+Diesel Oil/DB2/DB5,2019,238832,Energía secundaria
+Diesel Oil/DB2/DB5,2020,202664,Energía secundaria
+Diesel Oil/DB2/DB5,2021,259145,Energía secundaria
+Diesel Oil/DB2/DB5,2022,262092,Energía secundaria
+Petróleo industrial,2014,9416,Energía secundaria
+Petróleo industrial,2015,9264,Energía secundaria
+Petróleo industrial,2016,9687,Energía secundaria
+Petróleo industrial,2017,3729,Energía secundaria
+Petróleo industrial,2018,2908,Energía secundaria
+Petróleo industrial,2019,2942,Energía secundaria
+Petróleo industrial,2020,3980,Energía secundaria
+Petróleo industrial,2021,10069,Energía secundaria
+Petróleo industrial,2022,20189,Energía secundaria
+Gas natural,2014,76132,Energía secundaria
+Gas natural,2015,79987,Energía secundaria
+Gas natural,2016,81455,Energía secundaria
+Gas natural,2017,87256,Energía secundaria
+Gas natural,2018,96262,Energía secundaria
+Gas natural,2019,101606,Energía secundaria
+Gas natural,2020,75625,Energía secundaria
+Gas natural,2021,97868,Energía secundaria
+Gas natural,2022,108751,Energía secundaria
+No energéticos,2014,13668,Energía secundaria
+No energéticos,2015,12758,Energía secundaria
+No energéticos,2016,11229,Energía secundaria
+No energéticos,2017,12331,Energía secundaria
+No energéticos,2018,12121,Energía secundaria
+No energéticos,2019,11756,Energía secundaria
+No energéticos,2020,4974,Energía secundaria
+No energéticos,2021,7371,Energía secundaria
+No energéticos,2022,8249,Energía secundaria
+Electricidad,2014,142917,Energía secundaria
+Electricidad,2015,151523,Energía secundaria
+Electricidad,2016,164279,Energía secundaria
+Electricidad,2017,167171,Energía secundaria
+Electricidad,2018,173767,Energía secundaria
+Electricidad,2019,179305,Energía secundaria
+Electricidad,2020,164250,Energía secundaria
+Electricidad,2021,179134,Energía secundaria
+Electricidad,2022,187681,Energía secundaria

@@ -1,0 +1,251 @@
+departamento,año,emergencias
+Amazonas,2014,278
+Amazonas,2015,247
+Amazonas,2016,209
+Amazonas,2017,177
+Amazonas,2018,234
+Amazonas,2019,159
+Amazonas,2020,132
+Amazonas,2021,350
+Amazonas,2022,289
+Amazonas,2023,404
+Áncash,2014,40
+Áncash,2015,15
+Áncash,2016,20
+Áncash,2017,844
+Áncash,2018,194
+Áncash,2019,455
+Áncash,2020,271
+Áncash,2021,305
+Áncash,2022,259
+Áncash,2023,894
+Apurímac,2014,319
+Apurímac,2015,528
+Apurímac,2016,662
+Apurímac,2017,572
+Apurímac,2018,852
+Apurímac,2019,549
+Apurímac,2020,681
+Apurímac,2021,777
+Apurímac,2022,734
+Apurímac,2023,818
+Arequipa,2014,70
+Arequipa,2015,203
+Arequipa,2016,181
+Arequipa,2017,238
+Arequipa,2018,228
+Arequipa,2019,119
+Arequipa,2020,299
+Arequipa,2021,199
+Arequipa,2022,128
+Arequipa,2023,232
+Ayacucho,2014,201
+Ayacucho,2015,302
+Ayacucho,2016,423
+Ayacucho,2017,312
+Ayacucho,2018,320
+Ayacucho,2019,231
+Ayacucho,2020,425
+Ayacucho,2021,895
+Ayacucho,2022,846
+Ayacucho,2023,1353
+Cajamarca,2014,158
+Cajamarca,2015,310
+Cajamarca,2016,125
+Cajamarca,2017,563
+Cajamarca,2018,255
+Cajamarca,2019,271
+Cajamarca,2020,133
+Cajamarca,2021,488
+Cajamarca,2022,486
+Cajamarca,2023,1283
+Cusco,2014,373
+Cusco,2015,294
+Cusco,2016,438
+Cusco,2017,274
+Cusco,2018,449
+Cusco,2019,88
+Cusco,2020,328
+Cusco,2021,538
+Cusco,2022,603
+Cusco,2023,1054
+Huancavelica,2014,737
+Huancavelica,2015,357
+Huancavelica,2016,443
+Huancavelica,2017,586
+Huancavelica,2018,328
+Huancavelica,2019,581
+Huancavelica,2020,537
+Huancavelica,2021,551
+Huancavelica,2022,442
+Huancavelica,2023,1197
+Huánuco,2014,79
+Huánuco,2015,67
+Huánuco,2016,188
+Huánuco,2017,103
+Huánuco,2018,207
+Huánuco,2019,228
+Huánuco,2020,327
+Huánuco,2021,403
+Huánuco,2022,323
+Huánuco,2023,559
+Ica,2014,53
+Ica,2015,41
+Ica,2016,44
+Ica,2017,153
+Ica,2018,85
+Ica,2019,54
+Ica,2020,63
+Ica,2021,122
+Ica,2022,121
+Ica,2023,186
+Junín,2014,155
+Junín,2015,171
+Junín,2016,289
+Junín,2017,150
+Junín,2018,277
+Junín,2019,155
+Junín,2020,222
+Junín,2021,367
+Junín,2022,306
+Junín,2023,415
+La Libertad,2014,31
+La Libertad,2015,26
+La Libertad,2016,40
+La Libertad,2017,357
+La Libertad,2018,64
+La Libertad,2019,48
+La Libertad,2020,39
+La Libertad,2021,94
+La Libertad,2022,93
+La Libertad,2023,360
+Lambayeque,2014,39
+Lambayeque,2015,52
+Lambayeque,2016,37
+Lambayeque,2017,100
+Lambayeque,2018,63
+Lambayeque,2019,65
+Lambayeque,2020,41
+Lambayeque,2021,78
+Lambayeque,2022,93
+Lambayeque,2023,166
+Lima,2014,295
+Lima,2015,422
+Lima,2016,319
+Lima,2017,1315
+Lima,2018,541
+Lima,2019,229
+Lima,2020,281
+Lima,2021,486
+Lima,2022,483
+Lima,2023,751
+Loreto,2014,66
+Loreto,2015,104
+Loreto,2016,108
+Loreto,2017,106
+Loreto,2018,78
+Loreto,2019,79
+Loreto,2020,57
+Loreto,2021,140
+Loreto,2022,110
+Loreto,2023,229
+Madre de Dios,2014,20
+Madre de Dios,2015,24
+Madre de Dios,2016,77
+Madre de Dios,2017,46
+Madre de Dios,2018,49
+Madre de Dios,2019,3
+Madre de Dios,2020,36
+Madre de Dios,2021,96
+Madre de Dios,2022,61
+Madre de Dios,2023,76
+Moquegua,2014,35
+Moquegua,2015,75
+Moquegua,2016,78
+Moquegua,2017,57
+Moquegua,2018,22
+Moquegua,2019,49
+Moquegua,2020,60
+Moquegua,2021,88
+Moquegua,2022,102
+Moquegua,2023,119
+Pasco,2014,198
+Pasco,2015,159
+Pasco,2016,321
+Pasco,2017,374
+Pasco,2018,303
+Pasco,2019,514
+Pasco,2020,429
+Pasco,2021,500
+Pasco,2022,421
+Pasco,2023,366
+Piura,2014,186
+Piura,2015,156
+Piura,2016,157
+Piura,2017,461
+Piura,2018,222
+Piura,2019,114
+Piura,2020,92
+Piura,2021,373
+Piura,2022,317
+Piura,2023,607
+Callao,2014,21
+Callao,2015,52
+Callao,2016,26
+Callao,2017,71
+Callao,2018,48
+Callao,2019,1
+Callao,2020,34
+Callao,2021,73
+Callao,2022,54
+Callao,2023,82
+Puno,2014,83
+Puno,2015,277
+Puno,2016,489
+Puno,2017,205
+Puno,2018,262
+Puno,2019,43
+Puno,2020,209
+Puno,2021,223
+Puno,2022,345
+Puno,2023,310
+San Martín,2014,215
+San Martín,2015,135
+San Martín,2016,100
+San Martín,2017,161
+San Martín,2018,176
+San Martín,2019,194
+San Martín,2020,161
+San Martín,2021,205
+San Martín,2022,176
+San Martín,2023,333
+Tacna,2014,11
+Tacna,2015,54
+Tacna,2016,77
+Tacna,2017,55
+Tacna,2018,40
+Tacna,2019,56
+Tacna,2020,112
+Tacna,2021,63
+Tacna,2022,61
+Tacna,2023,101
+Tumbes,2014,26
+Tumbes,2015,87
+Tumbes,2016,97
+Tumbes,2017,165
+Tumbes,2018,66
+Tumbes,2019,69
+Tumbes,2020,61
+Tumbes,2021,106
+Tumbes,2022,149
+Tumbes,2023,217
+Ucayali,2014,86
+Ucayali,2015,159
+Ucayali,2016,196
+Ucayali,2017,135
+Ucayali,2018,126
+Ucayali,2019,138
+Ucayali,2020,180
+Ucayali,2021,279
+Ucayali,2022,249
+Ucayali,2023,276
