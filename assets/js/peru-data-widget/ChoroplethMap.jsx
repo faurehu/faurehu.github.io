@@ -110,6 +110,7 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
         .text("Data no disponible");
       return;
     }
+
     const colorScale = d3.scaleSequential()
       .domain([d3.min(values), d3.max(values)])
       .interpolator(d3.interpolateBlues);

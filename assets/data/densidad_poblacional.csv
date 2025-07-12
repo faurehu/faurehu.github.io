@@ -1,0 +1,169 @@
+departamento,año,densidad
+Amazonas,1940,1.7
+Amazonas,1961,3
+Amazonas,1972,5
+Amazonas,1981,6.5
+Amazonas,1993,9
+Amazonas,2007,10.6
+Amazonas,2017,9.7
+Áncash,1940,12.1
+Áncash,1961,16.6
+Áncash,1972,20.7
+Áncash,1981,23.6
+Áncash,1993,27.5
+Áncash,2007,30.3
+Áncash,2017,30.2
+Apurímac,1940,12.4
+Apurímac,1961,13.8
+Apurímac,1972,14.8
+Apurímac,1981,15.5
+Apurímac,1993,19
+Apurímac,2007,21
+Apurímac,2017,19.4
+Arequipa,1940,4.2
+Arequipa,1961,6.1
+Arequipa,1972,8.4
+Arequipa,1981,11.2
+Arequipa,1993,14.8
+Arequipa,2007,18.9
+Arequipa,2017,21.8
+Ayacucho,1940,8.2
+Ayacucho,1961,9.4
+Ayacucho,1972,10.4
+Ayacucho,1981,11.5
+Ayacucho,1993,11.7
+Ayacucho,2007,15.3
+Ayacucho,2017,14.1
+Cajamarca,1940,14.9
+Cajamarca,1961,22.5
+Cajamarca,1972,27.6
+Cajamarca,1981,30.9
+Cajamarca,1993,39
+Cajamarca,2007,42.6
+Cajamarca,2017,40.3
+Cusco,1940,6.8
+Cusco,1961,8.5
+Cusco,1972,9.9
+Cusco,1981,11.6
+Cusco,1993,14.8
+Cusco,2007,17
+Cusco,2017,16.7
+Huancavelica,1940,11.1
+Huancavelica,1961,13.7
+Huancavelica,1972,15
+Huancavelica,1981,15.7
+Huancavelica,1993,18.1
+Huancavelica,2007,21.3
+Huancavelica,2017,15.7
+Huánuco,1940,6.2
+Huánuco,1961,8.7
+Huánuco,1972,11
+Huánuco,1981,12.7
+Huánuco,1993,18.4
+Huánuco,2007,20.9
+Huánuco,2017,19.3
+Ica,1940,6.6
+Ica,1961,12
+Ica,1972,16.8
+Ica,1981,20.3
+Ica,1993,27.1
+Ica,2007,33.2
+Ica,2017,39.9
+Junín,1940,7.6
+Junín,1961,11.7
+Junín,1972,15.7
+Junín,1981,19.2
+Junín,1993,24.6
+Junín,2007,27.7
+Junín,2017,28.1
+La Libertad,1940,15
+La Libertad,1961,22.8
+La Libertad,1972,30.7
+La Libertad,1981,38.4
+La Libertad,1993,50.3
+La Libertad,2007,63.1
+La Libertad,2017,69.7
+Lambayeque,1940,13.6
+Lambayeque,1961,24.1
+Lambayeque,1972,36.2
+Lambayeque,1981,47.4
+Lambayeque,1993,66.8
+Lambayeque,2007,80.1
+Lambayeque,2017,82.8
+Lima,1940,8.3
+Lima,1961,12.4
+Lima,1972,15.3
+Lima,1981,18.1
+Lima,1993,21.2
+Lima,2007,26.1
+Lima,2017,28.3
+Loreto,1940,0.4
+Loreto,1961,0.7
+Loreto,1972,1
+Loreto,1981,1.3
+Loreto,1993,2
+Loreto,2007,2.6
+Loreto,2017,2.4
+Madre de Dios,1940,0.1
+Madre de Dios,1961,0.2
+Madre de Dios,1972,0.3
+Madre de Dios,1981,0.4
+Madre de Dios,1993,0.8
+Madre de Dios,2007,1.2
+Madre de Dios,2017,1.7
+Moquegua,1940,2.2
+Moquegua,1961,3.3
+Moquegua,1972,4.7
+Moquegua,1981,6.5
+Moquegua,1993,8.3
+Moquegua,2007,10.7
+Moquegua,2017,11.1
+Pasco,1940,3.6
+Pasco,1961,5.5
+Pasco,1972,7
+Pasco,1981,8.4
+Pasco,1993,9.4
+Pasco,2007,11.1
+Pasco,2017,10.2
+Piura,1940,11.4
+Piura,1961,18.6
+Piura,1972,23.8
+Piura,1981,31.4
+Piura,1993,39.3
+Piura,2007,47.8
+Piura,2017,52.1
+Puno,1940,7.6
+Puno,1961,9.5
+Puno,1972,10.8
+Puno,1981,12.4
+Puno,1993,15.3
+Puno,2007,18.2
+Puno,2017,17.5
+San Martín,1940,1.9
+San Martín,1961,3.2
+San Martín,1972,4.4
+San Martín,1981,6.2
+San Martín,1993,11.2
+San Martín,2007,13.9
+San Martín,2017,15.9
+Tacna,1940,2.3
+Tacna,1961,4.1
+Tacna,1972,5.9
+Tacna,1981,8.9
+Tacna,1993,13.9
+Tacna,2007,18.4
+Tacna,2017,20.5
+Tumbes,1940,5.5
+Tumbes,1961,12
+Tumbes,1972,16.4
+Tumbes,1981,22.2
+Tumbes,1993,34
+Tumbes,2007,44.4
+Tumbes,2017,48.2
+Ucayali,1940,0.2
+Ucayali,1961,0.6
+Ucayali,1972,1.2
+Ucayali,1981,1.6
+Ucayali,1993,3.2
+Ucayali,2007,4.2
+Ucayali,2017,4.9

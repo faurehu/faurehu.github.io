@@ -202,6 +202,51 @@
               }
           }
       ]
+    },
+    {
+      "name": "Población",
+      "variable": "poblacion",
+      "items": [
+          {
+              "name": "Población censada",
+              "title": "Población censada",
+              "type": "choropleth",
+              "datafile": "poblacion_censada.csv",
+              "source": "Instituto Nacional de Estadística e Informática - Censos Nacionales de Población y Vivienda, 1940, 1961, 1972, 1981, 1993, 2007 y 2017",
+              "params": {
+                "value": "personas",
+                "by": ["año"],
+                "with_lima": true,
+                "total": true
+              }
+          },
+          {
+              "name": "Tasa de crecimiento",
+              "title": "Tasa de crecimiento promedio anual de la población censada",
+              "type": "choropleth",
+              "datafile": "tasa_crecimiento.csv",
+              "source": "Instituto Nacional de Estadística e Informática - Censos Nacionales de Población y Vivienda, 1940, 1961, 1972, 1981, 1993, 2007 y 2017",
+              "params": {
+                "value": "porcentaje",
+                "by": ["años"],
+                "with_lima": true,
+                "total": true
+              }
+          },
+          {
+              "name": "Densidad poblacional",
+              "title": "Densidad poblacional",
+              "type": "choropleth",
+              "datafile": "densidad_poblacional.csv",
+              "source": "Instituto Nacional de Estadística e Informática - Censos Nacionales de Población y Vivienda, 1940, 1961, 1972, 1981, 1993, 2007 y 2017",
+              "detalle": "Lima Metropolitana y Callao no incluídos por tener valores extremadamente altos.",
+              "params": {
+                "value": "densidad",
+                "by": ["año"],
+                "with_lima": true
+              }
+          }
+      ]
   }
   ]
 } 

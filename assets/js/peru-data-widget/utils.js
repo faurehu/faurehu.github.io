@@ -91,6 +91,62 @@ const calculateAverage = (data, metric) => {
   return values.reduce((sum, val) => sum + val, 0) / values.length;
 };
 
+// URL utilities for chart routing
+const chartNameToSlug = (name) => {
+  return name
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // Remove accents
+    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single
+    .trim();
+};
+
+const slugToChartName = (slug, allItems) => {
+  // Find the item that matches this slug
+  return allItems.find(item => chartNameToSlug(item.name) === slug);
+};
+
+const getChartFromURL = (allItems) => {
+  const path = window.location.pathname;
+  const match = path.match(/\/peru-data\/(.+?)\/?$/);
+  
+  if (match) {
+    const slug = match[1];
+    const item = slugToChartName(slug, allItems);
+    
+    // If we found a valid item, update the URL to the clean format
+    if (item) {
+      // Update URL without triggering a page reload
+      const cleanURL = `/peru-data/${slug}`;
+      if (window.location.pathname !== cleanURL) {
+        window.history.replaceState({ chart: item.name }, item.title, cleanURL);
+      }
+    }
+    
+    return item;
+  }
+  
+  return null;
+};
+
+const updateURL = (item) => {
+  if (!item) return;
+  
+  const slug = chartNameToSlug(item.name);
+  const newURL = `/peru-data/${slug}`;
+  
+  // Update URL without reloading the page
+  window.history.pushState({ chart: item.name }, item.title, newURL);
+};
+
+const handleInvalidChartURL = (slug) => {
+  // If someone visits an invalid chart URL, redirect to the main page
+  console.warn(`Invalid chart slug: ${slug}. Redirecting to main page.`);
+  window.history.replaceState({}, 'Peru Data', '/peru-data');
+};
+
 // Export for use in other files
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {

@@ -52,6 +52,9 @@ const PeruDataWidget = () => {
         if (!expandedCategories.includes(nextItem.categoryVariable)) {
           setExpandedCategories(prev => [...prev, nextItem.categoryVariable]);
         }
+        
+        // Update URL
+        updateURL(nextItem);
       } catch (err) {
         console.error('Error loading next item data:', err);
       }
@@ -81,6 +84,9 @@ const PeruDataWidget = () => {
         if (!expandedCategories.includes(prevItem.categoryVariable)) {
           setExpandedCategories(prev => [...prev, prevItem.categoryVariable]);
         }
+        
+        // Update URL
+        updateURL(prevItem);
       } catch (err) {
         console.error('Error loading previous item data:', err);
       }
@@ -131,13 +137,53 @@ const PeruDataWidget = () => {
         const configData = await dataLoader.current.loadConfig();
         setConfig(configData);
         
-        // Load data for the first item
-        if (configData.categories.length > 0 && configData.categories[0].items.length > 0) {
-          const firstItem = configData.categories[0].items[0];
-          const itemData = await dataLoader.current.loadItemData(firstItem);
-          setData({ [firstItem.name]: itemData });
-          setSelectedItem(firstItem);
-          setExpandedCategories([configData.categories[0].variable]);
+        // Get all items for URL routing
+        const allItems = [];
+        configData.categories.forEach(category => {
+          category.items.forEach(item => {
+            allItems.push({
+              ...item,
+              categoryName: category.name,
+              categoryVariable: category.variable
+            });
+          });
+        });
+        
+        // Check if there's a specific chart requested in the URL
+              const path = window.location.pathname;
+      const match = path.match(/\/peru-data\/(.+?)\/?$/);
+        
+        if (match) {
+          const slug = match[1];
+          const requestedItem = slugToChartName(slug, allItems);
+          
+          if (requestedItem) {
+            // Load the requested item
+            const itemData = await dataLoader.current.loadItemData(requestedItem);
+            setData({ [requestedItem.name]: itemData });
+            setSelectedItem(requestedItem);
+            setExpandedCategories([requestedItem.categoryVariable]);
+          } else {
+            // Invalid chart URL - redirect to main page
+            handleInvalidChartURL(slug);
+            // Load data for the first item (default behavior)
+            if (configData.categories.length > 0 && configData.categories[0].items.length > 0) {
+              const firstItem = configData.categories[0].items[0];
+              const itemData = await dataLoader.current.loadItemData(firstItem);
+              setData({ [firstItem.name]: itemData });
+              setSelectedItem(firstItem);
+              setExpandedCategories([configData.categories[0].variable]);
+            }
+          }
+        } else {
+          // Load data for the first item (default behavior)
+          if (configData.categories.length > 0 && configData.categories[0].items.length > 0) {
+            const firstItem = configData.categories[0].items[0];
+            const itemData = await dataLoader.current.loadItemData(firstItem);
+            setData({ [firstItem.name]: itemData });
+            setSelectedItem(firstItem);
+            setExpandedCategories([configData.categories[0].variable]);
+          }
         }
       } catch (err) {
         setError(err.message);
@@ -149,6 +195,45 @@ const PeruDataWidget = () => {
     
     loadData();
   }, []);
+  
+  // Handle browser back/forward buttons
+  React.useEffect(() => {
+    const handlePopState = async (event) => {
+      if (!config) return;
+      
+      const allItems = getAllItems();
+      const path = window.location.pathname;
+      const match = path.match(/\/peru-data\/(.+?)\/?$/);
+      
+      if (match) {
+        const slug = match[1];
+        const requestedItem = slugToChartName(slug, allItems);
+        
+        if (requestedItem) {
+          try {
+            // Load data for the requested item if not already loaded
+            if (!data[requestedItem.name]) {
+              const itemData = await dataLoader.current.loadItemData(requestedItem);
+              setData(prev => ({ ...prev, [requestedItem.name]: itemData }));
+            }
+            setSelectedItem(requestedItem);
+            setExpandedCategories([requestedItem.categoryVariable]);
+          } catch (err) {
+            console.error('Error loading item data from URL:', err);
+          }
+        } else {
+          // Invalid chart URL - redirect to main page
+          handleInvalidChartURL(slug);
+        }
+      }
+    };
+    
+    window.addEventListener('popstate', handlePopState);
+    
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [config, data]);
   
   const formatNumber = (num, item) => {
     if (!item || !item.params) return num.toString();
@@ -286,12 +371,13 @@ const PeruDataWidget = () => {
     let filteredData = itemData.filter(row =>
       selectedItem.params.by.every(byVar => bySelections[byVar] === undefined || row[byVar] === bySelections[byVar])
     );
-    
+
     // If total is true, check if there are any "Total" entries and exclude them from map display
     // but keep them available for total value calculation
     if (selectedItem.params.total === true) {
+
       // Check all fields that might contain "Total" values
-      const fieldsToCheck = ['departamento', 'tipo_superficie', 'superficie', 'tipo'];
+      const fieldsToCheck = ['departamento'];
       
       fieldsToCheck.forEach(field => {
         if (itemData.some(row => row[field] && row[field].toString().includes('Total'))) {
@@ -303,7 +389,7 @@ const PeruDataWidget = () => {
         }
       });
     }
-    
+
     return filteredData;
   };
 
@@ -566,6 +652,9 @@ const PeruDataWidget = () => {
                                     setData(prev => ({ ...prev, [item.name]: itemData }));
                                   }
                                   setSelectedItem(item);
+                                  
+                                  // Update URL
+                                  updateURL(item);
                                 } catch (err) {
                                   console.error('Error loading item data:', err);
                                 }
@@ -814,6 +903,11 @@ const PeruDataWidget = () => {
               borderRadius: '6px',
               border: '1px solid #e9ecef'
             }}>
+              {selectedItem.detalle && (
+                <p style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#6c757d' }}>
+                  {selectedItem.detalle}
+                </p>
+              )}
               <p style={{ margin: 0, fontSize: '14px', color: '#6c757d' }}>
                 <strong>Fuente:</strong> {selectedItem.source}
               </p>

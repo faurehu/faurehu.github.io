@@ -97,7 +97,9 @@ const ChartOptions = ({
       // Convert first option to slider (if more than 3 values), keep others as dropdowns
       if (index === 0) {
         // Check if it's 'año' and has 3 or fewer values - use dropdown
+        // For 'años' (plural), never use slider regardless of number of values
         const isYearWithFewValues = option === 'año' && sortedVals.length <= 3;
+        const isYearsField = option === 'años';
         
         if (isYearWithFewValues) {
           // Check if there are exactly 2 values - use toggle button
@@ -164,8 +166,28 @@ const ChartOptions = ({
               </div>
             );
           }
+        } else if (isYearsField) {
+          // For 'años' field, always use dropdown regardless of number of values
+          return (
+            <div key={option} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
+              <label style={{ fontSize: '14px', color: '#555' }}>{option.replace(/_/g, ' ').charAt(0).toUpperCase() + option.replace(/_/g, ' ').slice(1)}</label>
+              <select
+                value={selections[option] || ''}
+                onChange={e => {
+                  const val = e.target.value;
+                  const parsed = val !== '' && !isNaN(Number(val)) ? Number(val) : val;
+                  onSelectionChange(option, parsed);
+                }}
+                style={{ padding: '6px 12px', borderRadius: '4px', border: '1px solid #ccc', fontSize: '15px' }}
+              >
+                {sortedVals.map(val => (
+                  <option key={val} value={val}>{val}</option>
+                ))}
+              </select>
+            </div>
+          );
         } else {
-          // Slider for the first variable (when it's not año with few values)
+          // Slider for the first variable (when it's not año with few values and not años field)
           return (
             <div key={option} style={{ 
               display: 'flex', 

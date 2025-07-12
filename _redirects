@@ -1,0 +1,3 @@
+# Redirect all peru-data chart routes to the main peru-data page
+# The JavaScript widget will handle the chart selection from the URL
+/peru-data/* /peru-data 200 
