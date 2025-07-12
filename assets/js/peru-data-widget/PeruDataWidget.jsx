@@ -525,7 +525,7 @@ const PeruDataWidget = () => {
         fontSize: '1.2rem',
         boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
       }}>
-        Lo sentimos, esta visualización no está disponible en dispositivos móviles.
+        Lo siento, esta visualización no está disponible en dispositivos móviles.
       </div>
     );
   }
