@@ -5,7 +5,7 @@ const PeruDataWidget = () => {
   const [config, setConfig] = React.useState(null);
   const [data, setData] = React.useState({});
   const [selectedItem, setSelectedItem] = React.useState(null);
-  const [sidebarOpen, setSidebarOpen] = React.useState(true); // Sidebar is open by default
+  const [sidebarOpen, setSidebarOpen] = React.useState(false); // Will be updated based on screen size
   const [expandedCategories, setExpandedCategories] = React.useState([]); // Categories expanded by default
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
@@ -141,6 +141,29 @@ const PeruDataWidget = () => {
     }
     return '';
   };
+
+  // Function to select an item and load its data
+  const selectItem = async (item) => {
+    try {
+      // Load data for the item if not already loaded
+      if (!data[item.name]) {
+        const itemData = await dataLoader.current.loadItemData(item);
+        setData(prev => ({ ...prev, [item.name]: itemData }));
+      }
+      
+      setSelectedItem(item);
+      
+      // Expand the category if it's not already expanded
+      if (!expandedCategories.includes(item.categoryVariable)) {
+        setExpandedCategories(prev => [...prev, item.categoryVariable]);
+      }
+      
+      // Update URL
+      updateURL(item);
+    } catch (err) {
+      console.error('Error loading item data:', err);
+    }
+  };
   
   // Load configuration and initial data
   React.useEffect(() => {
@@ -274,13 +297,13 @@ const PeruDataWidget = () => {
     return (
       <div style={{ 
         display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-        gap: '15px' 
+        gridTemplateColumns: isMobile ? 'repeat(auto-fit, minmax(150px, 1fr))' : 'repeat(auto-fit, minmax(200px, 1fr))', 
+        gap: isMobile ? '10px' : '15px' 
       }}>
         {itemData.map((item, index) => (
           <div key={index} style={{
             backgroundColor: 'white',
-            padding: '15px',
+            padding: isMobile ? '12px' : '15px',
             borderRadius: '6px',
             border: '1px solid #e9ecef',
             textAlign: 'center',
@@ -291,7 +314,7 @@ const PeruDataWidget = () => {
           onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
           >
             <div style={{ 
-              fontSize: '24px', 
+              fontSize: isMobile ? '20px' : '24px', 
               fontWeight: 'bold', 
               color: '#007bff',
               marginBottom: '5px' 
@@ -299,7 +322,7 @@ const PeruDataWidget = () => {
               {formatNumber(item[valueKey], selectedItem)}
             </div>
             <div style={{ 
-              fontSize: '14px', 
+              fontSize: isMobile ? '12px' : '14px', 
               color: '#6c757d' 
             }}>
               {item.year}
@@ -435,8 +458,8 @@ const PeruDataWidget = () => {
         <ChoroplethMap 
           data={filteredData}
           item={selectedItem}
-          width={800}
-          height={500}
+          width={isMobile ? window.innerWidth - 32 : 800}
+          height={isMobile ? 400 : 500}
           sidebarOpen={sidebarOpen}
           totalValue={totalValue}
         />
@@ -454,8 +477,8 @@ const PeruDataWidget = () => {
         <StackedAreaChart
           data={data[selectedItem.name] || []}
           item={selectedItem}
-          width={sidebarOpen ? 800 : 1000}
-          height={500}
+          width={isMobile ? window.innerWidth - 32 : (sidebarOpen ? 800 : 1000)}
+          height={isMobile ? 400 : 500}
           sidebarOpen={sidebarOpen}
         />
       </>
@@ -467,33 +490,35 @@ const PeruDataWidget = () => {
     return (
       <div style={{
         backgroundColor: 'white',
-        padding: '40px',
-        borderRadius: '8px',
-        border: '1px solid #e9ecef',
+        padding: isMobile ? '24px 16px' : '40px',
+        borderRadius: isMobile ? '0' : '8px',
+        border: isMobile ? 'none' : '1px solid #e9ecef',
         textAlign: 'center',
-        maxWidth: '600px',
+        maxWidth: isMobile ? '100%' : '600px',
         margin: '0 auto',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+        boxShadow: isMobile ? 'none' : '0 2px 4px rgba(0,0,0,0.1)',
+        minHeight: isMobile ? 'calc(100vh - 60px)' : 'auto'
       }}>
         <div style={{
-          fontSize: '18px',
+          fontSize: isMobile ? '16px' : '18px',
           lineHeight: '1.6',
           color: '#333',
-          marginBottom: '20px'
+          marginBottom: isMobile ? '24px' : '20px'
         }}>
           He pasado suficiente tiempo ploteando datos que se me hizo más eficiente crear un módulo para organizar mis visualizaciones. Aquí las comparto.
         </div>
         <button
           onClick={() => setShowAbout(false)}
           style={{
-            padding: '10px 20px',
+            padding: isMobile ? '12px 24px' : '10px 20px',
             backgroundColor: '#007bff',
             color: 'white',
             border: 'none',
             borderRadius: '6px',
             cursor: 'pointer',
-            fontSize: '14px',
-            transition: 'background-color 0.2s ease'
+            fontSize: isMobile ? '16px' : '14px',
+            transition: 'background-color 0.2s ease',
+            width: isMobile ? '100%' : 'auto'
           }}
           onMouseEnter={(e) => e.target.style.backgroundColor = '#0056b3'}
           onMouseLeave={(e) => e.target.style.backgroundColor = '#007bff'}
@@ -525,57 +550,95 @@ const PeruDataWidget = () => {
     }
   };
   
-  // Mobile device detection
+  // Responsive design detection
   const [isMobile, setIsMobile] = React.useState(false);
+  const [isTablet, setIsTablet] = React.useState(false);
+  
   React.useEffect(() => {
-    const checkMobile = () => {
-      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      // Simple mobile detection
-      if (/android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(userAgent)) {
-        setIsMobile(true);
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      const newIsMobile = width < 768;
+      const newIsTablet = width >= 768 && width < 1024;
+      
+      setIsMobile(newIsMobile);
+      setIsTablet(newIsTablet);
+      
+      // Set sidebar state based on screen size
+      if (newIsMobile) {
+        setSidebarOpen(false); // Closed on mobile
       } else {
-        setIsMobile(false);
+        setSidebarOpen(true); // Open on desktop/tablet
       }
     };
-    checkMobile();
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  if (isMobile) {
-    return (
-      <div style={{
-        maxWidth: '500px',
-        margin: '40px auto',
-        padding: '32px',
-        backgroundColor: '#fff3cd',
-        color: '#856404',
-        border: '1px solid #ffeeba',
-        borderRadius: '8px',
-        textAlign: 'center',
-        fontSize: '1.2rem',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-      }}>
-        Lo siento, esta visualización no está disponible en dispositivos móviles.
-      </div>
-    );
-  }
+  // Prevent body scroll when mobile sidebar is open
+  React.useEffect(() => {
+    if (isMobile && sidebarOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, [isMobile, sidebarOpen]);
   
   return (
     <div style={{ 
-      maxWidth: '1200px', 
-      margin: '20px auto', 
+      maxWidth: isMobile ? '100%' : '1200px', 
+      margin: isMobile ? '0' : '20px auto', 
       backgroundColor: '#f8f9fa',
-      borderRadius: '8px',
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-      overflow: 'hidden'
+      borderRadius: isMobile ? '0' : '8px',
+      boxShadow: isMobile ? 'none' : '0 2px 4px rgba(0,0,0,0.1)',
+      overflow: 'hidden',
+      minHeight: isMobile ? '100vh' : 'auto'
     }}>
+      {/* Mobile Header */}
+      {isMobile && !sidebarOpen && (
+        <div style={{
+          backgroundColor: 'white',
+          padding: '16px',
+          borderBottom: '1px solid #e9ecef',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'sticky',
+          top: 0,
+          zIndex: 1000
+        }}>
+          <h1 style={{ 
+            margin: 0, 
+            fontSize: '18px', 
+            fontWeight: 'bold',
+            color: '#333',
+            textAlign: 'center'
+          }}>
+            {selectedItem ? selectedItem.name : 'Peru Data'}
+          </h1>
+        </div>
+      )}
+
       {/* Main Content Area */}
       <div style={{ 
-        display: 'flex',
-        minHeight: '950px',
-        maxHeight: '950px'
+        display: isMobile ? 'block' : 'flex',
+        minHeight: isMobile ? 'calc(100vh - 120px)' : '950px',
+        maxHeight: isMobile ? 'none' : '950px'
       }}>
-        {/* Sidebar */}
-        {sidebarOpen && !showAbout && (
+        {/* Desktop Sidebar */}
+        {sidebarOpen && !showAbout && !isMobile && (
           <div style={{
             width: '250px',
             backgroundColor: 'white',
@@ -583,41 +646,44 @@ const PeruDataWidget = () => {
             display: 'flex',
             flexDirection: 'column',
             alignSelf: 'stretch',
-            position: 'relative'
+            position: 'relative',
+            overflowY: 'auto'
           }}>
-            {/* Close Sidebar Button - positioned in top-right of sidebar */}
-            <button
-              onClick={() => setSidebarOpen(false)}
-              style={{
-                position: 'absolute',
-                right: '15px',
-                top: '15px',
-                background: 'none',
-                border: 'none',
-                color: '#666',
-                cursor: 'pointer',
-                fontSize: '20px',
-                fontWeight: 'bold',
-                zIndex: 10,
-                transition: 'color 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.color = '#333';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.color = '#666';
-              }}
-              title="Cerrar panel lateral"
-            >
-              ✕
-            </button>
+            {/* Close Sidebar Button - only show on desktop */}
+            {!isMobile && (
+              <button
+                onClick={() => setSidebarOpen(false)}
+                style={{
+                  position: 'absolute',
+                  right: '15px',
+                  top: '15px',
+                  background: 'none',
+                  border: 'none',
+                  color: '#666',
+                  cursor: 'pointer',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  zIndex: 10,
+                  transition: 'color 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = '#333';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = '#666';
+                }}
+                title="Cerrar panel lateral"
+              >
+                ✕
+              </button>
+            )}
             
             {/* Scrollable content area */}
             <div style={{
               flex: 1,
               overflowY: 'auto',
-              padding: '20px',
-              paddingTop: '50px'
+              padding: isMobile ? '16px' : '20px',
+              paddingTop: isMobile ? '16px' : '50px'
             }}>
               <div style={{ 
                 display: 'flex', 
@@ -679,19 +745,7 @@ const PeruDataWidget = () => {
                                 if (isNavigating) return;
                                 setIsNavigating(true);
                                 
-                                try {
-                                  // Load data for this item if not already loaded
-                                  if (!data[item.name]) {
-                                    const itemData = await dataLoader.current.loadItemData(item);
-                                    setData(prev => ({ ...prev, [item.name]: itemData }));
-                                  }
-                                  setSelectedItem(item);
-                                  
-                                  // Update URL
-                                  updateURL(item);
-                                } catch (err) {
-                                  console.error('Error loading item data:', err);
-                                }
+                                await selectItem(item);
                                 
                                 // Reset navigation flag after a short delay
                                 setTimeout(() => setIsNavigating(false), 300);
@@ -774,9 +828,14 @@ const PeruDataWidget = () => {
           </div>
         )}
         {/* Main Content Column */}
-        <div style={{ flex: 1, padding: '40px 40px 40px 40px', position: 'relative', minWidth: 0 }}>
-          {/* Hamburger Menu Button - appears when sidebar is closed */}
-          {!sidebarOpen && !showAbout && (
+        <div style={{ 
+          flex: 1, 
+          padding: isMobile ? '16px 16px 80px 16px' : '40px 40px 40px 40px', 
+          position: 'relative', 
+          minWidth: 0 
+        }}>
+          {/* Hamburger Menu Button - only show on desktop when sidebar is closed */}
+          {!sidebarOpen && !showAbout && !isMobile && (
             <button
               onClick={() => setSidebarOpen(true)}
               style={{
@@ -803,8 +862,8 @@ const PeruDataWidget = () => {
               ☰
             </button>
           )}
-          {/* Visualization Title (constrained) */}
-          {selectedItem && !showAbout && (
+          {/* Visualization Title (constrained) - Desktop Only */}
+          {selectedItem && !showAbout && !isMobile && (
             <div style={{ 
               maxWidth: '600px',
               maxHeight: '80px',
@@ -827,8 +886,8 @@ const PeruDataWidget = () => {
             </div>
           )}
           
-          {/* Pagination Container */}
-          {!showAbout && (
+          {/* Pagination Container - Desktop Only */}
+          {!showAbout && !isMobile && (
             <div style={{ 
               position: 'relative',
               width: '100%'
@@ -929,14 +988,26 @@ const PeruDataWidget = () => {
             </div>
           )}
           
+          {/* Mobile Visualization Content */}
+          {!showAbout && isMobile && (
+            <div style={{ 
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}>
+              {renderVisualization()}
+            </div>
+          )}
+          
           {/* About Page Content */}
           {showAbout && renderAboutPage()}
           
           {/* Data Source Information */}
           {selectedItem && !showAbout && (
             <div style={{ 
-              marginTop: '20px', 
-              padding: '15px', 
+              marginTop: isMobile ? '16px' : '20px', 
+              padding: isMobile ? '12px' : '15px', 
               backgroundColor: 'white', 
               borderRadius: '6px',
               border: '1px solid #e9ecef'
@@ -958,6 +1029,247 @@ const PeruDataWidget = () => {
           )}
         </div>
       </div>
+
+      {/* Mobile Bottom Bar */}
+      {isMobile && !showAbout && (
+        <>
+          {/* Dimming Overlay */}
+          {sidebarOpen && (
+            <div 
+              style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                zIndex: 999,
+                backdropFilter: 'blur(2px)'
+              }}
+              onClick={() => setSidebarOpen(false)}
+            />
+          )}
+          
+          <div style={{
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            backgroundColor: 'white',
+            borderTop: '1px solid #e9ecef',
+            zIndex: 1000,
+            boxShadow: '0 -2px 10px rgba(0,0,0,0.1)'
+          }}>
+          {/* Collapsed State */}
+          {!sidebarOpen && (
+            <button
+              onClick={() => setSidebarOpen(true)}
+              style={{
+                width: '100%',
+                padding: '16px',
+                background: 'none',
+                border: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                cursor: 'pointer',
+                fontSize: '16px',
+                color: '#333',
+                fontWeight: 'bold'
+              }}
+            >
+              <span>📊</span>
+              <span>Seleccionar visualización</span>
+              <span style={{ fontSize: '20px' }}>⌃</span>
+            </button>
+          )}
+
+          {/* Expanded State */}
+          {sidebarOpen && (
+            <div style={{
+              maxHeight: '70vh',
+              overflowY: 'auto'
+            }}>
+              {/* Header */}
+              <div style={{
+                padding: '16px',
+                borderBottom: '1px solid #e9ecef',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                backgroundColor: '#f8f9fa'
+              }}>
+                <span style={{ fontSize: '16px', fontWeight: 'bold', color: '#333' }}>
+                  Visualizaciones disponibles
+                </span>
+                <button
+                  onClick={() => setSidebarOpen(false)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    fontSize: '20px',
+                    cursor: 'pointer',
+                    color: '#666',
+                    padding: '4px'
+                  }}
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Content */}
+              <div style={{
+                padding: '16px',
+                maxHeight: 'calc(70vh - 60px)',
+                overflowY: 'auto'
+              }}>
+                <div style={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: '12px'
+                }}>
+                  {config && config.categories.map(category => {
+                    const isExpanded = expandedCategories.includes(category.variable);
+                    
+                    return (
+                      <div key={category.variable} style={{ display: 'flex', flexDirection: 'column', marginBottom: '12px' }}>
+                        {/* Category Header */}
+                        <button
+                          onClick={() => {
+                            if (isExpanded) {
+                              setExpandedCategories(expandedCategories.filter(c => c !== category.variable));
+                            } else {
+                              setExpandedCategories([...expandedCategories, category.variable]);
+                            }
+                          }}
+                          style={{
+                            padding: '12px',
+                            borderRadius: '8px',
+                            border: '1px solid #e9ecef',
+                            backgroundColor: '#f8f9fa',
+                            color: '#495057',
+                            cursor: 'pointer',
+                            textAlign: 'left',
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            transition: 'all 0.2s ease',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            width: '100%'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.target.style.backgroundColor = '#e9ecef';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.backgroundColor = '#f8f9fa';
+                          }}
+                        >
+                          <span>{category.name}</span>
+                          <span style={{ fontSize: '12px' }}>
+                            {isExpanded ? '▼' : '▶'}
+                          </span>
+                        </button>
+                        
+                        {/* Category Items */}
+                        {isExpanded && (
+                          <div style={{ 
+                            marginTop: '8px', 
+                            display: 'flex', 
+                            flexDirection: 'column', 
+                            gap: '4px',
+                            paddingLeft: '8px'
+                          }}>
+                            {category.items.map(item => (
+                              <button
+                                key={item.name}
+                                onClick={() => {
+                                  selectItem(item);
+                                  setSidebarOpen(false);
+                                }}
+                                style={{
+                                  padding: '10px 12px',
+                                  borderRadius: '6px',
+                                  border: '1px solid #e9ecef',
+                                  backgroundColor: selectedItem && selectedItem.name === item.name ? '#007bff' : 'white',
+                                  color: selectedItem && selectedItem.name === item.name ? 'white' : '#495057',
+                                  cursor: 'pointer',
+                                  textAlign: 'left',
+                                  fontSize: '13px',
+                                  transition: 'all 0.2s ease',
+                                  width: '100%'
+                                }}
+                                onMouseEnter={(e) => {
+                                  if (!selectedItem || selectedItem.name !== item.name) {
+                                    e.target.style.backgroundColor = '#f8f9fa';
+                                  }
+                                }}
+                                onMouseLeave={(e) => {
+                                  if (!selectedItem || selectedItem.name !== item.name) {
+                                    e.target.style.backgroundColor = 'white';
+                                  }
+                                }}
+                              >
+                                <span>{item.name}</span>
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+                
+                {/* About Button */}
+                <div style={{
+                  paddingTop: '16px',
+                  borderTop: '1px solid #e9ecef',
+                  marginTop: '16px'
+                }}>
+                  <button
+                    onClick={() => {
+                      setShowAbout(true);
+                      setSidebarOpen(false);
+                    }}
+                    style={{
+                      width: '100%',
+                      padding: '12px',
+                      borderRadius: '6px',
+                      border: '1px solid #e9ecef',
+                      backgroundColor: showAbout ? '#007bff' : 'white',
+                      color: showAbout ? 'white' : '#495057',
+                      cursor: 'pointer',
+                      textAlign: 'center',
+                      fontSize: '14px',
+                      fontWeight: 'bold',
+                      transition: 'all 0.2s ease',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!showAbout) {
+                        e.target.style.backgroundColor = '#f8f9fa';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!showAbout) {
+                        e.target.style.backgroundColor = 'white';
+                      }
+                    }}
+                  >
+                    <span style={{ fontSize: '16px' }}>?</span>
+                    <span>Acerca de</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+        </>
+      )}
     </div>
   );
 };

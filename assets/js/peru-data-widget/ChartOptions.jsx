@@ -86,8 +86,20 @@ const ChartOptions = ({
       } else {
         // Dropdown for stacked area charts
         return (
-          <div key={option} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
-            <label style={{ fontSize: '14px', color: '#555' }}>{option.replace(/_/g, ' ').charAt(0).toUpperCase() + option.replace(/_/g, ' ').slice(1)}</label>
+          <div key={option} style={{ 
+            display: 'flex', 
+            flexDirection: isMobile ? 'column' : 'row', 
+            alignItems: isMobile ? 'stretch' : 'center', 
+            gap: isMobile ? '6px' : '8px',
+            width: isMobile ? '100%' : 'auto'
+          }}>
+            <label style={{ 
+              fontSize: isMobile ? '12px' : '14px', 
+              color: '#555',
+              textAlign: isMobile ? 'center' : 'left'
+            }}>
+              {option.replace(/_/g, ' ').charAt(0).toUpperCase() + option.replace(/_/g, ' ').slice(1)}
+            </label>
             <select
               value={selections[option] || ''}
               onChange={e => {
@@ -95,7 +107,13 @@ const ChartOptions = ({
                 const parsed = val !== '' && !isNaN(Number(val)) ? Number(val) : val;
                 onSelectionChange(option, parsed);
               }}
-              style={{ padding: '6px 12px', borderRadius: '4px', border: '1px solid #ccc', fontSize: '15px' }}
+              style={{ 
+                padding: isMobile ? '8px 12px' : '6px 12px', 
+                borderRadius: '4px', 
+                border: '1px solid #ccc', 
+                fontSize: isMobile ? '14px' : '15px',
+                width: isMobile ? '100%' : 'auto'
+              }}
             >
               {sortedVals.map(val => (
                 <option key={val} value={val}>{val}</option>
@@ -161,13 +179,23 @@ const ChartOptions = ({
             display: 'flex', 
             flexDirection: 'column', 
             alignItems: 'center', 
-            gap: '8px',
-            minWidth: '200px'
+            gap: isMobile ? '6px' : '8px',
+            minWidth: isMobile ? '100%' : '200px'
           }}>
-            <label style={{ fontSize: '14px', color: '#555', fontWeight: 'bold' }}>
+            <label style={{ 
+              fontSize: isMobile ? '12px' : '14px', 
+              color: '#555', 
+              fontWeight: 'bold',
+              textAlign: 'center'
+            }}>
               {option.replace(/_/g, ' ').charAt(0).toUpperCase() + option.replace(/_/g, ' ').slice(1)}
             </label>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }}>
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: isMobile ? '8px' : '12px', 
+              width: '100%' 
+            }}>
               <span style={{ fontSize: '12px', color: '#666', minWidth: '40px' }}>
                 {sortedVals[0]}
               </span>
@@ -203,8 +231,20 @@ const ChartOptions = ({
       } else {
         // Dropdown for non-numeric variables or numeric variables with fewer than 3 values
         return (
-          <div key={option} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
-            <label style={{ fontSize: '14px', color: '#555' }}>{option.replace(/_/g, ' ').charAt(0).toUpperCase() + option.replace(/_/g, ' ').slice(1)}</label>
+          <div key={option} style={{ 
+            display: 'flex', 
+            flexDirection: isMobile ? 'column' : 'row', 
+            alignItems: isMobile ? 'stretch' : 'center', 
+            gap: isMobile ? '6px' : '8px',
+            width: isMobile ? '100%' : 'auto'
+          }}>
+            <label style={{ 
+              fontSize: isMobile ? '12px' : '14px', 
+              color: '#555',
+              textAlign: isMobile ? 'center' : 'left'
+            }}>
+              {option.replace(/_/g, ' ').charAt(0).toUpperCase() + option.replace(/_/g, ' ').slice(1)}
+            </label>
             <select
               value={selections[option] || ''}
               onChange={e => {
@@ -212,7 +252,13 @@ const ChartOptions = ({
                 const parsed = val !== '' && !isNaN(Number(val)) ? Number(val) : val;
                 onSelectionChange(option, parsed);
               }}
-              style={{ padding: '6px 12px', borderRadius: '4px', border: '1px solid #ccc', fontSize: '15px' }}
+              style={{ 
+                padding: isMobile ? '8px 12px' : '6px 12px', 
+                borderRadius: '4px', 
+                border: '1px solid #ccc', 
+                fontSize: isMobile ? '14px' : '15px',
+                width: isMobile ? '100%' : 'auto'
+              }}
             >
               {sortedVals.map(val => (
                 <option key={val} value={val}>{val}</option>
@@ -224,13 +270,18 @@ const ChartOptions = ({
     }
   };
 
+  // Detect mobile for responsive design
+  const isMobile = window.innerWidth < 768;
+  
   return (
     <div style={{ 
       display: 'flex', 
-      gap: '16px', 
+      gap: isMobile ? '12px' : '16px', 
       justifyContent: 'center', 
-      marginBottom: '24px', 
+      marginBottom: isMobile ? '16px' : '24px', 
       flexWrap: 'wrap',
+      flexDirection: isMobile ? 'column' : 'row',
+      alignItems: isMobile ? 'stretch' : 'center',
       ...style
     }}>
       {options.map((option, index) => renderOptionControl(option, index))}

@@ -2,6 +2,8 @@
 // Renders a choropleth map using D3 and TopoJSON
 
 const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = true, totalValue = null }) => {
+  // Detect mobile for responsive design
+  const isMobile = window.innerWidth < 768;
   const mapRef = React.useRef(null);
   const [mapData, setMapData] = React.useState(null);
   const [limaData, setLimaData] = React.useState(null);
@@ -101,7 +103,12 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
     d3.select(mapRef.current).selectAll("*").remove();
 
     // Set up the map dimensions
-    const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+    const margin = { 
+      top: isMobile ? 10 : 20, 
+      right: isMobile ? 10 : 20, 
+      bottom: isMobile ? 10 : 20, 
+      left: isMobile ? 10 : 20 
+    };
     const mapWidth = width - margin.left - margin.right;
     const mapHeight = height - margin.top - margin.bottom;
 
@@ -118,7 +125,10 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
     // Adjust translation: move left and lower, and shift if sidebar is closed
     const sidebarShift = sidebarOpen ? 0 : 100;
     const currentTranslate = projection.translate();
-    projection.translate([currentTranslate[0] - 130 + sidebarShift, currentTranslate[1] + 14]);
+    projection.translate([
+      currentTranslate[0] - (isMobile ? 50 : 130) + (isMobile ? 0 : sidebarShift), 
+      currentTranslate[1] + (isMobile ? 7 : 14)
+    ]);
 
     // Create path generator
     const path = d3.geoPath().projection(projection);
@@ -149,11 +159,12 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
       .style("position", "absolute")
       .style("background", "rgba(0, 0, 0, 0.8)")
       .style("color", "white")
-      .style("padding", "8px")
+      .style("padding", isMobile ? "6px" : "8px")
       .style("border-radius", "4px")
-      .style("font-size", "12px")
+      .style("font-size", isMobile ? "10px" : "12px")
       .style("pointer-events", "none")
-      .style("opacity", 0);
+      .style("opacity", 0)
+      .style("max-width", isMobile ? "200px" : "300px");
 
     // Draw the main map (departments or districts)
     svg.selectAll("path.region")
@@ -192,7 +203,7 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
         return "#ccc"; // Transparent for regions without data
       })
       .attr("stroke", "#888")
-      .attr("stroke-width", 0.5)
+      .attr("stroke-width", isMobile ? 0.3 : 0.5)
       .on("mouseover", function(event, d) {
         d3.select(this).attr("stroke-width", 2).attr("stroke", "#888");
         
@@ -264,7 +275,7 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
         .attr("stroke", "#888")
         .attr("stroke-width", 0.5)
         .on("mouseover", function(event, d) {
-          d3.select(this).attr("stroke-width", 2).attr("stroke", "#888");
+          d3.select(this).attr("stroke-width", isMobile ? 1.5 : 2).attr("stroke", "#888");
           
           // Find data for this region
           const regionName = normalizeRegion(d.properties.NOMBDEP);
@@ -286,7 +297,7 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
             .style("top", (event.pageY - 10) + "px");
         })
         .on("mouseout", function() {
-          d3.select(this).attr("stroke-width", 0.5).attr("stroke", "#888");
+          d3.select(this).attr("stroke-width", isMobile ? 0.3 : 0.5).attr("stroke", "#888");
           tooltip.style("opacity", 0);
         });
     }
