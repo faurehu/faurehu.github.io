@@ -121,7 +121,11 @@ const getChartFromURL = (allItems) => {
       // Update URL without triggering a page reload
       const cleanURL = `/peru-data/${slug}`;
       if (window.location.pathname !== cleanURL) {
-        window.history.replaceState({ chart: item.name }, item.title, cleanURL);
+        try {
+          window.history.replaceState({ chart: item.name }, item.title, cleanURL);
+        } catch (error) {
+          console.warn('Failed to replace URL state:', error);
+        }
       }
     }
     
@@ -131,20 +135,42 @@ const getChartFromURL = (allItems) => {
   return null;
 };
 
+// Debounce function to prevent too many rapid calls
+let updateURLTimeout = null;
+
 const updateURL = (item) => {
   if (!item) return;
   
-  const slug = chartNameToSlug(item.name);
-  const newURL = `/peru-data/${slug}`;
+  // Clear any pending timeout
+  if (updateURLTimeout) {
+    clearTimeout(updateURLTimeout);
+  }
   
-  // Update URL without reloading the page
-  window.history.pushState({ chart: item.name }, item.title, newURL);
+  // Debounce the URL update to prevent too many rapid calls
+  updateURLTimeout = setTimeout(() => {
+    const slug = chartNameToSlug(item.name);
+    const newURL = `/peru-data/${slug}`;
+    
+    // Only update if the URL is actually different
+    if (window.location.pathname !== newURL) {
+      try {
+        // Update URL without reloading the page
+        window.history.pushState({ chart: item.name }, item.title, newURL);
+      } catch (error) {
+        console.warn('Failed to update URL:', error);
+      }
+    }
+  }, 100); // 100ms debounce
 };
 
 const handleInvalidChartURL = (slug) => {
   // If someone visits an invalid chart URL, redirect to the main page
   console.warn(`Invalid chart slug: ${slug}. Redirecting to main page.`);
-  window.history.replaceState({}, 'Peru Data', '/peru-data');
+  try {
+    window.history.replaceState({}, 'Peru Data', '/peru-data');
+  } catch (error) {
+    console.warn('Failed to redirect to main page:', error);
+  }
 };
 
 // Export for use in other files

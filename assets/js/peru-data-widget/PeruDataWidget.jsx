@@ -29,9 +29,14 @@ const PeruDataWidget = () => {
     return items;
   };
   
+  // Rate limiting for navigation
+  const [isNavigating, setIsNavigating] = React.useState(false);
+
   // Navigate to next item
   const goToNextItem = async () => {
-    if (!selectedItem) return;
+    if (!selectedItem || isNavigating) return;
+    
+    setIsNavigating(true);
     
     const allItems = getAllItems();
     const currentIndex = allItems.findIndex(item => item.name === selectedItem.name);
@@ -59,11 +64,16 @@ const PeruDataWidget = () => {
         console.error('Error loading next item data:', err);
       }
     }
+    
+    // Reset navigation flag after a short delay
+    setTimeout(() => setIsNavigating(false), 300);
   };
   
   // Navigate to previous item
   const goToPreviousItem = async () => {
-    if (!selectedItem) return;
+    if (!selectedItem || isNavigating) return;
+    
+    setIsNavigating(true);
     
     const allItems = getAllItems();
     const currentIndex = allItems.findIndex(item => item.name === selectedItem.name);
@@ -91,6 +101,9 @@ const PeruDataWidget = () => {
         console.error('Error loading previous item data:', err);
       }
     }
+    
+    // Reset navigation flag after a short delay
+    setTimeout(() => setIsNavigating(false), 300);
   };
   
   // Check if navigation is possible
@@ -342,9 +355,17 @@ const PeruDataWidget = () => {
     const itemData = data[selectedItem.name] || [];
     
     // Filter data by current selections
-    const filteredData = itemData.filter(row =>
+    let filteredData = itemData.filter(row =>
       selectedItem.params.by.every(byVar => bySelections[byVar] === undefined || row[byVar] === bySelections[byVar])
     );
+    
+    // If without_lima is true and map_type is districts, filter out Lima (by provincia) and Callao (by departamento) districts from total calculation
+    if (selectedItem.params.without_lima === true && selectedItem.params.map_type === 'districts') {
+      filteredData = filteredData.filter(row => 
+        (!row.departamento || row.departamento !== 'CALLAO') && 
+        (!row.provincia || row.provincia !== 'LIMA')
+      );
+    }
     
     // Check all fields that might contain "Total" values
     const fieldsToCheck = ['departamento', 'tipo_superficie', 'superficie', 'tipo'];
@@ -388,6 +409,14 @@ const PeruDataWidget = () => {
           );
         }
       });
+    }
+
+    // If without_lima is true and map_type is districts, filter out Lima (by provincia) and Callao (by departamento) districts
+    if (selectedItem.params.without_lima === true && selectedItem.params.map_type === 'districts') {
+      filteredData = filteredData.filter(row => 
+        (!row.departamento || row.departamento !== 'CALLAO') && 
+        (!row.provincia || row.provincia !== 'LIMA')
+      );
     }
 
     return filteredData;
@@ -542,8 +571,8 @@ const PeruDataWidget = () => {
       {/* Main Content Area */}
       <div style={{ 
         display: 'flex',
-        minHeight: '900px',
-        maxHeight: '900px'
+        minHeight: '950px',
+        maxHeight: '950px'
       }}>
         {/* Sidebar */}
         {sidebarOpen && !showAbout && (
@@ -553,30 +582,32 @@ const PeruDataWidget = () => {
             borderRight: '1px solid #e9ecef',
             display: 'flex',
             flexDirection: 'column',
-            alignSelf: 'stretch'
+            alignSelf: 'stretch',
+            position: 'relative'
           }}>
-            {/* Hamburger Menu Button - positioned in top-right of sidebar */}
+            {/* Close Sidebar Button - positioned in top-right of sidebar */}
             <button
               onClick={() => setSidebarOpen(false)}
               style={{
                 position: 'absolute',
-                right: '10px',
+                right: '15px',
                 top: '15px',
-                width: '30px',
-                height: '30px',
-                borderRadius: '50%',
-                border: '1px solid #ddd',
-                backgroundColor: 'white',
+                background: 'none',
+                border: 'none',
+                color: '#666',
                 cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '14px',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                zIndex: 10
+                fontSize: '20px',
+                fontWeight: 'bold',
+                zIndex: 10,
+                transition: 'color 0.2s ease'
               }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#f8f9fa'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
+              onMouseEnter={(e) => {
+                e.target.style.color = '#333';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = '#666';
+              }}
+              title="Cerrar panel lateral"
             >
               ✕
             </button>
@@ -645,6 +676,9 @@ const PeruDataWidget = () => {
                             <button
                               key={item.name}
                               onClick={async () => {
+                                if (isNavigating) return;
+                                setIsNavigating(true);
+                                
                                 try {
                                   // Load data for this item if not already loaded
                                   if (!data[item.name]) {
@@ -658,6 +692,9 @@ const PeruDataWidget = () => {
                                 } catch (err) {
                                   console.error('Error loading item data:', err);
                                 }
+                                
+                                // Reset navigation flag after a short delay
+                                setTimeout(() => setIsNavigating(false), 300);
                               }}
                               style={{
                                 padding: '8px 12px',
@@ -744,23 +781,24 @@ const PeruDataWidget = () => {
               onClick={() => setSidebarOpen(true)}
               style={{
                 position: 'absolute',
-                left: '10px',
+                left: '15px',
                 top: '20px',
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                border: '1px solid #ddd',
-                backgroundColor: 'white',
+                background: 'none',
+                border: 'none',
+                color: '#666',
                 cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '18px',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                zIndex: 10
+                fontSize: '24px',
+                fontWeight: 'bold',
+                zIndex: 10,
+                transition: 'color 0.2s ease'
               }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = '#f8f9fa'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'white'}
+              onMouseEnter={(e) => {
+                e.target.style.color = '#333';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = '#666';
+              }}
+              title="Abrir panel lateral"
             >
               ☰
             </button>

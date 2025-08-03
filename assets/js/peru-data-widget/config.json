@@ -22,17 +22,18 @@
       "name": "Medio Ambiente",
       "variable": "medio_ambiente",
       "items": [
-        {
-          "name": "Temperatura promedio",
-          "type": "choropleth",
-          "title": "Temperatura promedio anual (Grados Celsius)",
-          "datafile": "temperatura_promedio.csv",
-          "source": "Servicio Nacional de Meteorología e Hidrología (SENAMHI)",
-          "params": {
-            "value": "temperatura_promedio",
-            "by": ["año"]
-          }
-        },
+                  {
+              "name": "Temperatura promedio",
+              "type": "choropleth",
+              "title": "Temperatura promedio anual (Grados Celsius)",
+              "datafile": "temperatura_promedio.csv",
+              "source": "Servicio Nacional de Meteorología e Hidrología (SENAMHI)",
+              "params": {
+                "value": "temperatura_promedio",
+                "by": ["año"],
+                "map_type": "departments"
+              }
+          },
         {
           "name": "Temperatura máxima",
           "type": "choropleth",
@@ -216,7 +217,7 @@
               "params": {
                 "value": "personas",
                 "by": ["año"],
-                "with_lima": true,
+                "map_type": "lima",
                 "total": true
               }
           },
@@ -245,8 +246,125 @@
                 "by": ["año"],
                 "with_lima": true
               }
+          },
+          {
+              "name": "Dependencia poblacional",
+              "title": "Dependencia estructural de la población",
+              "type": "choropleth",
+              "datafile": "dependencia_poblacional.csv",
+              "source": "Instituto Nacional de Estadística e Informática - Censos Nacionales de Población y Vivienda, 1940, 1961, 1972, 1981, 1993, 2007 y 2017",
+              "detalle": "Es la relación de la población de 0 a 14 años más la población de 65 y más, entre la población de 15 a 64 años de edad.",
+              "params": {
+                "value": "dependencia",
+                "by": ["año"],
+                "with_lima": true
+              }
+          },
+          {
+              "name": "Edad promedio",
+              "title": "Edad promedio de la población",
+              "type": "choropleth",
+              "datafile": "edad_promedio.csv",
+              "source": "Instituto Nacional de Estadística e Informática - Censos Nacionales de Población y Vivienda, 1940, 1961, 1972, 1981, 1993, 2007 y 2017",
+              "params": {
+                "value": "edad",
+                "by": ["año"],
+                "with_lima": true
+              }
+          },
+          {
+              "name": "Edad media",
+              "title": "Edad media de la población",
+              "type": "choropleth",
+              "datafile": "edad_media.csv",
+              "source": "Instituto Nacional de Estadística e Informática - Censos Nacionales de Población y Vivienda, 1940, 1961, 1972, 1981, 1993, 2007 y 2017",
+              "params": {
+                "value": "edad",
+                "by": ["año"],
+                "with_lima": true
+              }
+          },
+          {
+              "name": "Masculinidad",
+              "title": "Número de hombres por cada 100 mujeres",
+              "type": "choropleth",
+              "datafile": "masculinidad.csv",
+              "source": "Instituto Nacional de Estadística e Informática - Censos Nacionales de Población y Vivienda, 1940, 1961, 1972, 1981, 1993, 2007 y 2017",
+              "params": {
+                "value": "masculinidad",
+                "by": ["año"],
+                "with_lima": true
+              }
+          },
+          {
+            "name": "Población en edad de trabajar",
+            "type": "stacked_area",
+            "title": "Población censada en edad de trabajar de 14 y más años de edad",
+            "datafile": "poblacion_edad_trabajar.csv",
+            "source": "Instituto Nacional de Estadística e Informática - Censos Nacionales de Población y Vivienda, 1940, 1961, 1972, 1981, 1993, 2007 y 2017",
+            "params": {
+              "value": "personas",
+              "x": "año",
+              "area": ["grupo_de_edad"]
+            }
+          },
+          {
+              "name": "Migración interna",
+              "title": "Población inmigrante y emigrante",
+              "type": "choropleth",
+              "datafile": "migracion_interna.csv",
+              "source": "Instituto Nacional de Estadística e Informática - Censos Nacionales de Población y Vivienda, 1940-2017",
+              "params": {
+                "value": "personas",
+                "by": ["año", "direccion"]
+              }
+          },
+          {
+            "name": "Salidas internacionales",
+            "type": "stacked_area",
+            "title": "Salida de peruanas/os",
+            "datafile": "salidas_internacionales.csv",
+            "source": "Superintendencia Nacional de Migraciones",
+            "params": {
+              "value": "personas",
+              "x": "año",
+              "area": ["continente"]
+            }
+          },
+          {
+            "name": "Entradas internacionales",
+            "type": "stacked_area",
+            "title": "Entrada de peruanas/os",
+            "datafile": "entradas_internacionales.csv",
+            "source": "Superintendencia Nacional de Migraciones",
+            "params": {
+              "value": "personas",
+              "x": "año",
+              "area": ["continente"]
+            }
           }
       ]
+  },
+  {
+    "name": "Elecciones",
+    "variable": "elecciones",
+    "items": [
+      {
+        "name": "Elecciones presidenciales 2021",
+        "title": "Votos netos por partido en elecciones presidenciales 2021",
+        "type": "choropleth",
+        "datafile": "presidenciales_2021_distritos.csv",
+        "source": "Oficina Nacional de Procesos Electorales (ONPE)",
+        "detalle": "Los distritos de Lima Metropolitana y Callao no se incluyen por tener valores extremadamente altos.",
+        "params": {
+          "value": "votos",
+          "by": ["partido"],
+          "map_type": "districts",
+          "total": true,
+          "without_lima": true
+        }
+      }
+    ]
   }
   ]
 } 

@@ -13,16 +13,28 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
   // Accept numbers or numeric strings
   const values = valueKey ? data.map(d => d[valueKey]).filter(v => v !== '' && v !== null && v !== undefined && !isNaN(Number(v))).map(Number) : [];
 
+  // Determine map type from params at component level
+  const mapType = item && item.params && item.params.map_type;
+  const useLima = item && item.params && item.params.with_lima;
+  const useDistritos = item && item.params && item.params.with_distritos;
+
   // Load and process the shapefile data
   React.useEffect(() => {
     const loadMapData = async () => {
       try {
         setLoading(true);
         
-        // Choose shapefile based on with_lima param
-        const useLima = item && item.params && item.params.with_lima;
-        
-        if (useLima) {
+        // Priority: map_type > with_distritos > with_lima > default
+        if (mapType === 'districts' || useDistritos) {
+          // Load districts map
+          const response = await fetch('/assets/js/peru-data-widget/peru_distritos.geojson');
+          if (!response.ok) {
+            throw new Error('Failed to load districts map data');
+          }
+          const districtsData = await response.json();
+          setMapData(districtsData);
+          setLimaData(null);
+        } else if (mapType === 'lima' || useLima) {
           // Load both the original departments shapefile and Lima Metropolitana
           const [departmentsResponse, limaResponse] = await Promise.all([
             fetch('/assets/js/peru-data-widget/peru_departamentos.json'),
@@ -42,7 +54,7 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
           setMapData(departmentsData);
           setLimaData(limaMetropolitanaData);
         } else {
-          // Load only the original departments shapefile
+          // Default: Load only the original departments shapefile
           const response = await fetch('/assets/js/peru-data-widget/peru_departamentos.json');
           if (!response.ok) {
             throw new Error('Failed to load map data');
@@ -63,7 +75,23 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
   }, [item]);
 
   // Helper to normalize region names (remove accents, lowercase)
-  const normalizeRegion = str => str ? str.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase() : '';
+  const normalizeRegion = str => {
+    if (!str) return '';
+    
+    // Handle potential encoding issues first
+    let cleanStr = str;
+    if (typeof str === 'string') {
+      // Decode any HTML entities that might have been encoded
+      cleanStr = str.replace(/&amp;/g, '&')
+                   .replace(/&lt;/g, '<')
+                   .replace(/&gt;/g, '>')
+                   .replace(/&quot;/g, '"')
+                   .replace(/&#39;/g, "'")
+                   .replace(/&nbsp;/g, ' ');
+    }
+    
+    return cleanStr.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+  };
 
   // Render the choropleth map
   React.useEffect(() => {
@@ -127,20 +155,36 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
       .style("pointer-events", "none")
       .style("opacity", 0);
 
-    // Draw the main departments map
-    svg.selectAll("path.department")
+    // Draw the main map (departments or districts)
+    svg.selectAll("path.region")
       .data(mapData.features)
       .enter()
       .append("path")
-      .attr("class", "department")
+      .attr("class", "region")
       .attr("d", path)
       .attr("fill", d => {
         // Find matching data for this region
-        const regionName = normalizeRegion(d.properties.NOMBDEP);
-        const regionData = data.find(item => 
-          (item.region && normalizeRegion(item.region) === regionName) ||
-          (item.departamento && normalizeRegion(item.departamento) === regionName)
-        );
+        let regionData = null;
+
+        if (mapType === 'districts' || useDistritos) {
+          // For districts map, match by DEPARTAMENTO, PROVINCIA, DISTRITO
+          const departamento = normalizeRegion(d.properties.NOMBDEP);
+          const provincia = normalizeRegion(d.properties.NOMBPROV);
+          const distrito = normalizeRegion(d.properties.NOMBDIST);
+
+          regionData = data.find(item => 
+            (item.departamento && normalizeRegion(item.departamento) === departamento) &&
+            (item.provincia && normalizeRegion(item.provincia) === provincia) &&
+            (item.distrito && normalizeRegion(item.distrito) === distrito)
+          );
+        } else {
+          // For departments map, match by NOMBDEP
+          const regionName = normalizeRegion(d.properties.NOMBDEP);
+          regionData = data.find(item => 
+            (item.region && normalizeRegion(item.region) === regionName) ||
+            (item.departamento && normalizeRegion(item.departamento) === regionName)
+          );
+        }
         
         if (regionData && valueKey && regionData[valueKey] !== undefined && !isNaN(Number(regionData[valueKey]))) {
           return colorScale(Number(regionData[valueKey]));
@@ -153,13 +197,33 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
         d3.select(this).attr("stroke-width", 2).attr("stroke", "#888");
         
         // Find data for this region
-        const regionName = normalizeRegion(d.properties.NOMBDEP);
-        const regionData = data.find(item => 
-          (item.region && normalizeRegion(item.region) === regionName) ||
-          (item.departamento && normalizeRegion(item.departamento) === regionName)
-        );
+        let regionData = null;
+        let tooltipContent = "";
         
-        let tooltipContent = `<strong style='color:white'>${d.properties.NOMBDEP}</strong>`;
+        if (mapType === 'districts' || useDistritos) {
+          // For districts map, show full hierarchy
+          const departamento = normalizeRegion(d.properties.NOMBDEP);
+          const provincia = normalizeRegion(d.properties.NOMBPROV);
+          const distrito = normalizeRegion(d.properties.NOMBDIST);
+          
+          regionData = data.find(item => 
+            (item.departamento && normalizeRegion(item.departamento) === departamento) &&
+            (item.provincia && normalizeRegion(item.provincia) === provincia) &&
+            (item.distrito && normalizeRegion(item.distrito) === distrito)
+          );
+          
+          tooltipContent = `<strong style='color:white'>${d.properties.NOMBDIST}</strong><br/>${d.properties.NOMBPROV}, ${d.properties.NOMBDEP}`;
+        } else {
+          // For departments map
+          const regionName = normalizeRegion(d.properties.NOMBDEP);
+          regionData = data.find(item => 
+            (item.region && normalizeRegion(item.region) === regionName) ||
+            (item.departamento && normalizeRegion(item.departamento) === regionName)
+          );
+          
+          tooltipContent = `<strong style='color:white'>${d.properties.NOMBDEP}</strong>`;
+        }
+        
         if (regionData && valueKey && regionData[valueKey] !== undefined && !isNaN(Number(regionData[valueKey]))) {
           tooltipContent += `<br/>${formatNumber(Number(regionData[valueKey]), item)}`;
         } else {

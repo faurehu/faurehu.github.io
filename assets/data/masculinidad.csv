@@ -1,0 +1,193 @@
+departamento,año,masculinidad
+Total,1940,97.7
+Total,1961,98.9
+Total,1972,100.5
+Total,1981,99.7
+Total,1993,98.8
+Total,2007,98.8
+Total,2017,96.8
+Amazonas,1940,88.4
+Amazonas,1961,103.8
+Amazonas,1972,108.9
+Amazonas,1981,109
+Amazonas,1993,105.2
+Amazonas,2007,105.4
+Amazonas,2017,101.7
+Áncash,1940,86.9
+Áncash,1961,93.2
+Áncash,1972,97.7
+Áncash,1981,97.2
+Áncash,1993,96.9
+Áncash,2007,99.2
+Áncash,2017,97.2
+Apurímac,1940,92.1
+Apurímac,1961,91
+Apurímac,1972,94.6
+Apurímac,1981,95.2
+Apurímac,1993,99
+Apurímac,2007,98.7
+Apurímac,2017,98
+Arequipa,1940,100.9
+Arequipa,1961,105
+Arequipa,1972,104.3
+Arequipa,1981,102.2
+Arequipa,1993,98.6
+Arequipa,2007,97
+Arequipa,2017,96.1
+Ayacucho,1940,88.2
+Ayacucho,1961,88.4
+Ayacucho,1972,93.5
+Ayacucho,1981,95.2
+Ayacucho,1993,95.2
+Ayacucho,2007,98.6
+Ayacucho,2017,97.6
+Cajamarca,1940,91.6
+Cajamarca,1961,94.8
+Cajamarca,1972,98
+Cajamarca,1981,98.5
+Cajamarca,1993,99.4
+Cajamarca,2007,99.8
+Cajamarca,2017,96.2
+Callao,1940,115.1
+Callao,1961,110.2
+Callao,1972,105.1
+Callao,1981,103.7
+Callao,1993,99
+Callao,2007,96.5
+Callao,2017,95.5
+Cusco,1940,99.5
+Cusco,1961,100.2
+Cusco,1972,102.3
+Cusco,1981,101.6
+Cusco,1993,101.3
+Cusco,2007,99.7
+Cusco,2017,98
+Huancavelica,1940,92.2
+Huancavelica,1961,91.1
+Huancavelica,1972,94
+Huancavelica,1981,94.6
+Huancavelica,1993,95.2
+Huancavelica,2007,97.8
+Huancavelica,2017,94.4
+Huánuco,1940,98.7
+Huánuco,1961,98.3
+Huánuco,1972,101.3
+Huánuco,1981,101.3
+Huánuco,1993,100.1
+Huánuco,2007,101.8
+Huánuco,2017,98.2
+Ica,1940,114.5
+Ica,1961,108.3
+Ica,1972,104.8
+Ica,1981,99.7
+Ica,1993,97.7
+Ica,2007,98.6
+Ica,2017,97.4
+Junín,1940,95.4
+Junín,1961,97.9
+Junín,1972,100.4
+Junín,1981,100.2
+Junín,1993,98.6
+Junín,2007,99.4
+Junín,2017,95.6
+La Libertad,1940,100.5
+La Libertad,1961,98.1
+La Libertad,1972,98.2
+La Libertad,1981,96.7
+La Libertad,1993,96.6
+La Libertad,2007,97.7
+La Libertad,2017,95.4
+Lambayeque,1940,109.7
+Lambayeque,1961,103.8
+Lambayeque,1972,100.5
+Lambayeque,1981,97
+Lambayeque,1993,95.4
+Lambayeque,2007,94.9
+Lambayeque,2017,94.2
+Lima,1940,105.2
+Lima,1961,100.7
+Lima,1972,100.4
+Lima Metropolitana,1940,104
+Lima Metropolitana,1961,99
+Lima Metropolitana,1972,99.4
+Lima Metropolitana,1981,97.3
+Lima Metropolitana,1993,95.3
+Lima Metropolitana,2007,95.4
+Lima Metropolitana,2017,94.6
+Lima,1940,107.8
+Lima,1961,108
+Lima,1972,106.5
+Lima,1981,103.6
+Lima,1993,101.6
+Lima,2007,103.1
+Lima,2017,100.9
+Loreto,1940,104.1
+Loreto,1961,105.7
+Loreto,1972,105.5
+Loreto,1981,106.4
+Loreto,1993,106
+Loreto,2007,105.1
+Loreto,2017,100.9
+Madre de Dios,1940,129.7
+Madre de Dios,1961,156.7
+Madre de Dios,1972,134.3
+Madre de Dios,1981,146.6
+Madre de Dios,1993,130.1
+Madre de Dios,2007,118.9
+Madre de Dios,2017,109.8
+Moquegua,1940,98.8
+Moquegua,1961,107.6
+Moquegua,1972,111
+Moquegua,1981,111.8
+Moquegua,1993,108
+Moquegua,2007,105.4
+Moquegua,2017,101.6
+Pasco,1940,NA
+Pasco,1961,105.6
+Pasco,1972,104.9
+Pasco,1981,104.6
+Pasco,1993,102.3
+Pasco,2007,105.8
+Pasco,2017,101.7
+Piura,1940,100.6
+Piura,1961,100.7
+Piura,1972,101.8
+Piura,1981,100.8
+Piura,1993,99.7
+Piura,2007,99.3
+Piura,2017,98
+Puno,1940,94.7
+Puno,1961,93.1
+Puno,1972,96.6
+Puno,1981,97
+Puno,1993,98.5
+Puno,2007,99.7
+Puno,2017,97.3
+San Martín,1940,95.9
+San Martín,1961,98.9
+San Martín,1972,104.5
+San Martín,1981,109.6
+San Martín,1993,114.2
+San Martín,2007,110.5
+San Martín,2017,104.1
+Tacna,1940,115.3
+Tacna,1961,118.8
+Tacna,1972,113
+Tacna,1981,114.4
+Tacna,1993,104.9
+Tacna,2007,100.2
+Tacna,2017,98.8
+Tumbes,1940,111.3
+Tumbes,1961,116.5
+Tumbes,1972,113.3
+Tumbes,1981,114.7
+Tumbes,1993,112.8
+Tumbes,2007,107.3
+Tumbes,2017,102
+Ucayali,1940,NA
+Ucayali,1961,NA
+Ucayali,1972,NA
+Ucayali,1981,108.5
+Ucayali,1993,109.9
+Ucayali,2007,105.8
+Ucayali,2017,101.9

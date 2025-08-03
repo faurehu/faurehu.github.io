@@ -1,0 +1,341 @@
+departamento,año,direccion,personas
+Amazonas,1940,Inmigrantes,3204
+Amazonas,1940,Emigrantes,5804
+Amazonas,1961,Inmigrantes,21374
+Amazonas,1961,Emigrantes,12563
+Amazonas,1972,Inmigrantes,56429
+Amazonas,1972,Emigrantes,33679
+Amazonas,1981,Inmigrantes,71544
+Amazonas,1981,Emigrantes,50875
+Amazonas,1993,Inmigrantes,78248
+Amazonas,1993,Emigrantes,81930
+Amazonas,2007,Inmigrantes,69159
+Amazonas,2007,Emigrantes,135596
+Amazonas,2017,Inmigrantes,66921
+Amazonas,2017,Emigrantes,142074
+Áncash,1940,Inmigrantes,10099
+Áncash,1940,Emigrantes,58230
+Áncash,1961,Inmigrantes,54138
+Áncash,1961,Emigrantes,130225
+Áncash,1972,Inmigrantes,89660
+Áncash,1972,Emigrantes,227361
+Áncash,1981,Inmigrantes,113520
+Áncash,1981,Emigrantes,286409
+Áncash,1993,Inmigrantes,120033
+Áncash,1993,Emigrantes,367137
+Áncash,2007,Inmigrantes,111160
+Áncash,2007,Emigrantes,385009
+Áncash,2017,Inmigrantes,117133
+Áncash,2017,Emigrantes,406570
+Apurímac,1940,Inmigrantes,6431
+Apurímac,1940,Emigrantes,18001
+Apurímac,1961,Inmigrantes,9196
+Apurímac,1961,Emigrantes,76650
+Apurímac,1972,Inmigrantes,12668
+Apurímac,1972,Emigrantes,127832
+Apurímac,1981,Inmigrantes,17114
+Apurímac,1981,Emigrantes,161901
+Apurímac,1993,Inmigrantes,23909
+Apurímac,1993,Emigrantes,197360
+Apurímac,2007,Inmigrantes,21469
+Apurímac,2007,Emigrantes,212101
+Apurímac,2017,Inmigrantes,32110
+Apurímac,2017,Emigrantes,226581
+Arequipa,1940,Inmigrantes,36711
+Arequipa,1940,Emigrantes,41828
+Arequipa,1961,Inmigrantes,83819
+Arequipa,1961,Emigrantes,102043
+Arequipa,1972,Inmigrantes,133574
+Arequipa,1972,Emigrantes,139118
+Arequipa,1981,Inmigrantes,188576
+Arequipa,1981,Emigrantes,166853
+Arequipa,1993,Inmigrantes,246464
+Arequipa,1993,Emigrantes,186368
+Arequipa,2007,Inmigrantes,281765
+Arequipa,2007,Emigrantes,180735
+Arequipa,2017,Inmigrantes,361863
+Arequipa,2017,Emigrantes,175180
+Ayacucho,1940,Inmigrantes,9699
+Ayacucho,1940,Emigrantes,37303
+Ayacucho,1961,Inmigrantes,15129
+Ayacucho,1961,Emigrantes,112356
+Ayacucho,1972,Inmigrantes,24161
+Ayacucho,1972,Emigrantes,182377
+Ayacucho,1981,Inmigrantes,34813
+Ayacucho,1981,Emigrantes,220916
+Ayacucho,1993,Inmigrantes,36239
+Ayacucho,1993,Emigrantes,315624
+Ayacucho,2007,Inmigrantes,36246
+Ayacucho,2007,Emigrantes,289809
+Ayacucho,2017,Inmigrantes,48764
+Ayacucho,2017,Emigrantes,299886
+Cajamarca,1940,Inmigrantes,13004
+Cajamarca,1940,Emigrantes,61624
+Cajamarca,1961,Inmigrantes,31641
+Cajamarca,1961,Emigrantes,138122
+Cajamarca,1972,Inmigrantes,47194
+Cajamarca,1972,Emigrantes,258396
+Cajamarca,1981,Inmigrantes,63746
+Cajamarca,1981,Emigrantes,374914
+Cajamarca,1993,Inmigrantes,76998
+Cajamarca,1993,Emigrantes,482434
+Cajamarca,2007,Inmigrantes,75173
+Cajamarca,2007,Emigrantes,594447
+Cajamarca,2017,Inmigrantes,79176
+Cajamarca,2017,Emigrantes,639926
+Callao,2007,Inmigrantes,371554
+Callao,2007,Emigrantes,146036
+Callao,2017,Inmigrantes,418938
+Callao,2017,Emigrantes,161737
+Cusco,1940,Inmigrantes,21352
+Cusco,1940,Emigrantes,19650
+Cusco,1961,Inmigrantes,39570
+Cusco,1961,Emigrantes,60414
+Cusco,1972,Inmigrantes,43023
+Cusco,1972,Emigrantes,115871
+Cusco,1981,Inmigrantes,65659
+Cusco,1981,Emigrantes,155147
+Cusco,1993,Inmigrantes,89790
+Cusco,1993,Emigrantes,221918
+Cusco,2007,Inmigrantes,79449
+Cusco,2007,Emigrantes,257171
+Cusco,2017,Inmigrantes,105591
+Cusco,2017,Emigrantes,313499
+Huancavelica,1940,Inmigrantes,8639
+Huancavelica,1940,Emigrantes,21611
+Huancavelica,1961,Inmigrantes,11170
+Huancavelica,1961,Emigrantes,70986
+Huancavelica,1972,Inmigrantes,17967
+Huancavelica,1972,Emigrantes,118842
+Huancavelica,1981,Inmigrantes,23513
+Huancavelica,1981,Emigrantes,152309
+Huancavelica,1993,Inmigrantes,20130
+Huancavelica,1993,Emigrantes,220370
+Huancavelica,2007,Inmigrantes,14896
+Huancavelica,2007,Emigrantes,238761
+Huancavelica,2017,Inmigrantes,15773
+Huancavelica,2017,Emigrantes,284424
+Huánuco,1940,Inmigrantes,9404
+Huánuco,1940,Emigrantes,15627
+Huánuco,1961,Inmigrantes,21074
+Huánuco,1961,Emigrantes,43167
+Huánuco,1972,Inmigrantes,35202
+Huánuco,1972,Emigrantes,83414
+Huánuco,1981,Inmigrantes,55243
+Huánuco,1981,Emigrantes,113179
+Huánuco,1993,Inmigrantes,75270
+Huánuco,1993,Emigrantes,158463
+Huánuco,2007,Inmigrantes,57835
+Huánuco,2007,Emigrantes,237949
+Huánuco,2017,Inmigrantes,73128
+Huánuco,2017,Emigrantes,290710
+Ica,1940,Inmigrantes,24309
+Ica,1940,Emigrantes,31763
+Ica,1961,Inmigrantes,55512
+Ica,1961,Emigrantes,65339
+Ica,1972,Inmigrantes,83346
+Ica,1972,Emigrantes,95252
+Ica,1981,Inmigrantes,94842
+Ica,1981,Emigrantes,134937
+Ica,1993,Inmigrantes,121116
+Ica,1993,Emigrantes,156698
+Ica,2007,Inmigrantes,128793
+Ica,2007,Emigrantes,156333
+Ica,2017,Inmigrantes,165298
+Ica,2017,Emigrantes,144960
+Junín,1940,Inmigrantes,31329
+Junín,1940,Emigrantes,45121
+Junín,1961,Inmigrantes,73306
+Junín,1961,Emigrantes,92746
+Junín,1972,Inmigrantes,111894
+Junín,1972,Emigrantes,145407
+Junín,1981,Inmigrantes,146777
+Junín,1981,Emigrantes,212745
+Junín,1993,Inmigrantes,168611
+Junín,1993,Emigrantes,329314
+Junín,2007,Inmigrantes,182199
+Junín,2007,Emigrantes,390610
+Junín,2017,Inmigrantes,201612
+Junín,2017,Emigrantes,439811
+La Libertad,1940,Inmigrantes,38946
+La Libertad,1940,Emigrantes,40046
+La Libertad,1961,Inmigrantes,67847
+La Libertad,1961,Emigrantes,119949
+La Libertad,1972,Inmigrantes,110004
+La Libertad,1972,Emigrantes,170400
+La Libertad,1981,Inmigrantes,142744
+La Libertad,1981,Emigrantes,226540
+La Libertad,1993,Inmigrantes,194739
+La Libertad,1993,Emigrantes,257845
+La Libertad,2007,Inmigrantes,226452
+La Libertad,2007,Emigrantes,236654
+La Libertad,2017,Inmigrantes,244661
+La Libertad,2017,Emigrantes,254029
+Lambayeque,1940,Inmigrantes,29151
+Lambayeque,1940,Emigrantes,20165
+Lambayeque,1961,Inmigrantes,56336
+Lambayeque,1961,Emigrantes,63127
+Lambayeque,1972,Inmigrantes,97250
+Lambayeque,1972,Emigrantes,94186
+Lambayeque,1981,Inmigrantes,134841
+Lambayeque,1981,Emigrantes,132614
+Lambayeque,1993,Inmigrantes,182365
+Lambayeque,1993,Emigrantes,185909
+Lambayeque,2007,Inmigrantes,210553
+Lambayeque,2007,Emigrantes,225136
+Lambayeque,2017,Inmigrantes,213846
+Lambayeque,2017,Emigrantes,263978
+Lima,1940,Inmigrantes,254458
+Lima,1940,Emigrantes,36598
+Lima,1961,Inmigrantes,802399
+Lima,1961,Emigrantes,96586
+Lima,1972,Inmigrantes,1398315
+Lima,1972,Emigrantes,155221
+Lima,1981,Inmigrantes,1818103
+Lima,1981,Emigrantes,250126
+Lima,1993,Inmigrantes,2392014
+Lima,1993,Emigrantes,316959
+Lima,2007,Inmigrantes,2728524
+Lima,2007,Emigrantes,399901
+Lima,2017,Inmigrantes,2985643
+Lima,2017,Emigrantes,462442
+Loreto,1940,Inmigrantes,15862
+Loreto,1940,Emigrantes,10180
+Loreto,1961,Inmigrantes,24619
+Loreto,1961,Emigrantes,28096
+Loreto,1972,Inmigrantes,37930
+Loreto,1972,Emigrantes,51242
+Loreto,1981,Inmigrantes,40892
+Loreto,1981,Emigrantes,79654
+Loreto,1993,Inmigrantes,57046
+Loreto,1993,Emigrantes,123156
+Loreto,2007,Inmigrantes,57733
+Loreto,2007,Emigrantes,134927
+Loreto,2017,Inmigrantes,55241
+Loreto,2017,Emigrantes,224213
+Madre de Dios,1940,Inmigrantes,1063
+Madre de Dios,1940,Emigrantes,1109
+Madre de Dios,1961,Inmigrantes,5074
+Madre de Dios,1961,Emigrantes,2347
+Madre de Dios,1972,Inmigrantes,6198
+Madre de Dios,1972,Emigrantes,4776
+Madre de Dios,1981,Inmigrantes,13900
+Madre de Dios,1981,Emigrantes,6156
+Madre de Dios,1993,Inmigrantes,29355
+Madre de Dios,1993,Emigrantes,9287
+Madre de Dios,2007,Inmigrantes,38535
+Madre de Dios,2007,Emigrantes,11713
+Madre de Dios,2017,Inmigrantes,56096
+Madre de Dios,2017,Emigrantes,14610
+Moquegua,1940,Inmigrantes,4855
+Moquegua,1940,Emigrantes,5982
+Moquegua,1961,Inmigrantes,12396
+Moquegua,1961,Emigrantes,12909
+Moquegua,1972,Inmigrantes,23231
+Moquegua,1972,Emigrantes,19884
+Moquegua,1981,Inmigrantes,40001
+Moquegua,1981,Emigrantes,28180
+Moquegua,1993,Inmigrantes,48915
+Moquegua,1993,Emigrantes,35758
+Moquegua,2007,Inmigrantes,46381
+Moquegua,2007,Emigrantes,38334
+Moquegua,2017,Inmigrantes,56702
+Moquegua,2017,Emigrantes,40627
+Pasco,1940,Inmigrantes,NA
+Pasco,1940,Emigrantes,NA
+Pasco,1961,Inmigrantes,24578
+Pasco,1961,Emigrantes,29666
+Pasco,1972,Inmigrantes,32052
+Pasco,1972,Emigrantes,51900
+Pasco,1981,Inmigrantes,41494
+Pasco,1981,Emigrantes,75613
+Pasco,1993,Inmigrantes,36976
+Pasco,1993,Emigrantes,113185
+Pasco,2007,Inmigrantes,33354
+Pasco,2007,Emigrantes,124468
+Pasco,2017,Inmigrantes,32387
+Pasco,2017,Emigrantes,134725
+Piura,1940,Inmigrantes,9858
+Piura,1940,Emigrantes,22864
+Piura,1961,Inmigrantes,26947
+Piura,1961,Emigrantes,91958
+Piura,1972,Inmigrantes,35946
+Piura,1972,Emigrantes,166072
+Piura,1981,Inmigrantes,61022
+Piura,1981,Emigrantes,212153
+Piura,1993,Inmigrantes,75238
+Piura,1993,Emigrantes,275760
+Piura,2007,Inmigrantes,76447
+Piura,2007,Emigrantes,342770
+Piura,2017,Inmigrantes,103085
+Piura,2017,Emigrantes,374582
+Puno,1940,Inmigrantes,7557
+Puno,1940,Emigrantes,35688
+Puno,1961,Inmigrantes,12263
+Puno,1961,Emigrantes,93486
+Puno,1972,Inmigrantes,19315
+Puno,1972,Emigrantes,158022
+Puno,1981,Inmigrantes,28650
+Puno,1981,Emigrantes,216133
+Puno,1993,Inmigrantes,36024
+Puno,1993,Emigrantes,297487
+Puno,2007,Inmigrantes,32708
+Puno,2007,Emigrantes,313425
+Puno,2017,Inmigrantes,38493
+Puno,2017,Emigrantes,354778
+San Martín,1940,Inmigrantes,7312
+San Martín,1940,Emigrantes,12956
+San Martín,1961,Inmigrantes,9703
+San Martín,1961,Emigrantes,28694
+San Martín,1972,Inmigrantes,20615
+San Martín,1972,Emigrantes,51683
+San Martín,1981,Inmigrantes,75096
+San Martín,1981,Emigrantes,73325
+San Martín,1993,Inmigrantes,175363
+San Martín,1993,Emigrantes,103643
+San Martín,2007,Inmigrantes,213126
+San Martín,2007,Emigrantes,166333
+San Martín,2017,Inmigrantes,207977
+San Martín,2017,Emigrantes,166343
+Tacna,1940,Inmigrantes,7684
+Tacna,1940,Emigrantes,6741
+Tacna,1961,Inmigrantes,24059
+Tacna,1961,Emigrantes,10861
+Tacna,1972,Inmigrantes,34610
+Tacna,1972,Emigrantes,16117
+Tacna,1981,Inmigrantes,58160
+Tacna,1981,Emigrantes,23231
+Tacna,1993,Inmigrantes,94553
+Tacna,1993,Emigrantes,28827
+Tacna,2007,Inmigrantes,103090
+Tacna,2007,Emigrantes,28383
+Tacna,2017,Inmigrantes,117584
+Tacna,2017,Emigrantes,32540
+Tumbes,1940,Inmigrantes,2855
+Tumbes,1940,Emigrantes,4891
+Tumbes,1961,Inmigrantes,11897
+Tumbes,1961,Emigrantes,11757
+Tumbes,1972,Inmigrantes,14952
+Tumbes,1972,Emigrantes,18484
+Tumbes,1981,Inmigrantes,24479
+Tumbes,1981,Emigrantes,24866
+Tumbes,1993,Inmigrantes,45528
+Tumbes,1993,Emigrantes,29652
+Tumbes,2007,Inmigrantes,44339
+Tumbes,2007,Emigrantes,33527
+Tumbes,2017,Inmigrantes,47908
+Tumbes,2017,Emigrantes,39719
+Ucayali,1940,Inmigrantes,NA
+Ucayali,1940,Emigrantes,NA
+Ucayali,1961,Inmigrantes,NA
+Ucayali,1961,Emigrantes,NA
+Ucayali,1972,Inmigrantes,NA
+Ucayali,1972,Emigrantes,NA
+Ucayali,1981,Inmigrantes,54606
+Ucayali,1981,Emigrantes,30559
+Ucayali,1993,Inmigrantes,109621
+Ucayali,1993,Emigrantes,39461
+Ucayali,2007,Inmigrantes,99848
+Ucayali,2007,Emigrantes,60660
+Ucayali,2017,Inmigrantes,115365
+Ucayali,2017,Emigrantes,73351

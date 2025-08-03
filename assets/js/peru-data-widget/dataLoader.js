@@ -30,13 +30,28 @@ class DataLoader {
     }
 
     try {
-      const response = await fetch(`/assets/data/${filename}`);
+      const response = await fetch(`/assets/data/${filename}`, {
+        headers: {
+          'Accept': 'text/csv, text/plain, */*',
+          'Accept-Charset': 'utf-8'
+        }
+      });
       if (!response.ok) {
         throw new Error(`Failed to load CSV ${filename}: ${response.status}`);
       }
       
+      // Explicitly decode as UTF-8
       const csvText = await response.text();
-      const data = this.parseCSV(csvText);
+      
+      // Check for BOM and remove if present
+      const cleanText = csvText.startsWith('\uFEFF') ? csvText.slice(1) : csvText;
+      
+      // Debug: Check for encoding issues
+      if (cleanText.includes('') || cleanText.includes('?')) {
+        console.warn(`Potential encoding issues detected in ${filename}`);
+      }
+      
+      const data = this.parseCSV(cleanText);
       
       // Cache the result
       this.dataCache.set(filename, data);
@@ -49,14 +64,29 @@ class DataLoader {
 
   // Parse CSV text into array of objects
   parseCSV(csvText) {
-    const lines = csvText.trim().split('\n');
-    const headers = lines[0].split(',');
+    // Normalize line endings and split
+    const lines = csvText.trim().replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+    const headers = lines[0].split(',').map(header => header.trim());
     
     return lines.slice(1).map(line => {
       const values = line.split(',');
       const obj = {};
       headers.forEach((header, index) => {
-        obj[header.trim()] = values[index] ? values[index].trim() : '';
+        // Clean and decode the value
+        let value = values[index] ? values[index].trim() : '';
+        
+        // Handle potential encoding issues
+        if (value && typeof value === 'string') {
+          // Decode any HTML entities that might have been encoded
+          value = value.replace(/&amp;/g, '&')
+                      .replace(/&lt;/g, '<')
+                      .replace(/&gt;/g, '>')
+                      .replace(/&quot;/g, '"')
+                      .replace(/&#39;/g, "'")
+                      .replace(/&nbsp;/g, ' ');
+        }
+        
+        obj[header] = value;
       });
       return obj;
     });
