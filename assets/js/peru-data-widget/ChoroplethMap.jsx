@@ -126,7 +126,7 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
     const sidebarShift = sidebarOpen ? 0 : 100;
     const currentTranslate = projection.translate();
     projection.translate([
-      currentTranslate[0] - (isMobile ? 50 : 130) + (isMobile ? 0 : sidebarShift), 
+      currentTranslate[0] - (isMobile ? 0 : 130) + (isMobile ? 0 : sidebarShift), 
       currentTranslate[1] + (isMobile ? 7 : 14)
     ]);
 
@@ -303,10 +303,10 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
     }
 
     // Add legend
-    const legendWidth = 200;
-    const legendHeight = 20;
-    const legendX = width - legendWidth - 580 + sidebarShift;
-    const legendY = height - legendHeight - 20;
+    const legendWidth = isMobile ? 100 : 200; // 50% smaller on mobile
+    const legendHeight = isMobile ? 10 : 20; // 50% smaller on mobile
+    const legendX = isMobile ? width - legendWidth - 150 : width - legendWidth - 580 + sidebarShift;
+    const legendY = isMobile ? height - legendHeight - 10 : height - legendHeight - 20;
 
     // Create legend gradient
     const legendGradient = svg.append("defs")
@@ -337,17 +337,17 @@ const ChoroplethMap = ({ data, item, width = 800, height = 600, sidebarOpen = tr
     // Add legend labels
     svg.append("text")
       .attr("x", legendX)
-      .attr("y", legendY - 5)
+      .attr("y", legendY - (isMobile ? 3 : 5))
       .attr("text-anchor", "start")
-      .style("font-size", "12px")
+      .style("font-size", isMobile ? "10px" : "12px")
       .style("fill", "#666")
       .text(formatNumber(d3.min(values), item));
 
     svg.append("text")
       .attr("x", legendX + legendWidth)
-      .attr("y", legendY - 5)
+      .attr("y", legendY - (isMobile ? 3 : 5))
       .attr("text-anchor", "end")
-      .style("font-size", "12px")
+      .style("font-size", isMobile ? "10px" : "12px")
       .style("fill", "#666")
       .text(formatNumber(d3.max(values), item));
 
