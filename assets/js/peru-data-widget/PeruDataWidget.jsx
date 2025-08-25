@@ -458,8 +458,8 @@ const PeruDataWidget = () => {
         <ChoroplethMap 
           data={filteredData}
           item={selectedItem}
-          width={isMobile ? window.innerWidth - 32 : 800}
-          height={isMobile ? 400 : 500}
+          width={isMobile ? 300 : 800}
+          height={isMobile ? 300 : 500}
           sidebarOpen={sidebarOpen}
           totalValue={totalValue}
         />
