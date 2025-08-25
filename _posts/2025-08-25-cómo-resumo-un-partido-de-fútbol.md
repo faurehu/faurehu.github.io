@@ -5,7 +5,7 @@ description: descripción básica de un pipeline de Machine Learning
 date: 2025-08-25T18:16:51.828Z
 last_modified_at: 2025-08-25T18:16:51.870Z
 category: spanish
-image: /assets/images/resumen-futbol/image1.jpg
+image: assets/images/uploads/6256efc3-77cb-4b19-a9a6-8fa8a417b7a7.jpg
 use_math: true
 ---
 Como fanático del fútbol, siempre he disfrutado volver a ver los partidos completos para analizar las jugadas y entender mejor la táctica. Sin embargo, me di cuenta de que siempre estaba viendolos con un dedo encima la flecha derecha del teclado para saltarme partes redundantes: primeros planos interminables de jugadores celebrando, reacciones del público, y ángulos de cámara a nivel del suelo que no me aportaban mucha información táctica.
